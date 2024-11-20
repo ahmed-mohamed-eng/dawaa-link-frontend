@@ -1,9 +1,11 @@
 import Header from "@/components/header";
 import ActionHeader from "@/components/home/action-header";
+import AdBanner from "@/components/home/ad-banner";
 import HeroSection from "@/components/home/hero-section";
 import MainCategories from "@/components/home/main-categories";
 import NavigationHeader from "@/components/home/navigation-header";
 import PopularProducts from "@/components/home/popular-products";
+import SelectedProducts from "@/components/home/selected-products";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
         <HeroSection />
         <MainCategories />
         <PopularProducts />
+        <AdBanner />
+        <SelectedProducts />
       </main>
     </div>
   );
