@@ -3,6 +3,7 @@ import ActionHeader from "@/components/home/action-header";
 import HeroSection from "@/components/home/hero-section";
 import MainCategories from "@/components/home/main-categories";
 import NavigationHeader from "@/components/home/navigation-header";
+import PopularProducts from "@/components/home/popular-products";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <main className="w-full px-8 flex flex-col">
         <HeroSection />
         <MainCategories />
+        <PopularProducts />
       </main>
     </div>
   );
