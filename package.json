@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
@@ -27,6 +28,7 @@
     "@storybook/nextjs": "^8.4.5",
     "@storybook/react": "^8.4.5",
     "@storybook/test": "^8.4.5",
+    "@types/lodash": "^4.17.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
