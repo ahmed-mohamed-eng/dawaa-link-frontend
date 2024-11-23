@@ -5,8 +5,6 @@ import Image from "next/image";
 import React from "react";
 
 const HeroSection = () => {
-  //   const [currProductNumber, setCurrProductNumber] = useState(0);
-
   return (
     <div className="w-full px-16 py-6 grid grid-cols-2">
       {/* Product Info */}
