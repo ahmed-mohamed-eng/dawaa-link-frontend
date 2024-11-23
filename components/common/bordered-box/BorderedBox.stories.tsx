@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import BorderedBox from "@/components/bordered-box";
+import BorderedBox from "./index";
 
 const meta: Meta<typeof BorderedBox> = {
   component: BorderedBox,
