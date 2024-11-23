@@ -10,6 +10,7 @@ import getFontSize from "@/utils/getFontSizeOfSize";
 export interface ProductSizesProps {
   values: number[];
   size: Sizes;
+  onSelectSize?: (size: number) => void;
 }
 
 const ProductSizes = (props: ProductSizesProps) => {
@@ -19,13 +20,23 @@ const ProductSizes = (props: ProductSizesProps) => {
 
   const elementSize = getElementSize(props.size);
 
+  const onSelectSize = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const value = +(e.currentTarget.dataset?.size || props.values[0]);
+
+    if (props.onSelectSize) {
+      props.onSelectSize(value);
+    }
+  };
+
   return (
     <div className="flex items-center justify-start space-x-4">
       {orderedValues.map((v) => {
         return (
-          <div
+          <button
             key={uuid()}
+            data-size={v}
             className="bg-[#E2F4FF] text-[#EDA415] font-bold flex items-center justify-center rounded-full"
+            onClick={onSelectSize}
             style={{
               width: elementSize.w,
               height: elementSize.h,
@@ -33,7 +44,7 @@ const ProductSizes = (props: ProductSizesProps) => {
             }}
           >
             <p>{v}</p>
-          </div>
+          </button>
         );
       })}
     </div>
