@@ -4,7 +4,7 @@ import ProductSizes from "./index";
 
 const meta: Meta<typeof ProductSizes> = {
   component: ProductSizes,
-  title: "Common/ProductSizes",
+  title: "Common/Simple/ProductSizes",
 };
 
 export default meta;

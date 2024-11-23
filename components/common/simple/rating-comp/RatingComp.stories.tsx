@@ -4,7 +4,7 @@ import RatingComp from "./index";
 
 const meta: Meta<typeof RatingComp> = {
   component: RatingComp,
-  title: "Common/RatingComp",
+  title: "Common/Simple/RatingComp",
 };
 
 export default meta;

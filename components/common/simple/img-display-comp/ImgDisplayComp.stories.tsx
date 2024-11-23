@@ -4,7 +4,7 @@ import ImgDisplayComp from "./index";
 
 const meta: Meta<typeof ImgDisplayComp> = {
   component: ImgDisplayComp,
-  title: "Common/ImgDisplayComp",
+  title: "Common/Simple/ImgDisplayComp",
 };
 
 export default meta;

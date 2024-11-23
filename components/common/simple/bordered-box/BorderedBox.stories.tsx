@@ -4,7 +4,7 @@ import BorderedBox from "./index";
 
 const meta: Meta<typeof BorderedBox> = {
   component: BorderedBox,
-  title: "Common/BorderedBox",
+  title: "Common/Simple/BorderedBox",
 };
 
 export default meta;

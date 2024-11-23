@@ -4,7 +4,7 @@ import PriceText from "./index";
 
 const meta: Meta<typeof PriceText> = {
   component: PriceText,
-  title: "Common/PriceText",
+  title: "Common/Simple/PriceText",
 };
 
 export default meta;

@@ -4,7 +4,7 @@ import ViewBtn from "./index";
 
 const meta = {
   component: ViewBtn,
-  title: "Common/ViewBtn",
+  title: "Common/Simple/ViewBtn",
 } satisfies Meta<typeof ViewBtn>;
 
 export default meta;

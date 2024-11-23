@@ -4,7 +4,7 @@ import QuickCartBtn from "./index";
 
 const meta = {
   component: QuickCartBtn,
-  title: "Common/QuickCartBtn",
+  title: "Common/Simple/QuickCartBtn",
 } satisfies Meta<typeof QuickCartBtn>;
 
 export default meta;

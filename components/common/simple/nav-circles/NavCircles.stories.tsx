@@ -4,7 +4,7 @@ import NavCircles from "./index";
 
 const meta: Meta<typeof NavCircles> = {
   component: NavCircles,
-  title: "Common/NavCircles",
+  title: "Common/Simple/NavCircles",
 };
 
 export default meta;

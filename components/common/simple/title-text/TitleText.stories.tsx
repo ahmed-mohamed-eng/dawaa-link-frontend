@@ -4,7 +4,7 @@ import TitleText from "./index";
 
 const meta: Meta<typeof TitleText> = {
   component: TitleText,
-  title: "Common/TitleText",
+  title: "Common/Simple/TitleText",
 };
 
 export default meta;
