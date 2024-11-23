@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 import { GoHeart, GoHeartFill } from "react-icons/go";
 
 import ISingleProduct from "@/types/products/single-product.interface";
-import RatingComp from "@/components/common/rating-comp";
+import RatingComp from "@/components/common/simple/rating-comp";
 
 export interface ProductsProps {
   products: SingleProductProps[];
