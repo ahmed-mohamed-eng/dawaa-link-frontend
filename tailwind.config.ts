@@ -1,7 +1,5 @@
 import type { Config } from "tailwindcss";
 
-import flowbitePlugin from "flowbite/plugin";
-
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -19,5 +17,5 @@ export default {
       },
     },
   },
-  plugins: [flowbitePlugin],
+  plugins: [],
 } satisfies Config;
