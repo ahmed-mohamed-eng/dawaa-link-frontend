@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/common/medium/header";
 import ActionHeader from "@/components/home/action-header";
 import AdBanner from "@/components/home/ad-banner";
 import HeroSection from "@/components/home/hero-section";
