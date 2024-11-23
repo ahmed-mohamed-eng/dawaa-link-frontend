@@ -1,9 +1,11 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+
+import Sizes from "@/types/Sizes.type";
 
 export interface ImgDisplayCompProps {
   srcURL: string;
-  sizes: "xs" | "sm" | "lg" | "xl";
+  sizes: Sizes;
   alt?: string;
   objectFit?: "cover" | "contain" | "fill";
 }
