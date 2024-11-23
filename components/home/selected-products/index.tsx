@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import NavCircles from "@/components/nav-circles";
-import RatingComp from "@/components/rating-comp";
+import NavCircles from "@/components/common/nav-circles";
+import RatingComp from "@/components/common/rating-comp";
 
 const SelectedProducts = () => {
   return (
