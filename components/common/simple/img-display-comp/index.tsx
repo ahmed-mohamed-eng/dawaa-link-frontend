@@ -31,8 +31,12 @@ const ImgDisplayComp = (props: ImgDisplayCompProps) => {
   );
 };
 
-function getImageSize(size: string) {
+function getImageSize(size: Sizes) {
   switch (size) {
+    case "2xs":
+      return { w: "3rem", h: "3rem" };
+    case "xxs":
+      return { w: "4rem", h: "4rem" };
     case "xs":
       return { w: "5rem", h: "5rem" };
     case "sm":

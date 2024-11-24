@@ -24,6 +24,8 @@ const TitleText = (props: TitleTextProps) => {
 
 function getFontSize(size: Sizes) {
   return getValueOfSize(size, [
+    "0.25rem",
+    "0.65rem",
     "0.75rem",
     "0.875rem",
     "1.125rem",
