@@ -8,6 +8,8 @@ export interface ImgDisplayCompProps {
   sizes: Sizes;
   alt?: string;
   objectFit?: "cover" | "contain" | "fill";
+  containerClassName?: string;
+  imgClassName?: string;
 }
 
 const ImgDisplayComp = (props: ImgDisplayCompProps) => {
@@ -15,13 +17,14 @@ const ImgDisplayComp = (props: ImgDisplayCompProps) => {
 
   return (
     <div
-      className="relative p-4"
+      className={`relative p-4 ${props.containerClassName || ""}`}
       style={{
         width: size.w,
         height: size.h,
       }}
     >
       <Image
+        className={props.imgClassName}
         alt={props.alt || "something to display"}
         src={props.srcURL}
         fill
