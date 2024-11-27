@@ -15,6 +15,8 @@ export default {
         primary: "#003F62",
         secondary: "#EDA415",
       },
+
+      fontFamily: { poppins: ["poppins", "mono" ,"ui-sans-serif"] },
     },
   },
   plugins: [],
