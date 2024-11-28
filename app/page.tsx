@@ -1,3 +1,4 @@
+import Footer from "@/components/common/complex/footer";
 import Header from "@/components/common/medium/header";
 import ActionHeader from "@/components/home/action-header";
 import AdBanner from "@/components/home/ad-banner";
@@ -9,7 +10,7 @@ import SelectedProducts from "@/components/home/selected-products";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen pb-10">
+    <div className="flex flex-col min-h-screen">
       <Header />
       <ActionHeader />
       <NavigationHeader />
@@ -21,6 +22,8 @@ export default function Home() {
         <AdBanner />
         <SelectedProducts />
       </main>
+
+      <Footer />
     </div>
   );
 }
