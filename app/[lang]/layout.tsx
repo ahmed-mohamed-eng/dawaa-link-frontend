@@ -27,13 +27,22 @@ export const metadata: Metadata = {
   description: "Find All Drags.",
 };
 
+export async function generateStaticParams() {
+  return [{ lang: "en-US" }, { lang: "ar-EG" }];
+}
+
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang={params.lang}
+      dir={params.lang.match(/ar/g)?.[0] ? "rtl" : "ltr"}
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
