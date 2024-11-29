@@ -12,6 +12,7 @@ import BASE_URL from "@/constants/BaseURL";
 import IUserData from "@/types/auth/UserData.interface";
 import encodeUserData from "@/utils/auth/encodeUserData";
 import { useRouter } from "next/navigation";
+import ILangLocale from "@/types/lang-locale.interface";
 
 type FromData = {
   password: string;
@@ -20,7 +21,7 @@ type FromData = {
 
 type LoginResponse = { data: IUserData; message: string; status: boolean };
 
-const LoginForm = () => {
+const LoginForm = ({ locale }: ILangLocale) => {
   const { register, handleSubmit } = useForm<FromData>();
 
   const [rememberMe, setRememberMe] = useState(false);
@@ -65,7 +66,7 @@ const LoginForm = () => {
     }
 
     if (userData?.token) {
-      router.push("/");
+      router.push(`/${locale || "en"}/`);
     }
   };
 
@@ -78,20 +79,21 @@ const LoginForm = () => {
         <div className="flex flex-col space-y-2">
           <label htmlFor="emailOrPhone">Email or Phone</label>
           <input
-            {...register("emailOrPhone", { required: true })}
             placeholder="Enter your email or phone"
             className="border rounded-md p-2 outline-none"
-            autoComplete="new-password"
+            autoComplete="new-password webauthn"
+            {...register("emailOrPhone", { required: true })}
           />
         </div>
 
         <div className="flex flex-col space-y-2">
           <label htmlFor="password">Password</label>
           <input
-            {...register("password", { required: true })}
             placeholder="Enter your password"
             type="password"
             className="border rounded-md p-2 outline-none"
+            autoComplete="new-password webauthn"
+            {...register("password", { required: true })}
           />
         </div>
 
