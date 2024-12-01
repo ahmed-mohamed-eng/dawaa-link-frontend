@@ -8,7 +8,7 @@ import NavigationHeader from "@/components/home/navigation-header";
 import PopularProducts from "@/components/home/popular-products";
 import SelectedProducts from "@/components/home/selected-products";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

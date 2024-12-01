@@ -4,8 +4,8 @@ import LoginForm from "@/components/login/login-form";
 import TitleText from "@/components/common/simple/title-text";
 
 type Props = {
-  params: Promise<{lang: string}>   
-}
+  params: Promise<{ lang: string }>;
+};
 
 export default async function LoginInPage(props: Props) {
   const params = await props.params;

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return [{ lang: "en-US" }, { lang: "ar-EG" }];
+  return [{ lang: "en" }, { lang: "ar" }];
 }
 
 export default function RootLayout({
@@ -39,10 +39,7 @@ export default function RootLayout({
   params: { lang: string };
 }>) {
   return (
-    <html
-      lang={params.lang}
-      dir={params.lang.match(/ar/g)?.[0] ? "rtl" : "ltr"}
-    >
+    <html lang={params.lang}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
