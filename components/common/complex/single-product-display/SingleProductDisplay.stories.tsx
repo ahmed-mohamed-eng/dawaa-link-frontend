@@ -15,10 +15,7 @@ export const Default: Story = {
   args: {
     imageURL: "/product.png",
     name: "Camera",
-    price: {
-      currency: "$",
-      value: 42312,
-    },
+    price: "200",
     rating: {
       count: 30,
       value: 3.2,

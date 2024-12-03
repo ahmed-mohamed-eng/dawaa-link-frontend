@@ -17,7 +17,10 @@ const SingleProductDisplay = (props: ISingleProduct) => {
 
   return (
     <div className="w-80 relative flex flex-col items-center space-y-4 border-2 border-slate-200 rounded-xl px-4 py-6">
-      <ImgDisplayComp sizes="sm" srcURL="/product.png" />
+      <ImgDisplayComp
+        sizes="sm"
+        srcURL={props.photo || props.imageURL || "/product.png"}
+      />
 
       <button
         className="flex items-center justify-center p-3 absolute top-0 right-5 z-10"
@@ -27,17 +30,15 @@ const SingleProductDisplay = (props: ISingleProduct) => {
       </button>
 
       <div className="flex flex-col items-center space-y-2">
-        <Link href={props.url}>
+        <Link href={props.url} className="capitalize">
           <TitleText sizes="lg" text={props.name} />
         </Link>
 
-        <PriceText
-          currency={props.price.currency}
-          value={props.price.value}
-          sizes="xs"
-        />
+        <PriceText currency="EGP" value={+props.price} sizes="xs" />
 
-        <RatingComp count={props.rating.count} value={props.rating.value} />
+        {props.rating ? (
+          <RatingComp count={props.rating.count} value={props.rating.value} />
+        ) : null}
       </div>
     </div>
   );
