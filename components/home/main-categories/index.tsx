@@ -11,13 +11,13 @@ const MainCategories = () => {
   const { data } = useFetchCategories();
 
   return (
-    <div className="w-full flex items-center justify-center space-x-12">
+    <div className="w-full grid grid-cols-3 gap-12">
       {data?.map((v) => {
         return (
           <SingleCatalog
             key={uuid()}
             linkURL={`/categories/${v.id}`}
-            imageURI={v.photo || "/product.png"}
+            imageURI={"/product.png"}
             name={v.name}
           />
         );
@@ -49,7 +49,7 @@ function SingleCatalog(props: SingleCatalogProps) {
       </div>
 
       <div className="flex flex-col space-y-4 text-primary font-bold">
-        <p>{props.name}</p>
+        <p className="capitalize">{props.name}</p>
         {props.productsNumber ? <p>( {props.productsNumber} items)</p> : null}
       </div>
     </Link>

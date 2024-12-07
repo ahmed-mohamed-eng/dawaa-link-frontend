@@ -15,7 +15,7 @@ export default function Products(props: ProductsProps) {
         return (
           <SingleProductDisplay
             key={uuid()}
-            imageURL={product.imageURL}
+            {...product}
             name={product.name}
             price={product.price}
             rating={product.rating}
