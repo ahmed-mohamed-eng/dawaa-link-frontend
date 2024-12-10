@@ -1,4 +1,3 @@
-import NavCircles from "@/components/common/simple/nav-circles";
 import RatingComp from "@/components/common/simple/rating-comp";
 
 import BorderedBox from "@/components/common/simple/bordered-box";
@@ -7,7 +6,6 @@ import TitleText from "@/components/common/simple/title-text";
 import PriceText from "@/components/common/simple/price-text";
 import ProductSizes from "@/components/common/simple/product-sizes";
 import QuickCartBtn from "@/components/common/simple/quick-cart-btn";
-import ViewBtn from "@/components/common/simple/view-btn";
 
 const SelectedProducts = () => {
   return (
@@ -37,12 +35,9 @@ const SelectedProducts = () => {
 
             <div className="flex items-center justify-start space-x-4">
               <QuickCartBtn size="lg" />
-              <ViewBtn size="sm" />
             </div>
           </div>
         </div>
-
-        <NavCircles pageCount={3} />
       </BorderedBox>
 
       {/* Side a */}

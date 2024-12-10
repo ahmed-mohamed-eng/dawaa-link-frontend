@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import {
   IoPersonOutline,
@@ -9,6 +12,14 @@ import {
 } from "react-icons/io5";
 
 const ActionHeader = () => {
+  const router = useRouter();
+
+  const onSearchSubmit = () => {
+    router.push(`/search`);
+  };
+
+  const onSearchInput = () => {};
+
   return (
     <div className="p-8 flex items-center justify-between w-full bg-primary">
       {/* Logo and Search */}
@@ -19,10 +30,14 @@ const ActionHeader = () => {
 
         <div className="bg-white flex items-center rounded-3xl pl-2">
           <input
+            onChange={onSearchInput}
             className="px-1.5 py-1 outline-none"
             placeholder="Search anything"
           />
-          <button className="px-5 py-3.5 rounded-3xl bg-secondary text-white">
+          <button
+            onClick={onSearchSubmit}
+            className="px-5 py-3.5 rounded-3xl bg-secondary text-white"
+          >
             Search
           </button>
         </div>
@@ -31,17 +46,17 @@ const ActionHeader = () => {
       {/* User Actions */}
       <div className="flex items-center justify-start space-x-8 text-white">
         <UserAction
-          linkURL="/sign-up"
+          linkURL="/register"
           Icon={<IoPersonOutline fontSize={25} />}
           name="Sign Up"
         />
         <UserAction
-          linkURL="/user/wish-list"
+          linkURL="/wish-list"
           Icon={<IoHeartOutline fontSize={25} />}
           name="Whish List"
         />
         <UserAction
-          linkURL="/user/cart"
+          linkURL="/cart"
           Icon={<IoCartOutline fontSize={25} />}
           name="Cart"
         />

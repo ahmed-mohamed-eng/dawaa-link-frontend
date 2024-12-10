@@ -30,7 +30,7 @@ const SingleProductDisplay = (props: ISingleProduct) => {
       </button>
 
       <div className="flex flex-col items-center space-y-2">
-        <Link href={props.url} className="capitalize">
+        <Link href={`/products/${props.id}`} className="capitalize">
           <TitleText sizes="lg" text={props.name} />
         </Link>
 

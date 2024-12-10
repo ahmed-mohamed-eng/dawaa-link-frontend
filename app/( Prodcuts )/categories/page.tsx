@@ -1,9 +1,18 @@
-import React from 'react'
+import Footer from "@/components/common/complex/footer";
+import ActionHeader from "@/components/home/action-header";
+import NavigationHeader from "@/components/home/navigation-header";
 
-const CategoriesPage = () => {
+export default async function Home() {
   return (
-    <div>CategoriesPage</div>
-  )
-}
+    <div className="flex flex-col justify-between min-h-screen">
+      <div className="w-full">
+        <ActionHeader />
+        <NavigationHeader />
+      </div>
 
-export default CategoriesPage
+      <main className="w-full px-8 flex flex-col"></main>
+
+      <Footer />
+    </div>
+  );
+}

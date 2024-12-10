@@ -19,7 +19,6 @@ export default function Products(props: ProductsProps) {
             name={product.name}
             price={product.price}
             rating={product.rating}
-            url={product.url}
           />
         );
       })}
