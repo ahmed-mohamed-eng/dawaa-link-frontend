@@ -6,9 +6,7 @@ import { v4 as uuid } from "uuid";
 import BASE_URL from "@/constants/BaseURL";
 import Header from "@/components/common/medium/header";
 import Footer from "@/components/common/complex/footer";
-import ActionHeader from "@/components/home/action-header";
 import ICategory from "@/types/products/Category.interface";
-import NavigationHeader from "@/components/home/navigation-header";
 import SingleProductDisplay from "@/components/common/complex/single-product-display";
 
 type Props = {
@@ -36,19 +34,11 @@ const CategoryPage: NextPage<Props> = async ({ params }) => {
     <div className="flex flex-col justify-between min-h-screen">
       <div className="w-full">
         <Header />
-        <ActionHeader />
-        <NavigationHeader />
       </div>
 
       <main className="w-full p-8 grid grid-cols-3 gap-4">
         {products.map((p) => {
-          return (
-            <SingleProductDisplay
-              key={uuid()}
-              {...p}
-              url={`${BASE_URL}/client/product/${id}`}
-            />
-          );
+          return <SingleProductDisplay key={uuid()} {...p} />;
         })}
       </main>
 

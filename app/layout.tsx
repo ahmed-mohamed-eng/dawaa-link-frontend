@@ -20,6 +20,7 @@ const geistMono = localFont({
 const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin", "latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -33,13 +34,11 @@ export async function generateStaticParams() {
 
 export default function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
 }>) {
   return (
-    <html lang={params.lang}>
+    <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >

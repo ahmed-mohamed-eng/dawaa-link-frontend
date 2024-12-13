@@ -14,14 +14,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     name: "30",
-    value: 30,
+    value: "30",
   },
 };
 
 export const Selected: Story = {
   args: {
     name: "30",
-    value: 30,
+    value: "30",
     selected: true,
   },
 };
