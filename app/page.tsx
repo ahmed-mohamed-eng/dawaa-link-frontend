@@ -1,61 +1,166 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
+import InfoHeader from "@/components/home/InfoHeader";
 
 export default async function Home() {
   return (
-    <div className="flex flex-col justify-between min-h-screen p-5">
-      {/* header */}
-      <header className="w-full bg-[#023E8A] text-white font-bold flex items-center justify-between px-20 py-6 rounded-xl">
-        {/* Navigation */}
-        <div className="flex items-center justify-start divide-x-2 divide-white">
-          <Link href="/shop" className="px-3">
-            Shop
-          </Link>
-          <Link href="/collection" className="px-3">
-            Collection
-          </Link>
-          <Link href="/blog" className="px-3">
-            Blog
-          </Link>
-          <Link href="/contact" className="px-3">
-            Contact
-          </Link>
-        </div>
+    <div className="flex flex-col min-h-screen p-5">
+      <InfoHeader />
 
-        {/* Informer */}
-        <p className="space-x-4">
-          <span>Serenity Medical Groupmain a communities together</span>
-          <span className="px-4 py-3 bg-[#00A6FB] rounded-3xl">New</span>
-        </p>
+      {/* Nav Header */}
+      <nav className="w-full flex items-center justify-between px-20 py-8">
+        <Image
+          alt="Welcome to DawaaLink"
+          src="/logo.svg"
+          width={213}
+          height={43}
+        />
 
-        {/* Contact */}
-        <div className="flex items-center justify-center divide-x-2 divide-white">
-          <Link
-            href="mailto:medical.admin@email.com"
-            className="space-x-4 flex items-center justify-start px-4"
-            target="_blank"
-          >
-            <Image alt="Send Email" src="/mail.svg" width={15} height={10} />
-            <span>medical.admin@email.com</span>
-          </Link>
+        {/* Search Box */}
+        <div className="w-96 px-8 py-4 rounded-full flex items-center justify-between bg-[#F3F3F3]">
+          <input
+            type="text"
+            className="w-[80%] bg-inherit outline-none"
+            placeholder="Search For Product"
+          />
 
-          <Link
-            href="tel:+02-8567894563"
-            className="space-x-4 flex items-center justify-start px-4"
-            target="_blank"
-          >
+          <button>
             <Image
-              alt="Give Us a Call"
-              src="/call.svg"
-              width={15}
-              height={14}
+              alt="Search For Product"
+              src="/search.svg"
+              width={20}
+              height={20}
             />
-            <span>+02-856 789 4563 </span>
+          </button>
+        </div>
+
+        {/* nav list */}
+        <div className="flex items-center space-x-12 font-bold text-[#023E8A]">
+          <Link
+            href="/"
+            data-selected={true}
+            className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
+          >
+            {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
+            <span>Home</span>
+          </Link>
+          <Link
+            href="/about-us"
+            data-selected={true}
+            className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
+          >
+            {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
+            <span>About Us</span>
+          </Link>
+          <Link
+            href="/pages"
+            data-selected={true}
+            className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
+          >
+            {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
+            <span>Pages</span>
+          </Link>
+          <Link
+            href="/products"
+            data-selected={true}
+            className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
+          >
+            {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
+            <span>Products</span>
           </Link>
         </div>
-      </header>
 
-      <main className="w-full px-8 flex flex-col"></main>
+        {/* User Info */}
+        <div className="flex items-center justify-start space-x-4">
+          {/* Cart */}
+          <div className="relative p-2">
+            <Link href="/cart">
+              <Image alt="Go to Cart" src="/cart.svg" width={25} height={25} />
+            </Link>
+            <span className="w-4 h-4 text-xs bg-[#00A6FB] text-white flex items-center justify-center rounded-full absolute top-0 right-0">
+              4
+            </span>
+          </div>
+
+          {/* User */}
+          <div className="relative p-2">
+            <Link href="/account">
+              <Image
+                alt="Go to Account"
+                src="/account.svg"
+                width={25}
+                height={25}
+              />
+            </Link>
+            {/* <span className="w-4 h-4 text-xs bg-[#00A6FB] text-white flex items-center justify-center rounded-full absolute top-0 right-0">
+              4
+            </span> */}
+          </div>
+
+          {/* Wishlist */}
+          <div className="relative p-2">
+            <Image
+              alt="Go to Wishlist"
+              src="/heart.svg"
+              width={25}
+              height={25}
+            />
+            {/* <span className="w-4 h-4 text-xs bg-[#00A6FB] text-white flex items-center justify-center rounded-full absolute top-0 right-0">
+              4
+            </span> */}
+          </div>
+        </div>
+      </nav>
+
+      <main className="w-full flex flex-col">
+        {/* Hero Content */}
+        <div className="w-full flex flex-col">
+          {/* Info */}
+          <div className="w-full h-[37rem] relative">
+            <Image
+              alt="Hero"
+              className="rounded-3xl -z-50"
+              src="/hero-image.png"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+
+            <div className="h-full w-full flex flex-col items-start justify-center px-48 font-bold">
+              <div className="flex flex-col items-start justify-start space-y-2">
+                <span>Health Care</span>
+                <h1 className="text-5xl w-[38rem] leading-tight">
+                  A Dose of Care A World Your Health Commitment
+                </h1>
+              </div>
+              <p className="mt-2 w-[38rem] font-thin">
+                Mauris volutpat interdum mauris, ut porttitor urna ullamcorper
+                ut. Integer accumsan ligula non metus ornare eleifend. Morbi
+                urna massa, commodonec.
+              </p>
+
+              <div className="flex items-center justify-start space-x-10 mt-9">
+                <button className="bg-[#00A6FB] text-center text-white font-bold px-8 py-4 rounded-full">
+                  Join For Free
+                </button>
+
+                <div className="flex items-center justify-start space-x-6">
+                  <button>
+                    <Image
+                      alt="Play Video"
+                      src="/play-vid.svg"
+                      width={50}
+                      height={50}
+                    />
+                  </button>
+
+                  <span>Watch How It Works</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
