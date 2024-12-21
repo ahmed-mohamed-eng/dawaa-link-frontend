@@ -3,6 +3,7 @@ import InfoHeader from "@/components/home/InfoHeader";
 import HeroContent from "@/components/home/HeroContent";
 import AboutUsBrief from "@/components/home/AboutUsBrief";
 import ImagesDivider from "@/components/home/ImagesDivider";
+import DealsOfTheWeek from "@/components/home/DealsOfTheWeek";
 import CategorizedProducts from "@/components/home/CategorizedProducts";
 
 export default async function Home() {
@@ -16,6 +17,7 @@ export default async function Home() {
         <AboutUsBrief />
         <ImagesDivider />
         <CategorizedProducts />
+        <DealsOfTheWeek />
       </main>
     </div>
   );

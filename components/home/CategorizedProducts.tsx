@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const CategorizedProducts = () => {
   return (
-    <div className="w-full px-20 flex flex-col items-center justify-start space-y-20">
+    <div className="pb-40 w-full px-20 flex flex-col items-center justify-start space-y-20">
       {/* Category Action Box */}
       <div className="w-full flex flex-col items-center justify-start space-y-14">
         {/* Header */}

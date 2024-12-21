@@ -1,41 +1,107 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-
-import { GoHeart, GoHeartFill } from "react-icons/go";
+import Image from "next/image";
 
 import ISingleProduct from "@/types/products/single-product.interface";
 
-import RatingComp from "@/components/common/simple/rating-comp";
-import ImgDisplayComp from "../../simple/img-display-comp";
-import TitleText from "../../simple/title-text";
-import PriceText from "../../simple/price-text";
-
 const SingleProductDisplay = (props: ISingleProduct) => {
-  const [isFav, setIsFav] = useState(false);
-
   return (
-    <div className="w-80 relative flex flex-col items-center space-y-4 border-2 border-slate-200 rounded-xl px-4 py-6">
-      <ImgDisplayComp sizes="sm" srcURL={props.photo || "/product.png"} />
+    <div className="relative w-full flex flex-col items-start justify-start space-y-8">
+      {/* Product Image Container */}
+      <div className="relative w-full h-96 border rounded-xl overflow-hidden group">
+        <Image
+          className="w-full h-full z-10"
+          alt={props.name || "Product A"}
+          src={props.photo || "/placeholder.png"}
+          fill
+          style={{ objectFit: "cover" }}
+        />
 
-      <button
-        className="flex items-center justify-center p-3 absolute top-0 right-5 z-10"
-        onClick={setIsFav.bind(null, !isFav)}
-      >
-        {isFav ? <GoHeartFill fontSize={25} /> : <GoHeart fontSize={25} />}
-      </button>
-
-      <div className="flex flex-col items-center space-y-2">
-        <Link href={`/products/${props.id}`} className="capitalize">
-          <TitleText sizes="lg" text={props.name} />
-        </Link>
-
-        <PriceText currency="EGP" value={+props.price} sizes="xs" />
-
-        {props.rating ? (
-          <RatingComp count={props.rating.count} value={props.rating.value} />
+        {/* Sold Indicator */}
+        {props.isSold ? (
+          <div className="transition-all duration-75 ease-in opacity-100 group-hover:opacity-0 bg-[#00A6FB] w-14 h-14 flex items-center justify-center rounded-full absolute top-5 right-5 z-20">
+            <span className="font-bold text-white">Sold</span>
+          </div>
         ) : null}
+
+        {/* New Indicator */}
+        {props.isNew && !props.isSold && !props.discount ? (
+          <div className="transition-all duration-75 ease-in opacity-100 group-hover:opacity-0 bg-[#00A6FB] w-14 h-14 flex items-center justify-center rounded-full absolute top-5 right-5 z-20">
+            <span className="font-bold text-white">New</span>
+          </div>
+        ) : null}
+
+        {/* Discount Indicator */}
+        {props.discount && !props.isSold ? (
+          <div className="transition-all duration-75 ease-in opacity-100 group-hover:opacity-0 bg-[#00A6FB] w-16 h-16 flex flex-col items-center justify-center rounded-full absolute top-5 right-5 z-20">
+            <span className="font-bold text-white">{props.discount}%</span>
+            <span className="font-bold text-white">Off</span>
+          </div>
+        ) : null}
+
+        {/* Main Actions Container */}
+        <div className="transition-all duration-200 ease-in absolute opacity-0 group-hover:opacity-100 top-0 left-0 w-full h-full z-30 bg-gray-500 bg-opacity-10">
+          {/* Add to Cart Button */}
+          <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-3 rounded-full bg-[#00A6FB] font-bold text-white whitespace-nowrap">
+            Add To Cart
+          </button>
+
+          {/* Other Actions Button */}
+          <div className="absolute top-3 right-3 flex flex-col items-start justify-start space-y-2">
+            {/* Wishlist */}
+            <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <Image
+                alt="Add to Wishlist"
+                src="/heart.svg"
+                width={15}
+                height={15}
+              />
+            </button>
+
+            {/* Search */}
+            <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <Image
+                alt="Add to Wishlist"
+                src="/search.svg"
+                width={15}
+                height={15}
+              />
+            </button>
+
+            {/* Cart */}
+            <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <Image
+                alt="Add to Wishlist"
+                src="/cart.svg"
+                width={15}
+                height={15}
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Product Info */}
+      <div className="w-full flex flex-col items-start justify-start">
+        {/* Rating */}
+        <div className="flex items-center justify-start space-x-0.5">
+          <Image alt="Star" src="/star.svg" width={15} height={15} />
+          <Image alt="Star" src="/star.svg" width={15} height={15} />
+          <Image alt="Star" src="/star.svg" width={15} height={15} />
+          <Image alt="Star" src="/star.svg" width={15} height={15} />
+          <Image alt="Star" src="/star.svg" width={15} height={15} />
+        </div>
+
+        {/* Product Name */}
+        <p className="mt-4 font-bold text-lg">{props.name}</p>
+
+        {/* Price */}
+        <div className="mt-4 w-full flex items-center justify-start space-x-2 font-bold">
+          {/* Previous Price */}
+          <span className="text-[#8F8F8F]">{props.price}</span>
+          {/* New Price */}
+          <span>{props.final_price}</span>
+        </div>
       </div>
     </div>
   );
