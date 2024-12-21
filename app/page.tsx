@@ -5,6 +5,7 @@ import AboutUsBrief from "@/components/home/AboutUsBrief";
 import Top10Sellers from "@/components/home/Top10Sellers";
 import ImagesDivider from "@/components/home/ImagesDivider";
 import DealsOfTheWeek from "@/components/home/DealsOfTheWeek";
+import EmergencyBanner from "@/components/home/EmergencyBanner";
 import CategorizedProducts from "@/components/home/CategorizedProducts";
 
 export default async function Home() {
@@ -20,6 +21,7 @@ export default async function Home() {
         <CategorizedProducts />
         <DealsOfTheWeek />
         <Top10Sellers />
+        <EmergencyBanner />
       </main>
     </div>
   );
