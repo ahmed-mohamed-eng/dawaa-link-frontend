@@ -7,6 +7,7 @@ import ImagesDivider from "@/components/home/ImagesDivider";
 import DealsOfTheWeek from "@/components/home/DealsOfTheWeek";
 import EmergencyBanner from "@/components/home/EmergencyBanner";
 import CategorizedProducts from "@/components/home/CategorizedProducts";
+import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
 
 export default async function Home() {
   return (
@@ -22,6 +23,7 @@ export default async function Home() {
         <DealsOfTheWeek />
         <Top10Sellers />
         <EmergencyBanner />
+        <PlatformFeatureIcons />
       </main>
     </div>
   );
