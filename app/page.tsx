@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
 import InfoHeader from "@/components/home/InfoHeader";
 import HeroContent from "@/components/home/HeroContent";
@@ -34,7 +35,7 @@ export default async function Home() {
         <ContactInfo />
       </main>
 
-      {/* Footer */}
+      <Footer />
     </div>
   );
 }
