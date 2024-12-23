@@ -1,11 +1,34 @@
 import React from "react";
 
-import Footer from "@/components/common/complex/footer";
+import Footer from "@/components/Footer";
+import NavHeader from "@/components/home/NavHeader";
+import InfoHeader from "@/components/home/InfoHeader";
+import ContactInfo from "@/components/home/ContactInfo";
+import ClientReviews from "@/components/home/ClientReviews";
+import EmergencyBanner from "@/components/home/EmergencyBanner";
+import LatestNewsAndBlog from "@/components/home/LatestNewsAndBlog";
+import AwardsSmallSection from "@/components/home/AwardsSmallSection";
+import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
+
+import HeroContent from "@/components/about-us/HeroContent";
+import AboutUsBrief from "@/components/about-us/AboutUsBrief";
 
 export default function AboutUsPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="w-full px-8 flex flex-col"></main>
+    <div className="flex flex-col min-h-screen p-5">
+      <InfoHeader />
+      <NavHeader />
+
+      <main className="w-full flex flex-col">
+        <HeroContent />
+        <AboutUsBrief />
+        <EmergencyBanner />
+        <PlatformFeatureIcons />
+        <LatestNewsAndBlog />
+        <AwardsSmallSection />
+        <ClientReviews />
+        <ContactInfo />
+      </main>
 
       <Footer />
     </div>
