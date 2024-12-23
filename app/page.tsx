@@ -4,6 +4,7 @@ import HeroContent from "@/components/home/HeroContent";
 import AboutUsBrief from "@/components/home/AboutUsBrief";
 import Top10Sellers from "@/components/home/Top10Sellers";
 import ImagesDivider from "@/components/home/ImagesDivider";
+import ClientReviews from "@/components/home/ClientReviews";
 import DealsOfTheWeek from "@/components/home/DealsOfTheWeek";
 import EmergencyBanner from "@/components/home/EmergencyBanner";
 import LatestNewsAndBlog from "@/components/home/LatestNewsAndBlog";
@@ -28,6 +29,7 @@ export default async function Home() {
         <PlatformFeatureIcons />
         <LatestNewsAndBlog />
         <AwardsSmallSection />
+        <ClientReviews />
       </main>
     </div>
   );
