@@ -1,6 +1,7 @@
 import NavHeader from "@/components/home/NavHeader";
 import InfoHeader from "@/components/home/InfoHeader";
 import HeroContent from "@/components/home/HeroContent";
+import ContactInfo from "@/components/home/ContactInfo";
 import AboutUsBrief from "@/components/home/AboutUsBrief";
 import Top10Sellers from "@/components/home/Top10Sellers";
 import ImagesDivider from "@/components/home/ImagesDivider";
@@ -30,7 +31,10 @@ export default async function Home() {
         <LatestNewsAndBlog />
         <AwardsSmallSection />
         <ClientReviews />
+        <ContactInfo />
       </main>
+
+      {/* Footer */}
     </div>
   );
 }
