@@ -7,6 +7,7 @@ import ImagesDivider from "@/components/home/ImagesDivider";
 import DealsOfTheWeek from "@/components/home/DealsOfTheWeek";
 import EmergencyBanner from "@/components/home/EmergencyBanner";
 import LatestNewsAndBlog from "@/components/home/LatestNewsAndBlog";
+import AwardsSmallSection from "@/components/home/AwardsSmallSection";
 import CategorizedProducts from "@/components/home/CategorizedProducts";
 import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
 
@@ -26,6 +27,7 @@ export default async function Home() {
         <EmergencyBanner />
         <PlatformFeatureIcons />
         <LatestNewsAndBlog />
+        <AwardsSmallSection />
       </main>
     </div>
   );
