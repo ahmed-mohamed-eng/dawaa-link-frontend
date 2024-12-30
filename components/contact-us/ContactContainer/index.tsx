@@ -47,7 +47,7 @@ const ContactContainer = () => {
           </form>
 
           {/* Contact Info */}
-          <div className="flex-1 flex flex-col space-y-8">
+          <div className="flex-1 flex flex-col items-start justify-start space-y-16">
             <h3 className="font-bold text-4xl capitalize">
               Our New York Branch
             </h3>
@@ -57,7 +57,7 @@ const ContactContainer = () => {
               tempus ac lectus Mauris sit amet lorem sagittis, convallis.
             </p>
 
-            <div className="w-full flex flex-col items-start justify-start space-y-6">
+            <div className="w-full flex flex-col items-start justify-start space-y-10">
               <div className="w-full px-12 py-7 rounded-xl bg-[#00A6FB] flex items-start justify-start space-x-6">
                 <TbHandClick fontSize={50} stroke="white" />
 
@@ -71,18 +71,19 @@ const ContactContainer = () => {
                 <LuMapPin fontSize={50} stroke="white" />
 
                 <div className="flex flex-col items-start justify-start space-y-1 text-lg text-white">
-                  <h4 className="font-bold capitalize">Visit our Office Branch</h4>
-                  <p>800 Nicollet Mall, Minneapolis, MN 55402, 
-                  United States</p>
+                  <h4 className="font-bold capitalize">
+                    Visit our Office Branch
+                  </h4>
+                  <p>800 Nicollet Mall, Minneapolis, MN 55402, United States</p>
                 </div>
               </div>
 
               <div className="w-full px-12 py-7 rounded-xl bg-black flex items-start justify-start space-x-6">
-                <PiPhoneCallLight fontSize={50} color="white"  />
+                <PiPhoneCallLight fontSize={50} color="white" />
 
                 <div className="flex flex-col items-start justify-start space-y-1 text-lg text-white">
                   <h4 className="font-bold capitalize">Call Us</h4>
-                  <p>+1 502-240-6226  |  +20 589 248 3698</p>
+                  <p>+1 502-240-6226 | +20 589 248 3698</p>
                 </div>
               </div>
             </div>
