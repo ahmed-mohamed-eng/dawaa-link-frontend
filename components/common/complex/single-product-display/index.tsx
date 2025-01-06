@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import ISingleProduct from "@/types/products/single-product.interface";
+import Link from "next/link";
 
 const SingleProductDisplay = (props: ISingleProduct) => {
   return (
@@ -93,7 +94,16 @@ const SingleProductDisplay = (props: ISingleProduct) => {
         </div>
 
         {/* Product Name */}
-        <p className="mt-4 font-bold text-lg">{props.name}</p>
+        {props.id ? (
+          <Link
+            href={`/products/${props.id}`}
+            className="mt-4 font-bold text-lg"
+          >
+            {props.name}
+          </Link>
+        ) : (
+          <p className="mt-4 font-bold text-lg">{props.name}</p>
+        )}
 
         {/* Price */}
         <div className="mt-4 w-full flex items-center justify-start space-x-2 font-bold">
