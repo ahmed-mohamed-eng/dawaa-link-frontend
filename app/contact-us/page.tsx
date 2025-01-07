@@ -11,7 +11,6 @@ import ContactContainer from "@/components/contact-us/ContactContainer";
 export const metadata: Metadata = {
   title: "Dawaa Link - Contact Us",
   description: "Find Us We ARE Near You.",
-
 };
 
 export default function ContactUsPage() {
