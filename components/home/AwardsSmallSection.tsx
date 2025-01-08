@@ -1,15 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Fragment } from "react";
 
 const AwardsSmallSection = () => {
   return (
-    <div className="pb-40 w-full">
-      <div className="w-full px-20 flex flex-col items-start justify-start space-y-24">
+    <div className="pb-10 lg:pb-40 w-full">
+      <div className="w-full lg:px-20 flex flex-col items-start justify-start space-y-10 lg:space-y-24">
         {/* Header */}
-        <div className="w-full flex items-center justify-between">
-          <div className="flex items-center justify-start space-x-16">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+          <div className="flex flex-col lg:flex-row items-center justify-start space-y-4 lg:space-y-0 lg:space-x-16">
             <h3 className="text-4xl font-bold">Our Awards</h3>
-            <p className="w-[28rem] px-11 border-l border-[#565656] text-[#565656]">
+            <p className="lg:w-[28rem] lg:px-11 lg:border-l border-[#565656] text-[#565656]">
               Morbi tristique, felis et ullamcorper fermentum, mi neque pulvinar
               mauris, nec viverra massa dui a lacus. Praesent lobortis nisi eget
               sapien aliquet bibendum.
@@ -24,37 +25,14 @@ const AwardsSmallSection = () => {
         </div>
 
         {/* Logos */}
-        <div className="w-full flex items-center justify-between">
-          <Image
-            alt="Vintage Company"
-            src="/companies/vintage.svg"
-            width={200}
-            height={50}
-          />
-          <Image
-            alt="Burnfox Company"
-            src="/companies/burnfox.svg"
-            width={200}
-            height={50}
-          />
-          <Image
-            alt="Hanly Company"
-            src="/companies/hanly.svg"
-            width={200}
-            height={50}
-          />
-          <Image
-            alt="Hential Company"
-            src="/companies/hential.svg"
-            width={200}
-            height={50}
-          />
-          <Image
-            alt="Extensive Company"
-            src="/companies/extensive.svg"
-            width={200}
-            height={50}
-          />
+        <div className="w-full grid grid-cols-2 gap-8 lg:flex lg:items-center lg:justify-between">
+
+          <ImageItem imgSrc="/companies/vintage.svg" />
+          <ImageItem imgSrc="/companies/burnfox.svg" />
+          <ImageItem imgSrc="/companies/hanly.svg" />
+          <ImageItem imgSrc="/companies/hential.svg" />
+          <ImageItem imgSrc="/companies/extensive.svg" />
+
         </div>
       </div>
     </div>
@@ -62,3 +40,26 @@ const AwardsSmallSection = () => {
 };
 
 export default AwardsSmallSection;
+
+type ImageItemProps = { imgSrc: string };
+function ImageItem({ imgSrc }: ImageItemProps) {
+  return (
+    <Fragment>
+      <Image
+        className="hidden lg:block"
+        alt="Company"
+        src={imgSrc}
+        width={200}
+        height={50}
+      />
+
+      <Image
+        className="block lg:hidden"
+        alt="Company"
+        src={imgSrc}
+        width={100}
+        height={25}
+      />
+    </Fragment>
+  );
+}

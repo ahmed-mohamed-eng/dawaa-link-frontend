@@ -13,13 +13,25 @@ import Image from "next/image";
 const WeekProducts = () => {
   const settings: Settings = {
     infinite: true,
+    autoplay: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
 
     nextArrow: <NextArrowComp />,
     prevArrow: <PrevArrowComp />,
+
+    responsive: [
+      {
+        breakpoint: 1080,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          arrows: true,
+        },
+      },
+    ],
   };
 
   return (

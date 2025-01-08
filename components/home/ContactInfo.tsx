@@ -1,79 +1,101 @@
+"use client";
+
 import Image from "next/image";
+import { MouseEvent } from "react";
+import { v4 as uuid } from "uuid";
+import toast, { Toaster } from "react-hot-toast";
 
 const ContactInfo = () => {
   return (
-    <div className="w-full rounded-t-2xl bg-[#081F48] text-white flex items-center justify-center py-16 divide-x-2 divide-[#707070]">
+    <div className="w-full rounded-t-2xl bg-[#081F48] text-white flex flex-col lg:flex-row items-center justify-center px-8 lg:px-0 py-8 lg:py-16 space-y-10 lg:space-y-0 lg:divide-x-2 lg:divide-[#707070]">
+      <Toaster position="bottom-center" />
+
       {/* Physical Location */}
-      <div className="pr-32 font-bold text-4xl flex flex-col items-center justify-start space-y-4">
+      <div className="lg:pr-32 font-bold text-3xl lg:text-4xl flex flex-col items-center justify-start space-y-4">
         <span className="text-sm">Appointment Available</span>
         <p>Whatsapp Number</p>
         <p>1200 - 256 - 48966</p>
       </div>
 
       {/* Icons */}
-      <div className="pl-32 font-bold grid grid-cols-2 gap-8">
-        <div className="flex space-x-8">
-          <Image
-            alt="Physical Address"
-            src="/icons/house-round.svg"
-            width={75}
-            height={75}
-          />
+      <div className="lg:pl-32 font-bold grid grid-cols-2 gap-8">
+        <IconItem
+          imageSrc="/icons/house-round.svg"
+          contents={["Address", "813 Howard Street , Oswego NY 13126, USA"]}
+        />
 
-          <div className="w-32 font-bold text-white space-y-4">
-            <p>Address</p>
-            <p>813 Howard Street , Oswego NY 13126, USA</p>
-          </div>
-        </div>
+        <IconItem
+          imageSrc="/icons/phone-round.svg"
+          contents={["Phone", "(+02) 258 987 4533", "(+02) 258 987 4533"]}
+        />
 
-        <div className="flex space-x-8">
-          <Image
-            alt="Physical Address"
-            src="/icons/phone-round.svg"
-            width={75}
-            height={75}
-          />
+        <IconItem
+          imageSrc="/icons/email-round.svg"
+          contents={["813Email", "Contact@Medical.Com"]}
+        />
 
-          <div className="font-bold text-white space-y-4">
-            <p>Phone</p>
-
-            <div className="space-y-4">
-              <p>(+02) 258 987 4533</p>
-              <p>(+02) 158 456 8895</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex space-x-8">
-          <Image
-            alt="Physical Address"
-            src="/icons/email-round.svg"
-            width={75}
-            height={75}
-          />
-
-          <div className="font-bold text-white space-y-4">
-            <p>Email</p>
-            <p>Contact@Medical.Com</p>
-          </div>
-        </div>
-
-        <div className="flex space-x-8">
-          <Image
-            alt="Physical Address"
-            src="/icons/web-round.svg"
-            width={75}
-            height={75}
-          />
-
-          <div className="font-bold text-white space-y-4">
-            <p>Website</p>
-            <p>Contact@Medical.Com</p>
-          </div>
-        </div>
+        <IconItem
+          imageSrc="/icons/web-round.svg"
+          contents={["Website", "Contact@Medical.Com"]}
+        />
       </div>
     </div>
   );
 };
 
 export default ContactInfo;
+
+type IconItemProps = {
+  imageSrc: string;
+  contents: string[];
+};
+
+function IconItem(props: IconItemProps) {
+  const onCopyContent = (e: MouseEvent<HTMLParagraphElement>) => {
+    const value = e.currentTarget.textContent;
+
+    if (!navigator || !navigator?.clipboard) {
+      return;
+    }
+
+    if (value) {
+      navigator.clipboard.writeText(value);
+
+      toast.success("Copied!");
+    }
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row lg:space-x-8 space-y-3 lg:space-y-0">
+      <Image
+        className="hidden lg:block"
+        alt="Physical Address"
+        src={props.imageSrc}
+        width={75}
+        height={75}
+      />
+
+      <Image
+        className="block lg:hidden"
+        alt="Physical Address"
+        src={props.imageSrc}
+        width={40}
+        height={40}
+      />
+
+      <div className="w-full lg:w-32 font-bold text-white space-y-1 lg:space-y-4">
+        {props.contents.map((con) => {
+          return (
+            <p
+              key={uuid()}
+              className="w-full overflow-hidden text-ellipsis cursor-pointer"
+              onClick={onCopyContent}
+            >
+              {con}
+            </p>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
