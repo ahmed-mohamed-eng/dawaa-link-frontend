@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroContent = () => {
   return (
-    <div className="w-full pb-40">
+    <div className="w-full pb-10 lg:pb-40">
       <div className="w-full flex flex-col relative">
         {/* Info */}
         <div className="w-full h-80 relative">
@@ -14,7 +14,7 @@ const HeroContent = () => {
             style={{ objectFit: "cover" }}
           />
 
-          <div className="h-full w-full flex flex-col items-start justify-center px-48 font-bold">
+          <div className="h-full w-full flex flex-col items-start justify-center lg:px-48 font-bold">
             <h1 className="w-full text-4xl text-center text-[#023E8A]">
               Shop Products
             </h1>

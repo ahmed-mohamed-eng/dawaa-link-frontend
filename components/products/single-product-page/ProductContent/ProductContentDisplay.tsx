@@ -11,31 +11,31 @@ import InformationComponent from "./InformationComponent";
 
 const ProductContentDisplay = () => {
   return (
-    <div className="w-full border-b border-black pb-20 flex flex-col items-start justify-start space-y-20">
+    <div className="w-full border-b border-black pb-10 lg:pb-20 flex flex-col items-start justify-start space-y-10 lg:space-y-20">
       {/* Display */}
-      <div className="w-full flex items-start justify-start space-x-20">
+      <div className="w-full flex flex-col lg:flex-row items-start justify-start space-y-10 lg:space-y-0 lg:space-x-20">
         {/* Display Grid */}
-        <div className="flex-[6] w-full flex items-start justify-start space-x-5">
+        <div className="lg:flex-[6] w-full flex flex-col lg:flex-row items-start justify-start space-y-6 lg:space-y-0 lg:space-x-5">
           {/* Main Image */}
-          <div className="relative flex-[4] h-[40rem]">
+          <div className="relative w-full lg:flex-[4] h-80 lg:h-[40rem]">
             <Image alt="Main Image" src="/placeholder-2.png" fill />
           </div>
 
           {/* Side Images */}
-          <div className="h-[40rem] flex-1 flex flex-col items-start justify-between">
-            <div className="relative w-36 h-36">
+          <div className="w-full lg:h-[40rem] flex-1 flex flex-row lg:flex-col items-start justify-between">
+            <div className="relative w-20 lg:w-36 h-20 lg:h-36 cursor-pointer">
               <Image alt="Side Image" src="/placeholder-2.png" fill />
             </div>
 
-            <div className="relative w-36 h-36">
+            <div className="relative w-20 lg:w-36 h-20 lg:h-36 cursor-pointer">
               <Image alt="Side Image" src="/placeholder-2.png" fill />
             </div>
 
-            <div className="relative w-36 h-36">
+            <div className="relative w-20 lg:w-36 h-20 lg:h-36 cursor-pointer">
               <Image alt="Side Image" src="/placeholder-2.png" fill />
             </div>
 
-            <div className="relative w-36 h-36">
+            <div className="relative w-20 lg:w-36 h-20 lg:h-36 cursor-pointer">
               <Image alt="Side Image" src="/placeholder-2.png" fill />
             </div>
           </div>
@@ -99,7 +99,7 @@ const ProductContentDisplay = () => {
           {/* Actions Section */}
           <div className="mt-14 w-full flex flex-col items-start justify-start space-y-7 border-b border-black pb-5">
             {/* Buy and Cart */}
-            <div className="w-4/5 grid grid-cols-4 gap-4">
+            <div className="w-full lg:w-4/5 grid grid-cols-4 gap-4">
               <ProductQuantity />
               <AddToCartBtn />
               <BuyButton />

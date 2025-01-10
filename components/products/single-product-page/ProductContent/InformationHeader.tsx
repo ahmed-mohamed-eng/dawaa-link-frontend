@@ -17,7 +17,7 @@ const InformationHeader = (props: InformationHeaderProps) => {
   };
 
   return (
-    <div className="w-full flex items-center justify-start border-b border-black space-x-20">
+    <div className="w-full flex items-center justify-start border-b border-black space-x-4 lg:space-x-20">
       <TabItem
         tn="description"
         name="Description"
@@ -55,7 +55,7 @@ function TabItem(props: TabItemProps) {
   return (
     <button
       data-selected={props.currentTN === props.tn || undefined}
-      className="px-4 pb-4 font-bold text-xl data-[selected]:border-b data-[selected]:border-[#023E8A] data-[selected]:text-[#023E8A]"
+      className="px-4 pb-4 font-bold text-sm lg:text-xl data-[selected]:border-b data-[selected]:border-[#023E8A] data-[selected]:text-[#023E8A]"
       onClick={() => props.onClick(props.tn)}
     >
       <span>{props.name}</span>
