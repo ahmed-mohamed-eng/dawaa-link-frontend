@@ -5,7 +5,7 @@ import SingleProductDisplay from "@/components/common/complex/single-product-dis
 
 const ProductContent = () => {
   return (
-    <div className="w-full lg:px-20 flex flex-col items-start justify-start space-y-24">
+    <div className="w-full xl:px-20 flex flex-col items-start justify-start space-y-24">
       <ProductContentDisplay />
 
       {/* Related Products */}
@@ -14,7 +14,7 @@ const ProductContent = () => {
           Related Products
         </h2>
 
-        <div className="w-full flex flex-col lg:flex-row items-start justify-start space-y-8 lg:space-y-0 lg:space-x-4">
+        <div className="w-full flex flex-col xl:flex-row items-start justify-start space-y-8 xl:space-y-0 xl:space-x-4">
           <SingleProductDisplay
             description=""
             final_price="90 EGP"

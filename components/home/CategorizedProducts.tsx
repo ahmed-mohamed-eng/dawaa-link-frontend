@@ -14,13 +14,13 @@ const CategorizedProducts = () => {
   };
 
   return (
-    <div className="pb-10 lg:pb-40 w-full lg:px-20 flex flex-col items-center justify-start space-y-10 lg:space-y-20">
+    <div className="pb-10 xl:pb-40 w-full xl:px-20 flex flex-col items-center justify-start space-y-10 xl:space-y-20">
       {/* Category Action Box */}
-      <div className="w-full flex flex-col items-center justify-start space-y-4 lg:space-y-14">
+      <div className="w-full flex flex-col items-center justify-start space-y-4 xl:space-y-14">
         {/* Header */}
         <h3 className="w-full font-bold text-3xl">Our popular categories</h3>
         {/* Select Actions */}
-        <div className="w-full grid grid-cols-3 gap-x-4 gap-y-6 lg:flex lg:items-center lg:justify-center lg:space-x-8">
+        <div className="w-full grid grid-cols-3 gap-x-4 gap-y-6 xl:flex xl:items-center xl:justify-center xl:space-x-8">
           <CategoryItem
             currentItemName={selectedCategory}
             itemName="All Products"
@@ -56,7 +56,7 @@ const CategorizedProducts = () => {
       {/* Products Container */}
       <div className="w-full flex flex-col items-center justify-start space-y-12">
         {/* Products */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-4 gap-x-4 gap-y-8">
+        <div className="w-full grid grid-cols-1 xl:grid-cols-4 gap-x-4 gap-y-8">
           <SingleProductDisplay
             description=""
             final_price="90 EGP"
@@ -193,7 +193,7 @@ function CategoryItem(props: CategoryItemProps) {
   return (
     <button
       data-selected={isSelected || undefined}
-      className="font-bold text-xs lg:text-base px-2 lg:px-7 py-1 lg:py-3 rounded-full border border-[#BDBDBD] data-[selected]:bg-[#3DB3E5] data-[selected]:border-0 data-[selected]:text-white"
+      className="font-bold text-xs xl:text-base px-2 xl:px-7 py-1 xl:py-3 rounded-full border border-[#BDBDBD] data-[selected]:bg-[#3DB3E5] data-[selected]:border-0 data-[selected]:text-white"
       onClick={() => props.onSelect(itemValue)}
     >
       {props.itemName}

@@ -11,7 +11,7 @@ const DescriptionContent = (props: DescriptionContentProps) => {
 
   return (
     <div className="w-full flex flex-col items-start justify-start space-y-10">
-      <p className="w-full text-xs lg:text-base">
+      <p className="w-full text-xs xl:text-base">
         Nullam diam magna, auctor ut risus eget, scelerisque aliquam magna. Nam
         eu consectetur urna, dapibus tristique ante. Lorem ipsum dolor sit amet,
         consectetur adipiscing elit. Ut faucibus libero urna, id condimentum
@@ -26,27 +26,27 @@ const DescriptionContent = (props: DescriptionContentProps) => {
         orci ac justo.
       </p>
 
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-4">
         <div className="w-full flex flex-col items-start justify-start space-y-4">
           <h6 className="text-[#023E8A] text-2xl font-bold">
             Precision Auto Service
           </h6>
 
           <ul className="w-full flex flex-col items-start justify-start space-y-2 list-disc ps-4">
-            <li className="text-sm lg:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
-            <li className="text-sm lg:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
-            <li className="text-sm lg:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
-            <li className="text-sm lg:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
-            <li className="text-sm lg:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
+            <li className="text-sm xl:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
+            <li className="text-sm xl:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
+            <li className="text-sm xl:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
+            <li className="text-sm xl:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
+            <li className="text-sm xl:text-lg">Integer nec dui ut mauris ultricies elementum.</li>
           </ul>
         </div>
 
         <div className="w-full flex flex-col items-start justify-start border">
           <div className="w-full flex items-start justify-start border">
-            <p className="w-1/3 px-5 py-3 font-bold text-sm lg:text-lg text-[#023E8A] bg-[#F0F2F5]">
+            <p className="w-1/3 px-5 py-3 font-bold text-sm xl:text-lg text-[#023E8A] bg-[#F0F2F5]">
               Range
             </p>
-            <p className="w-2/3 px-5 ps-14 py-3 text-sm lg:text-lg text-[#6F6F6F] whitespace-nowrap text-ellipsis overflow-hidden">
+            <p className="w-2/3 px-5 ps-14 py-3 text-sm xl:text-lg text-[#6F6F6F] whitespace-nowrap text-ellipsis overflow-hidden">
               -199.99 to 199.99 C
             </p>
           </div>

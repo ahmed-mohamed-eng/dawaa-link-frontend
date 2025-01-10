@@ -9,11 +9,11 @@ import ContactInfo from "./ContactInfo";
 const ContactContainer = () => {
   return (
     <div className="w-full pb-24">
-      <div className="w-full lg:px-16 flex flex-col space-y-20">
+      <div className="w-full xl:px-16 flex flex-col space-y-20">
         <ContactInfo />
 
         {/* Contact Form */}
-        <div className="w-full pb-16 flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-16 border-b border-black">
+        <div className="w-full pb-16 flex flex-col xl:flex-row space-y-8 xl:space-y-0 xl:space-x-16 border-b border-black">
           {/* Form */}
           <form className="flex-1 bg-[#DCDCDC] rounded-xl px-11 py-9 flex flex-col space-y-8">
             <input

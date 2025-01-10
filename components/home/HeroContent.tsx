@@ -5,7 +5,7 @@ const HeroContent = () => {
   return (
     <div className="w-full flex flex-col relative">
       {/* Info */}
-      <div className="w-full h-96 lg:h-[40rem] relative">
+      <div className="w-full h-96 xl:h-[40rem] relative">
         <Image
           alt="Hero"
           className="rounded-3xl -z-50"
@@ -14,29 +14,29 @@ const HeroContent = () => {
           style={{ objectFit: "cover" }}
         />
 
-        <div className="h-full w-full flex flex-col items-start justify-center p-4 lg:px-48 font-bold">
+        <div className="h-full w-full flex flex-col items-start justify-center p-4 xl:px-48 font-bold">
           <div className="flex flex-col items-start justify-start space-y-2">
             <span>Health Care</span>
-            <h1 className="text-3xl lg:text-5xl lg:w-[38rem] leading-tight">
+            <h1 className="text-3xl xl:text-5xl xl:w-[38rem] leading-tight">
               A Dose of Care A World Your Health Commitment
             </h1>
           </div>
 
-          <p className="hidden lg:inline-block mt-2 w-full lg:w-[38rem] font-thin">
+          <p className="hidden xl:inline-block mt-2 w-full xl:w-[38rem] font-thin">
             Mauris volutpat interdum mauris, ut porttitor urna ullamcorper ut.
             Integer accumsan ligula non metus ornare eleifend. Morbi urna massa,
             commodonec.
           </p>
 
-          <div className="flex items-center justify-start space-x-6 lg:space-x-10 mt-9">
-            <button className="bg-[#00A6FB] text-xs lg:text-base text-center text-white font-bold px-2 lg:px-8 py-2 lg:py-4 rounded-full">
+          <div className="flex items-center justify-start space-x-6 xl:space-x-10 mt-9">
+            <button className="bg-[#00A6FB] text-xs xl:text-base text-center text-white font-bold px-2 xl:px-8 py-2 xl:py-4 rounded-full">
               Join For Free
             </button>
 
-            <div className="flex items-center justify-start space-x-2 lg:space-x-6">
+            <div className="flex items-center justify-start space-x-2 xl:space-x-6">
               <button>
                 <Image
-                  className="hidden lg:block"
+                  className="hidden xl:block"
                   alt="Play Video"
                   src="/play-vid.svg"
                   width={50}
@@ -44,7 +44,7 @@ const HeroContent = () => {
                 />
 
                 <Image
-                  className="block lg:hidden"
+                  className="block xl:hidden"
                   alt="Play Video"
                   src="/play-vid.svg"
                   width={30}
@@ -52,14 +52,14 @@ const HeroContent = () => {
                 />
               </button>
 
-              <span className="text-sm lg:text-base">Watch How It Works</span>
+              <span className="text-sm xl:text-base">Watch How It Works</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Advance Search */}
-      <div className="w-full hidden lg:flex items-center justify-center relative -top-24">
+      <div className="w-full hidden xl:flex items-center justify-center relative -top-24">
         <div className="w-fit px-16 py-7 rounded-2xl shadow-md border bg-white">
           {/* Search Boxes */}
           <div className="w-full flex items-center justify-start space-x-5">

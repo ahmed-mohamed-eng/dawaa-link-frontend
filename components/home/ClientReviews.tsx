@@ -31,7 +31,7 @@ const ClientReviews = () => {
 
   return (
     <div className="pb-3 w-full">
-      <div className="relative w-full flex flex-col items-center justify-center lg:space-y-16 px-6 py-16 lg:py-32 bg-[#F7F7F7] rounded-xl">
+      <div className="relative w-full flex flex-col items-center justify-center xl:space-y-16 px-6 py-16 xl:py-32 bg-[#F7F7F7] rounded-xl">
         <Image
           className="w-full h-full -z-50"
           alt="BG"
@@ -42,13 +42,13 @@ const ClientReviews = () => {
         {/* Header */}
         <div className="flex flex-col items-center justify-center space-y-4">
           <span className="font-bold text-[#00A6FB] text-xl">Testimonials</span>
-          <h2 className="font-bold text-[#081F48] text-5xl text-center lg:text-left">
+          <h2 className="font-bold text-[#081F48] text-5xl text-center xl:text-left">
             Our Clients reviews
           </h2>
         </div>
 
         {/* Reviews Slider */}
-        <div className="mt-10 lg:mt-0 w-full slider-container">
+        <div className="mt-10 xl:mt-0 w-full slider-container">
           <Slider {...settings}>
             <ReviewCardItem
               rating={3.2}
@@ -119,11 +119,11 @@ function ReviewCardItem(props: ReviewCardItemProps) {
 
   return (
     <div>
-      <div className="lg:m-10 rounded-xl bg-white p-4 lg:p-10 flex flex-col items-start justify-start space-y-9 group hover:bg-[#00A6FB] hover:text-white">
+      <div className="xl:m-10 rounded-xl bg-white p-4 xl:p-10 flex flex-col items-start justify-start space-y-9 group hover:bg-[#00A6FB] hover:text-white">
         {/* Header */}
-        <div className="w-full flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0 lg:space-x-52">
+        <div className="w-full flex flex-col xl:flex-row items-center justify-between space-y-6 xl:space-y-0 xl:space-x-52">
           {/* Client Info */}
-          <div className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-start space-y-6 lg:space-y-0 lg:space-x-8">
+          <div className="w-full flex flex-col xl:flex-row items-center justify-center xl:justify-start space-y-6 xl:space-y-0 xl:space-x-8">
             {/* Client Image */}
             <Image
               className="rounded-full"
@@ -134,7 +134,7 @@ function ReviewCardItem(props: ReviewCardItemProps) {
             />
 
             {/* Client Base Info */}
-            <div className="w-full flex flex-col items-center lg:items-start justify-start space-y-3">
+            <div className="w-full flex flex-col items-center xl:items-start justify-start space-y-3">
               <p className="font-bold text-xl whitespace-nowrap">
                 {props.name} <span className="text-sm">- {props.role}</span>
               </p>
@@ -168,7 +168,7 @@ function ReviewCardItem(props: ReviewCardItemProps) {
             </div>
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <Image
               alt="Customer Quote"
               src="/icons/big-quote.svg"
@@ -179,7 +179,7 @@ function ReviewCardItem(props: ReviewCardItemProps) {
         </div>
 
         {/* Content */}
-        <p className="w-full text-center lg:text-left">{props.reviewText}</p>
+        <p className="w-full text-center xl:text-left">{props.reviewText}</p>
       </div>
     </div>
   );

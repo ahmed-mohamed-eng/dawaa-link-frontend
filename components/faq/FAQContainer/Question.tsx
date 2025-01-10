@@ -21,11 +21,11 @@ const Question = (props: QuestionProps) => {
     <div
       onClick={onToggle}
       data-open={isOpen || undefined}
-      className="cursor-pointer w-full px-4 lg:pl-16 lg:pr-10 py-8 flex flex-col space-y-4 border border-[#8E8E8E] rounded-lg data-[open]:bg-[#00A6FB]"
+      className="cursor-pointer w-full px-4 xl:pl-16 xl:pr-10 py-8 flex flex-col space-y-4 border border-[#8E8E8E] rounded-lg data-[open]:bg-[#00A6FB]"
     >
       <div className="w-full flex items-center justify-between">
         <h2
-          className="text-sm lg:text-2xl capitalize"
+          className="text-sm xl:text-2xl capitalize"
           style={{
             color: isOpen ? "white" : "#023E8A",
           }}

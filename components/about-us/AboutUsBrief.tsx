@@ -3,11 +3,11 @@ import Image from "next/image";
 const AboutUsBrief = () => {
   return (
     <div className="w-full pb-16">
-      <div className="w-full lg:px-10">
+      <div className="w-full xl:px-10">
         {/* Content */}
         <div className="w-full grid grid-cols-2">
           {/* Images */}
-          <div className="hidden lg:block w-full relative">
+          <div className="hidden xl:block w-full relative">
             <Image
               className="absolute top-0 left-0 -z-50"
               alt="Normal Image"
@@ -36,7 +36,7 @@ const AboutUsBrief = () => {
           </div>
 
           {/* Text */}
-          <div className="col-span-2 lg:col-span-1 flex flex-col items-start justify-start lg:pl-20">
+          <div className="col-span-2 xl:col-span-1 flex flex-col items-start justify-start xl:pl-20">
             {/* Header */}
             <div className="flex flex-col items-start justify-start space-y-2">
               <span className="tracking-widest text-[#00A6FB]">About Us</span>

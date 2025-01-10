@@ -4,12 +4,12 @@ import Question from "./Question";
 
 const FAQContainer = () => {
   return (
-    <div className="w-full pb-10 lg:pb-40">
-      <div className="w-full lg:px-16 flex flex-col space-y-16">
+    <div className="w-full pb-10 xl:pb-40">
+      <div className="w-full xl:px-16 flex flex-col space-y-16">
         <Title />
 
         {/* Questions Container */}
-        <div className="w-full flex flex-col space-y-2 lg:space-y-6 font-bold">
+        <div className="w-full flex flex-col space-y-2 xl:space-y-6 font-bold">
           <Question
             question="Quality services provided at affordable rates"
             answer="NO ANSWER"
