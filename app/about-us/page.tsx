@@ -10,8 +10,8 @@ import LatestNewsAndBlog from "@/components/home/LatestNewsAndBlog";
 import AwardsSmallSection from "@/components/home/AwardsSmallSection";
 import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
 
+import AboutUsBrief from "@/components/home/AboutUsBrief";
 import HeroContent from "@/components/about-us/HeroContent";
-import AboutUsBrief from "@/components/about-us/AboutUsBrief";
 
 export default function AboutUsPage() {
   return (

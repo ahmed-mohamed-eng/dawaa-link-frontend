@@ -5,7 +5,7 @@ const ContactInfo = () => {
   return (
     <div className="w-full pb-16 flex flex-col space-y-16 border-b border-black">
       {/* Title */}
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0">
         <div className="flex flex-col space-y-3 flex-1">
           <span className="capitalize text-[#00A6FB] tracking-[0.25rem] font-bold">
             contact us
@@ -14,7 +14,7 @@ const ContactInfo = () => {
           <h1 className="capitalize font-bold text-4xl">Our head Offices</h1>
         </div>
 
-        <div className="flex-1 pl-6 border-l border-black font-thin">
+        <div className="flex-1 pl-6 lg:border-l border-black font-thin">
           Nam ultricies metus et purus laoreet aliquam. Aliquam lectus urna,
           tempus ac lectus egravida bibendum nisi. Nulla consequat turpis vitae
           purus ultricies luctus. Phasellus leo tortor, blandit nec consequat
@@ -24,7 +24,7 @@ const ContactInfo = () => {
       </div>
 
       {/* Contact Boxes */}
-      <div className="w-full flex space-x-10">
+      <div className="w-full flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-10">
         <ContactInfoBox
           imgSrc="/contact-location.svg"
           title="Our Location"
