@@ -8,7 +8,7 @@ const SortDisplay = () => {
   const [selected, setSelected] = useState(false);
 
   return (
-    <div className="flex items-center justify-between px-8 py-5 flex-[4]">
+    <div className="hidden lg:flex items-center justify-between px-8 py-5 flex-[4]">
       <div className="w-full flex items-center space-x-3 flex-1">
         <button
           data-selected={selected || undefined}
