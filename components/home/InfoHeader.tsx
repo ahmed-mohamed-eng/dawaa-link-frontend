@@ -21,7 +21,7 @@ const InfoHeader = () => {
       </div>
 
       {/* Informer */}
-      <p className="flex xl:inline-block space-x-4">
+      <p className="flex flex-col xl:flex-row xl:items-center space-y-4 xl:space-y-0 xl:space-x-4">
         <span className="text-sm">
           Serenity Medical Groupmain a communities together
         </span>
