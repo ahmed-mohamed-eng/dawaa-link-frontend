@@ -4,11 +4,16 @@ import React, { useState } from "react";
 
 import Image from "next/image";
 
-const AddToWishListBtn = () => {
+export interface AddToWishListBtnProps {
+    productId: string | number;
+}
+
+const AddToWishListBtn = (props: AddToWishListBtnProps) => {
   const [wished, setWished] = useState(false);
 
   return (
     <button
+    data-product-id={props.productId}
       className="flex items-center justify-start space-x-4 font-bold text-black capitalize"
       onClick={() => setWished(!wished)}
     >

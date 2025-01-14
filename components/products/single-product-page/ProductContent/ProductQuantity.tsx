@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 
 export interface ProductQuantityProps {
+  maxQuantity?: string | number;
   onChange?: (q: number) => void;
 }
 
@@ -20,6 +21,12 @@ const ProductQuantity = (props: ProductQuantityProps) => {
   };
 
   const onIncreaseValue = () => {
+    const maxQuantity = parseInt(props.maxQuantity?.toString() || "", 10);
+
+    if (maxQuantity && quantity >= maxQuantity) {
+      return;
+    }
+
     setQuantity(quantity + 1);
 
     props.onChange?.call(null, quantity);
