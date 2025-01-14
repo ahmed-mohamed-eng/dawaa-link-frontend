@@ -1,7 +1,51 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { v4 as uuid } from "uuid";
+
 import Link from "next/link";
 import Image from "next/image";
 
+import useFetchSuggestions from "@/data-fetch-hooks/products/useFetchSuggestions";
+
 const NavHeader = () => {
+  const [searchTxt, setSearchTxt] = useState<string>();
+
+  const { data: suggestions } = useFetchSuggestions(searchTxt);
+
+  const router = useRouter();
+
+  const onClickSearch = () => {
+    if (!searchTxt) {
+      return;
+    }
+
+    router.push(`/search?q=${encodeURIComponent(searchTxt)}`);
+  };
+
+  const onPressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== "Enter") {
+      return;
+    }
+
+    if (!searchTxt) {
+      return;
+    }
+
+    router.push(`/search?q=${encodeURIComponent(searchTxt)}`);
+  };
+
+  const onClickSuggestion = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const id = e.currentTarget.dataset["productId"] || "";
+
+    if (!id) {
+      return;
+    }
+
+    router.push(`/products/${id}`);
+  };
+
   return (
     <nav className="w-full flex items-center justify-between py-4 xl:px-20 xl:py-8 space-x-2 xl:space-x-0">
       <Image
@@ -21,14 +65,16 @@ const NavHeader = () => {
       />
 
       {/* Search Box */}
-      <div className="w-2/3 xl:w-96 p-4 xl:px-8 xl:py-4 rounded-full flex items-center justify-between bg-[#F3F3F3]">
+      <div className="relative w-2/3 xl:w-96 p-4 xl:px-8 xl:py-4 rounded-full flex items-center justify-between bg-[#F3F3F3]">
         <input
+          onChange={(e) => setSearchTxt(e.target.value)}
+          onKeyDown={onPressEnter}
           type="text"
           className="w-[80%] bg-inherit outline-none text-sm xl:text-base"
           placeholder="Search For Product"
         />
 
-        <button>
+        <button onClick={onClickSearch}>
           <Image
             className="hidden xl:inline-block"
             alt="Search For Product"
@@ -45,6 +91,23 @@ const NavHeader = () => {
             height={15}
           />
         </button>
+
+        {searchTxt && suggestions.length > 0 ? (
+          <div className="absolute z-50 top-16 left-0 w-2/3 xl:w-96 p-4 xl:px-8 xl:py-4 rounded-xl flex flex-col items-start justify-start space-y-4 bg-[#F3F3F3]">
+            {suggestions.map((sug) => {
+              return (
+                <button
+                  onClick={onClickSuggestion}
+                  data-product-id={sug.id}
+                  className="w-full p-1 text-left text-lg capitalize"
+                  key={uuid()}
+                >
+                  {sug.name}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
       </div>
 
       {/* nav list */}
