@@ -55,14 +55,12 @@ const RegisterForm = () => {
       error: "Can't register to the website.",
     });
 
-    const token = (res.data?.data.token as string) || "";
-
-    if (!token) {
+    if (!res.data) {
       toast.error("Can't register, please try again later.");
       return;
     }
 
-    router.push("/");
+    router.push("/login");
   };
 
   const onUploadPhotoChange = async (
