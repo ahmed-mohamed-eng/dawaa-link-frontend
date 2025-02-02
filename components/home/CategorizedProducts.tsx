@@ -1,11 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 import SingleProductDisplay from "../common/complex/single-product-display";
-import { useState } from "react";
+export interface CategorizedProductsProps {
+  categories: {
+    id: number;
+    status: string;
+    slug: string;
+    photo: string;
+    created_at: string;
+    name: string;
+    description: string;
+    meta_title: string | null;
+    meta_description: string | null;
+    meta_keywords: string | null;
+  }[];
+}
 
-const CategorizedProducts = () => {
+const CategorizedProducts = (props: CategorizedProductsProps) => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>("all-products");
 
@@ -22,34 +37,22 @@ const CategorizedProducts = () => {
         {/* Select Actions */}
         <div className="w-full grid grid-cols-3 gap-x-4 gap-y-6 xl:flex xl:items-center xl:justify-center xl:space-x-8">
           <CategoryItem
+            key={uuid()}
             currentItemName={selectedCategory}
             itemName="All Products"
             onSelect={onSelectCategory}
           />
 
-          <CategoryItem
-            currentItemName={selectedCategory}
-            itemName="Analgesics"
-            onSelect={onSelectCategory}
-          />
-
-          <CategoryItem
-            currentItemName={selectedCategory}
-            itemName="Controlled drugs"
-            onSelect={onSelectCategory}
-          />
-
-          <CategoryItem
-            currentItemName={selectedCategory}
-            itemName="Inhalants"
-            onSelect={onSelectCategory}
-          />
-
-          <CategoryItem
-            currentItemName={selectedCategory}
-            itemName="Stimulant"
-            onSelect={onSelectCategory}
-          />
+          {props.categories.map((val) => {
+            return (
+              <CategoryItem
+                key={uuid()}
+                currentItemName={selectedCategory}
+                itemName={val.name}
+                onSelect={onSelectCategory}
+              />
+            );
+          })}
         </div>
       </div>
 
@@ -193,7 +196,7 @@ function CategoryItem(props: CategoryItemProps) {
   return (
     <button
       data-selected={isSelected || undefined}
-      className="font-bold text-xs xl:text-base px-2 xl:px-7 py-1 xl:py-3 rounded-full border border-[#BDBDBD] data-[selected]:bg-[#3DB3E5] data-[selected]:border-0 data-[selected]:text-white"
+      className="capitalize font-bold text-xs xl:text-base px-2 xl:px-7 py-1 xl:py-3 rounded-full border border-[#BDBDBD] data-[selected]:bg-[#3DB3E5] data-[selected]:border-0 data-[selected]:text-white"
       onClick={() => props.onSelect(itemValue)}
     >
       {props.itemName}

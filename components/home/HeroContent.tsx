@@ -29,9 +29,9 @@ const HeroContent = () => {
           </p>
 
           <div className="flex items-center justify-start space-x-6 xl:space-x-10 mt-9">
-            <button className="bg-[#00A6FB] text-xs xl:text-base text-center text-white font-bold px-2 xl:px-8 py-2 xl:py-4 rounded-full">
+            <Link href="/register" className="bg-[#00A6FB] text-xs xl:text-base text-center text-white font-bold px-2 xl:px-8 py-2 xl:py-4 rounded-full">
               Join For Free
-            </button>
+            </Link>
 
             <div className="flex items-center justify-start space-x-2 xl:space-x-6">
               <button>

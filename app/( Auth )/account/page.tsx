@@ -19,7 +19,7 @@ const getAuthOrRedirect = async () => {
 };
 
 export default async function UserAccountPage() {
-  const token = await getAuthOrRedirect();
+  await getAuthOrRedirect();
 
   return (
     <div className="flex flex-col min-h-screen p-5">

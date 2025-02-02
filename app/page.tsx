@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
 import InfoHeader from "@/components/home/InfoHeader";
@@ -14,7 +16,25 @@ import AwardsSmallSection from "@/components/home/AwardsSmallSection";
 import CategorizedProducts from "@/components/home/CategorizedProducts";
 import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
 
+import BASE_URL from "@/constants/BaseURL";
+
+const getHomePageData = async () => {
+  const url = `${BASE_URL}/client/home`;
+
+  try {
+    const res = await axios.get(url);
+    return res.data?.data;
+  } catch (error) {
+    console.error(error);
+    return;
+  }
+};
+
 export default async function Home() {
+  const data = await getHomePageData();
+ 
+  console.log(data );
+
   return (
     <div className="flex flex-col min-h-screen p-5">
       <InfoHeader />
@@ -24,7 +44,7 @@ export default async function Home() {
         <HeroContent />
         <AboutUsBrief />
         <ImagesDivider />
-        <CategorizedProducts />
+        <CategorizedProducts categories={data?.categories || []} />
         <DealsOfTheWeek />
         <Top10Sellers />
         <EmergencyBanner />
