@@ -2,7 +2,6 @@ import React from "react";
 
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
-import InfoHeader from "@/components/home/InfoHeader";
 import ContactInfo from "@/components/home/ContactInfo";
 import ClientReviews from "@/components/home/ClientReviews";
 import EmergencyBanner from "@/components/home/EmergencyBanner";
@@ -16,7 +15,6 @@ import HeroContent from "@/components/about-us/HeroContent";
 export default function AboutUsPage() {
   return (
     <div className="flex flex-col min-h-screen p-5">
-      <InfoHeader />
       <NavHeader />
 
       <main className="w-full flex flex-col">

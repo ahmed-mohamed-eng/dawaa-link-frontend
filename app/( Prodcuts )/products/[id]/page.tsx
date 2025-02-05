@@ -3,7 +3,6 @@ import axios from "axios";
 
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
-import InfoHeader from "@/components/home/InfoHeader";
 // import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
 import HeroContent from "@/components/products/single-product-page/HeroContent";
 import ProductContent from "@/components/products/single-product-page/ProductContent";
@@ -42,7 +41,6 @@ export default async function ProductsPage({
 
   return (
     <div className="flex flex-col min-h-screen p-5">
-      <InfoHeader />
       <NavHeader />
 
       <main className="w-full flex flex-col">

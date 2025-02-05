@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 import Footer from "@/components/Footer";
 import TokenName from "@/constants/TokenName";
 import NavHeader from "@/components/home/NavHeader";
-import InfoHeader from "@/components/home/InfoHeader";
 import RegisterForm from "@/components/register/RegisterForm";
 
 const checkAuthOrRedirect = async () => {
@@ -25,7 +24,6 @@ export default async function RegisterPage() {
 
   return (
     <div className="flex flex-col justify-between min-h-screen p-5">
-      <InfoHeader />
       <NavHeader />
 
       <main className="w-full flex flex-col py-16">
