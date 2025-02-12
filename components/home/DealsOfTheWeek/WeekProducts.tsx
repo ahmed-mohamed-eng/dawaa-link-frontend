@@ -15,7 +15,7 @@ const WeekProducts = () => {
     infinite: true,
     autoplay: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
 
@@ -24,7 +24,7 @@ const WeekProducts = () => {
 
     responsive: [
       {
-        breakpoint: 1080,
+        breakpoint: 720,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 1,

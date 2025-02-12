@@ -1,7 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { v4 as uuid } from "uuid";
 
-const HeroContent = () => {
+import ISingleProduct from "@/types/products/single-product.interface";
+
+export interface HeroContentProps {
+  products?: ISingleProduct[];
+}
+
+const HeroContent = (props: HeroContentProps) => {
   return (
     <div className="w-full flex flex-col relative">
       {/* Info */}
@@ -29,7 +36,10 @@ const HeroContent = () => {
           </p>
 
           <div className="flex items-center justify-start space-x-6 xl:space-x-10 mt-9">
-            <Link href="/register" className="bg-[#00A6FB] text-xs xl:text-base text-center text-white font-bold px-2 xl:px-8 py-2 xl:py-4 rounded-full">
+            <Link
+              href="/register"
+              className="bg-[#00A6FB] text-xs xl:text-base text-center text-white font-bold px-2 xl:px-8 py-2 xl:py-4 rounded-full"
+            >
               Join For Free
             </Link>
 
@@ -88,11 +98,13 @@ const HeroContent = () => {
                 height={28}
               />
 
-              <input
-                type="text"
-                className="w-96 outline-none bg-inherit text-black"
-                placeholder="Store Locations"
-              />
+              <select className="w-96 outline-none bg-inherit text-black">
+                <option value="new-york">New York</option>
+                <option value="los-angeles">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+                <option value="houston">Houston</option>
+                <option value="washington">Washington</option>
+              </select>
             </div>
 
             {/* Search Button */}
@@ -107,54 +119,17 @@ const HeroContent = () => {
             <div className="flex items-center justify-start space-x-8">
               {/* Tags */}
               <div className="flex items-center justify-start space-x-6">
-                <Link
-                  href="/products?m='Bexarotene'"
-                  className="font-bold bg-[#F3F6FD] px-5 py-2"
-                >
-                  Bexarotene
-                </Link>
-
-                <Link
-                  href="/products?m='Bexarotene'"
-                  className="font-bold bg-[#F3F6FD] px-5 py-2"
-                >
-                  Bexarotene
-                </Link>
-
-                <Link
-                  href="/products?m='Bexarotene'"
-                  className="font-bold bg-[#F3F6FD] px-5 py-2"
-                >
-                  Bexarotene
-                </Link>
-
-                <Link
-                  href="/products?m='Bexarotene'"
-                  className="font-bold bg-[#F3F6FD] px-5 py-2"
-                >
-                  Bexarotene
-                </Link>
-
-                <Link
-                  href="/products?m='Bexarotene'"
-                  className="font-bold bg-[#F3F6FD] px-5 py-2"
-                >
-                  Bexarotene
-                </Link>
-
-                <Link
-                  href="/products?m='Bexarotene'"
-                  className="font-bold bg-[#F3F6FD] px-5 py-2"
-                >
-                  Bexarotene
-                </Link>
-
-                <Link
-                  href="/products?m='Bexarotene'"
-                  className="font-bold bg-[#F3F6FD] px-5 py-2"
-                >
-                  Bexarotene
-                </Link>
+                {props.products?.slice(0, 5)?.map((val) => {
+                  return (
+                    <Link
+                      key={uuid()}
+                      href={`/products/${val.id}`}
+                      className="font-bold bg-[#F3F6FD] px-5 py-2"
+                    >
+                      {val.name}
+                    </Link>
+                  );
+                })}
               </div>
 
               <button className="px-5 py-2 bg-[#FF922E] font-bold text-white">

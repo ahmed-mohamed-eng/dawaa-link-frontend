@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
+import ISingleProduct from "@/types/products/single-product.interface";
+
 import SingleProductDisplay from "../common/complex/single-product-display";
 export interface CategorizedProductsProps {
   categories: {
@@ -18,6 +20,8 @@ export interface CategorizedProductsProps {
     meta_description: string | null;
     meta_keywords: string | null;
   }[];
+
+  products?: ISingleProduct[];
 }
 
 const CategorizedProducts = (props: CategorizedProductsProps) => {
@@ -60,113 +64,20 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
       <div className="w-full flex flex-col items-center justify-start space-y-12">
         {/* Products */}
         <div className="w-full grid grid-cols-1 xl:grid-cols-4 gap-x-4 gap-y-8">
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
-
-          <SingleProductDisplay
-            description=""
-            final_price="90 EGP"
-            name="Abdonel 200ml"
-            price="100 EGP"
-            quantity="200"
-            id={1}
-          />
+          {props.products?.map((val) => {
+            return (
+              <SingleProductDisplay
+                key={uuid()}
+                description={val.description}
+                final_price={val.final_price}
+                name={val.name}
+                price={val.price}
+                quantity={val.quantity}
+                id={val.id}
+                photo={val.photo}
+              />
+            );
+          })}
         </div>
         {/* More Button */}
         <Link

@@ -48,22 +48,24 @@ const NavHeader = () => {
 
   return (
     <nav className="w-full flex items-center justify-between py-4 xl:px-20 xl:py-8 space-x-2 xl:space-x-0">
-      <Image
-        className="hidden xl:inline-block"
-        alt="Welcome to DawaaLink"
-        src="/logo.svg"
-        width={213}
-        height={43}
-      />
+      <Link href="/">
+        <Image
+          className="hidden xl:inline-block"
+          alt="Welcome to DawaaLink"
+          src="/logo.svg"
+          width={213}
+          height={43}
+        />
 
-      <Image
-        className="inline-block xl:hidden"
-        alt="Welcome to DawaaLink"
-        src="/logo.svg"
-        width={100}
-        height={30}
-      />
-
+        <Image
+          className="inline-block xl:hidden"
+          alt="Welcome to DawaaLink"
+          src="/logo.svg"
+          width={100}
+          height={30}
+        />
+      </Link>
+      
       {/* Search Box */}
       <div className="relative w-2/3 xl:w-96 p-4 xl:px-8 xl:py-4 rounded-full flex items-center justify-between bg-[#F3F3F3]">
         <input

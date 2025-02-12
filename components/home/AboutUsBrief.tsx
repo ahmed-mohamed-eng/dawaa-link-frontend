@@ -115,7 +115,7 @@ type CompanyComponentProps = {
 
 function CompanyComponent(props: CompanyComponentProps) {
   return (
-    <div className="xl:px-10 last:col-span-2 flex xl:block items-center justify-center">
+    <div className="xl:px-8 last:col-span-2 flex xl:block items-center justify-center">
       <div className="relative w-32 xl:w-52 h-10 xl:h-16">
         <Image
           className="w-full h-full"

@@ -84,15 +84,6 @@ const SingleProductDisplay = (props: ISingleProduct) => {
 
       {/* Product Info */}
       <div className="w-full flex flex-col items-start justify-start">
-        {/* Rating */}
-        <div className="flex items-center justify-start space-x-0.5">
-          <Image alt="Star" src="/star.svg" width={15} height={15} />
-          <Image alt="Star" src="/star.svg" width={15} height={15} />
-          <Image alt="Star" src="/star.svg" width={15} height={15} />
-          <Image alt="Star" src="/star.svg" width={15} height={15} />
-          <Image alt="Star" src="/star.svg" width={15} height={15} />
-        </div>
-
         {/* Product Name */}
         {props.id ? (
           <Link
@@ -104,7 +95,6 @@ const SingleProductDisplay = (props: ISingleProduct) => {
         ) : (
           <p className="mt-4 font-bold text-lg">{props.name}</p>
         )}
-
         {/* Price */}
         <div className="mt-4 w-full flex items-center justify-start space-x-2 font-bold">
           {/* Previous Price */}

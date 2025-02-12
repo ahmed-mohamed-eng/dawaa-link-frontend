@@ -8,17 +8,8 @@ import toast, { Toaster } from "react-hot-toast";
 const ContactInfo = () => {
   return (
     <div className="w-full rounded-t-2xl bg-[#081F48] text-white flex flex-col xl:flex-row items-center justify-center px-8 xl:px-0 py-8 xl:py-16 space-y-10 xl:space-y-0 xl:divide-x-2 xl:divide-[#707070]">
-      <Toaster position="bottom-center" />
-
-      {/* Physical Location */}
-      <div className="xl:pr-32 font-bold text-3xl xl:text-4xl flex flex-col items-center justify-start space-y-4">
-        <span className="text-sm">Appointment Available</span>
-        <p>Whatsapp Number</p>
-        <p>1200 - 256 - 48966</p>
-      </div>
-
       {/* Icons */}
-      <div className="xl:pl-32 font-bold grid grid-cols-2 gap-8">
+      <div className="xl:pr-16 font-bold grid grid-cols-3 gap-8">
         <IconItem
           imageSrc="/icons/house-round.svg"
           contents={["Address", "813 Howard Street , Oswego NY 13126, USA"]}
@@ -34,10 +25,14 @@ const ContactInfo = () => {
           contents={["813Email", "Contact@Medical.Com"]}
         />
 
-        <IconItem
-          imageSrc="/icons/web-round.svg"
-          contents={["Website", "Contact@Medical.Com"]}
-        />
+        <Toaster position="bottom-center" />
+      </div>
+
+      {/* Physical Location */}
+      <div className="xl:pl-16 font-bold text-3xl flex flex-col items-center justify-start space-y-4">
+        <span className="text-sm">Appointment Available</span>
+        <p>Whatsapp Number</p>
+        <p>1200 - 256 - 48966</p>
       </div>
     </div>
   );

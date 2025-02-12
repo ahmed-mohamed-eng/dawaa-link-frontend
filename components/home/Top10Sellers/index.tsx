@@ -104,15 +104,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
@@ -199,15 +190,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
@@ -294,15 +276,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
@@ -389,15 +362,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
@@ -484,15 +448,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
@@ -579,15 +534,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
@@ -674,15 +620,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
@@ -769,15 +706,6 @@ const Top10Sellers = () => {
               </div>
               {/* Product Info */}
               <div className="w-full flex flex-col items-start justify-start">
-                {/* Rating */}
-                <div className="flex items-center justify-start space-x-0.5">
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                  <Image alt="Star" src="/star.svg" width={15} height={15} />
-                </div>
-
                 {/* Product Name */}
                 <p className="mt-4 font-bold text-lg">
                   Ayurvedic Pain Relief Spray
