@@ -65,7 +65,7 @@ const NavHeader = () => {
           height={30}
         />
       </Link>
-      
+
       {/* Search Box */}
       <div className="relative w-2/3 xl:w-96 p-4 xl:px-8 xl:py-4 rounded-full flex items-center justify-between bg-[#F3F3F3]">
         <input
@@ -129,14 +129,6 @@ const NavHeader = () => {
         >
           {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
           <span>About Us</span>
-        </Link>
-        <Link
-          href="/pages"
-          data-selected={true}
-          className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
-        >
-          {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
-          <span>Pages</span>
         </Link>
         <Link
           href="/products"
