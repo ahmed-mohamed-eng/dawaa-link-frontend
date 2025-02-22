@@ -12,6 +12,8 @@ import useFetchSuggestions from "@/data-fetch-hooks/products/useFetchSuggestions
 const NavHeader = () => {
   const [searchTxt, setSearchTxt] = useState<string>();
 
+  const [language, setLanguage] = useState("ar");
+
   const { data: suggestions } = useFetchSuggestions(searchTxt);
 
   const router = useRouter();
@@ -174,6 +176,36 @@ const NavHeader = () => {
           4
         </span> */}
         </div>
+      </div>
+
+      {/* Language */}
+      <div className="flex items-center justify-center space-x-4">
+        <button
+          className="flex items-center justify-center space-x-3"
+          title="Change Language"
+          onClick={() => setLanguage(language === "ar" ? "en" : "ar")}
+        >
+          {language === "en" ? (
+            <Image
+              alt="Change Language"
+              src="/icons/flag-uk.svg"
+              width={25}
+              height={25}
+              className="rounded-full"
+            />
+          ) : null}
+
+          {language === "ar" ? (
+            <Image
+              alt="Change Language"
+              src="/icons/flag-egypt.svg"
+              width={25}
+              height={25}
+              className="rounded-full"
+            />
+          ) : null}
+          <span className="uppercase">{language}</span>
+        </button>
       </div>
     </nav>
   );
