@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 

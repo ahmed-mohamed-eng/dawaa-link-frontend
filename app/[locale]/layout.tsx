@@ -3,7 +3,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
 
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+
 import "./globals.css";
+import RoutingLangues from "@/types/Language.type";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,17 +38,32 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "ar" }];
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const locale = (await params).locale as RoutingLangues;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

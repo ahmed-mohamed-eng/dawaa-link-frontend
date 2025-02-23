@@ -4,15 +4,20 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { v4 as uuid } from "uuid";
 
-import Link from "next/link";
 import Image from "next/image";
+import { Link, usePathname } from "@/i18n/routing";
+
+import { useTranslations, useLocale } from "next-intl";
 
 import useFetchSuggestions from "@/data-fetch-hooks/products/useFetchSuggestions";
 
 const NavHeader = () => {
+  const t = useTranslations("HeaderComponent");
+
   const [searchTxt, setSearchTxt] = useState<string>();
 
-  const [language, setLanguage] = useState("ar");
+  const locale = useLocale();
+  const pathname = usePathname();
 
   const { data: suggestions } = useFetchSuggestions(searchTxt);
 
@@ -122,7 +127,7 @@ const NavHeader = () => {
           className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
         >
           {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
-          <span>Home</span>
+          <span>{t("home")}</span>
         </Link>
         <Link
           href="/about-us"
@@ -130,7 +135,7 @@ const NavHeader = () => {
           className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
         >
           {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
-          <span>About Us</span>
+          <span>{t("aboutUs")}</span>
         </Link>
         <Link
           href="/products"
@@ -138,7 +143,7 @@ const NavHeader = () => {
           className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
         >
           {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
-          <span>Products</span>
+          <span>{t("products")}</span>
         </Link>
       </div>
 
@@ -180,12 +185,13 @@ const NavHeader = () => {
 
       {/* Language */}
       <div className="flex items-center justify-center space-x-4">
-        <button
+        <Link
+          href={pathname}
+          locale={locale === "ar" ? "en" : "ar"}
           className="flex items-center justify-center space-x-3"
           title="Change Language"
-          onClick={() => setLanguage(language === "ar" ? "en" : "ar")}
         >
-          {language === "en" ? (
+          {locale === "ar" ? (
             <Image
               alt="Change Language"
               src="/icons/flag-uk.svg"
@@ -195,7 +201,7 @@ const NavHeader = () => {
             />
           ) : null}
 
-          {language === "ar" ? (
+          {locale === "en" ? (
             <Image
               alt="Change Language"
               src="/icons/flag-egypt.svg"
@@ -204,8 +210,8 @@ const NavHeader = () => {
               className="rounded-full"
             />
           ) : null}
-          <span className="uppercase">{language}</span>
-        </button>
+          <span className="uppercase">{locale === "ar" ? "en" : "ar"}</span>
+        </Link>
       </div>
     </nav>
   );

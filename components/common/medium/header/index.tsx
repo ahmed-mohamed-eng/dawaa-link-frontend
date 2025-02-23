@@ -1,6 +1,5 @@
 import React from "react";
-
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 import { HiOutlineMapPin, HiOutlineTruck } from "react-icons/hi2";
 

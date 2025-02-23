@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
+import { Link } from "@/i18n/routing";
 
 import ISingleProduct from "@/types/products/single-product.interface";
 

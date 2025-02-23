@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 

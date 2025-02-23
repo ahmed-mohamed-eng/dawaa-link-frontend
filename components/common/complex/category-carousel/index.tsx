@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
+import { Link } from "@/i18n/routing";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 import ISingleProduct from "@/types/products/single-product.interface";

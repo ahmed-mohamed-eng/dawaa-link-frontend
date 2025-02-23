@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 
-import Link from "next/link";
 import { v4 as uuid } from "uuid";
 
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { Link } from "@/i18n/routing";
 
 type OpenListNavProps = {
   name: string;

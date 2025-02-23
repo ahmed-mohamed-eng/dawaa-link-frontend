@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { Link } from "@/i18n/routing";
 
 import ISingleProduct from "@/types/products/single-product.interface";
-import Link from "next/link";
 
 const SingleProductDisplay = (props: ISingleProduct) => {
   return (

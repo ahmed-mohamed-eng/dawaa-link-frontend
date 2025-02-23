@@ -34,7 +34,10 @@ export default async function Home() {
       <main className="w-full flex flex-col">
         <HeroContent products={data?.products || []} />
         <AboutUsBrief />
-        <CategorizedProducts categories={data?.categories || []} products={data?.products || []} />
+        <CategorizedProducts
+          categories={data?.categories || []}
+          products={data?.products || []}
+        />
         <DealsOfTheWeek />
         <Top10Sellers />
         <PlatformFeatureIcons />
