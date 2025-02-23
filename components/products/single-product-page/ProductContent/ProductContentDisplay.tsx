@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
 
@@ -21,7 +23,7 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
     imageGallery.length > 0 ? imageGallery : ["", "", "", "", ""]
   ).slice(1, 5);
 
-  console.log({ product: product });
+  const [productQuantity, setProductQuantity] = useState(1);
 
   return (
     <div className="w-full border-b border-black pb-10 xl:pb-20 flex flex-col items-start justify-start space-y-10 xl:space-y-20">
@@ -117,8 +119,16 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
           <div className="mt-14 w-full flex flex-col items-start justify-start space-y-7 border-b border-black pb-5">
             {/* Buy and Cart */}
             <div className="w-full grid grid-cols-4 gap-4">
-              <ProductQuantity maxQuantity={product.quantity} />
-              {product.id && <AddToCartBtn productId={product.id} />}
+              <ProductQuantity
+                maxQuantity={product.quantity}
+                onChange={setProductQuantity}
+              />
+              {product.id && (
+                <AddToCartBtn
+                  toAddProduct={product}
+                  quantity={productQuantity}
+                />
+              )}
               {product.id && <BuyButton productId={product.id} />}
             </div>
 

@@ -10,7 +10,7 @@ import useFetchCartItems from "@/data-fetch-hooks/useFetchCartItems";
 const CartIcon = () => {
   const products = useFetchCartItems();
 
-  const itemsCount = products[0].product_carts.length || 0;
+  const itemsCount = products.length || 0;
 
   return (
     <div className="relative p-2">

@@ -8,7 +8,7 @@ export interface ProductQuantityProps {
 }
 
 const ProductQuantity = (props: ProductQuantityProps) => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const onDecreaseValue = () => {
     if (quantity <= 0) {

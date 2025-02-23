@@ -46,7 +46,9 @@ const cartItemsFetcher = (url: string) => {
 export default function useFetchCartItems() {
   const url = `${BASE_URL}/client/carts`;
 
-  const { data, error } = useSWR(url, cartItemsFetcher);
+  const { data, error } = useSWR(url, cartItemsFetcher, {
+    revalidateOnMount: true,
+  });
 
   if (error) {
     return [];

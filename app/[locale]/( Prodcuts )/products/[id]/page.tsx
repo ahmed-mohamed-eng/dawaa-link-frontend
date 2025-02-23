@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
+import { Toaster } from "react-hot-toast";
 
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
 // import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
+import BASE_URL from "@/constants/BaseURL";
 import HeroContent from "@/components/products/single-product-page/HeroContent";
 import ProductContent from "@/components/products/single-product-page/ProductContent";
 import ISingleProduct from "@/types/products/single-product.interface";
-import BASE_URL from "@/constants/BaseURL";
 
 type ProductsResponse = {
   data: ISingleProduct;
@@ -50,6 +51,8 @@ export default async function ProductsPage({
       </main>
 
       <Footer />
+
+      <Toaster position="bottom-right" />
     </div>
   );
 }
