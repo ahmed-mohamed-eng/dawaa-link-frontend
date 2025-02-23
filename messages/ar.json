@@ -1,3 +1,7 @@
 {
-    
+    "HeaderComponent": {
+        "home": "الرئيسية",
+        "aboutUs": "عنا",
+        "products": "كل المنتجات"
+    }
 }

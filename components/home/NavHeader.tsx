@@ -10,6 +10,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 
 import useFetchSuggestions from "@/data-fetch-hooks/products/useFetchSuggestions";
+import CartIcon from "./CartIcon";
 
 const NavHeader = () => {
   const t = useTranslations("HeaderComponent");
@@ -149,15 +150,7 @@ const NavHeader = () => {
 
       {/* User Info */}
       <div className="hidden xl:flex items-center justify-start space-x-4">
-        {/* Cart */}
-        <div className="relative p-2">
-          <Link href="/cart">
-            <Image alt="Go to Cart" src="/cart.svg" width={25} height={25} />
-          </Link>
-          <span className="w-4 h-4 text-xs bg-[#00A6FB] text-white flex items-center justify-center rounded-full absolute top-0 right-0">
-            4
-          </span>
-        </div>
+        <CartIcon />
 
         {/* User */}
         <div className="relative p-2">
