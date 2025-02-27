@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "@/i18n/routing";
+import { Link, redirect } from "@/i18n/routing";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
@@ -14,7 +13,10 @@ const checkAuthOrRedirect = async () => {
   const authToken = cookieStore.get(TokenName);
 
   if (authToken) {
-    redirect("/account");
+    redirect({
+      href: "/account",
+      locale: "en",
+    });
   }
 
   return;

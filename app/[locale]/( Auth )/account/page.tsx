@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
@@ -11,7 +11,10 @@ const getAuthOrRedirect = async () => {
   const authToken = cookieStore.get(TokenName);
 
   if (!authToken) {
-    redirect("/login");
+    redirect({
+      href: "/login",
+      locale: "en",
+    });
   }
 
   return authToken;
