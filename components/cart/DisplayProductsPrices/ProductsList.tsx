@@ -1,57 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo } from "react";
 import { v4 as uuid } from "uuid";
 
 import ToBuyProduct from "./ToBuyProduct";
-import ISingleProduct from "@/types/products/single-product.interface";
+import CartProductData, {
+  CartInnerProduct,
+} from "@/types/cart/CartProductData.type";
 
-type Product = {
-  id: number;
-  amount: number;
-};
+import lodash from "lodash";
 
 export interface ProductsListProps {
-  onUpdateProductList: (productList: Product[]) => void;
-  products?: ISingleProduct[];
+  products?: CartProductData[];
 }
 
 const ProductsList = (props: ProductsListProps) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const products = useMemo(() => {
+    return props.products?.map((v) => v.product_carts).flat();
+  }, [props.products]);
 
-  const onUpdateProductList = (amount: number, id?: number) => {
-    if (!id) {
-      return;
+  const filteredProducts: CartInnerProduct[] = useMemo(() => {
+    const prods: { [key: number]: number } = {};
+
+    // Find total quantity
+    for (const item of products || []) {
+      const parsedValue = parseInt(item.quantity_product) || 0;
+
+      const quantity = parsedValue + (prods[item.id] || 0);
+
+      prods[item.id] = quantity;
     }
 
-    const prevProduct = products.find((product) => product.id === id);
+    // Remove duplicates.
+    const filteredList = lodash.map(
+      lodash.uniqBy(products, (p) => p.id),
+      (p) => {
+        if (typeof prods[p.id] !== "undefined") {
+          const updatedProduct = Object.assign(p);
+          updatedProduct.quantity_product = prods[p.id].toString();
 
-    if (prevProduct?.amount === amount && prevProduct.id === id) {
-      return;
-    }
+          return updatedProduct;
+        } else {
+          return p;
+        }
+      }
+    );
 
-    const updatedProducts = Array.from(products);
-
-    updatedProducts.push({ id, amount });
-
-    props.onUpdateProductList(updatedProducts);
-    setProducts(updatedProducts);
-  };
-
-  const prevProducts =
-    (props.products?.filter(
-      (v) => typeof v.id !== "undefined"
-    ) as ISingleProduct[]) || [];
+    return filteredList;
+  }, [products]);
 
   return (
     <div className="w-full col-span-4 flex flex-col items-start justify-start space-y-4">
-      {prevProducts.map((prod) => {
+      {filteredProducts?.map((prod) => {
         return (
           <ToBuyProduct
             key={uuid()}
-            amount={10}
-            onAmountChange={onUpdateProductList}
-            product={prod}
+            amount={parseInt(prod.quantity_product)}
+            productId={prod.id}
           />
         );
       })}

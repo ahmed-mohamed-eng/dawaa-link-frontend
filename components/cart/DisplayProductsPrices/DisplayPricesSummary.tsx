@@ -1,12 +1,13 @@
 import React from "react";
+import CartProductData from "@/types/cart/CartProductData.type";
 
 export interface DisplayPricesSummaryProps {
-  productList?: { amount: number; id: number }[];
+  productList?: CartProductData[];
 }
 
 const DisplayPricesSummary = (props: DisplayPricesSummaryProps) => {
   const subTotalPrice = props.productList?.reduce((acc, product) => {
-    return acc + product.amount;
+    return acc + parseInt(product.total_price_cart);
   }, 0);
 
   return (
