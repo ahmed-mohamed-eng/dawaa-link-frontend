@@ -43,7 +43,7 @@ const HeroContent = (props: HeroContentProps) => {
               Join For Free
             </Link>
 
-            <div className="flex items-center justify-start space-x-2 xl:space-x-6">
+            {/* <div className="flex items-center justify-start space-x-2 xl:space-x-6">
               <button>
                 <Image
                   className="hidden xl:block"
@@ -63,7 +63,7 @@ const HeroContent = (props: HeroContentProps) => {
               </button>
 
               <span className="text-sm xl:text-base">Watch How It Works</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
