@@ -1,6 +1,30 @@
-import React from "react";
+"use client";
 
-const CountDownContainer = () => {
+import { DateTime } from "luxon";
+import React, { useMemo } from "react";
+
+import CountDown from "react-countdown";
+
+const DEFAULT_OFFSET = 1_000_000_000;
+
+export interface CountDownContainerProps {
+  endDate?: string;
+}
+
+const CountDownContainer = (props: CountDownContainerProps) => {
+  const endDate = useMemo(() => {
+    if (!props.endDate) {
+      return Date.now() + DEFAULT_OFFSET;
+    }
+
+    const dueDate = DateTime.fromISO(props.endDate);
+    const currentDate = DateTime.now();
+
+    return dueDate > currentDate
+      ? dueDate.toMillis()
+      : currentDate.toMillis() + DEFAULT_OFFSET;
+  }, [props.endDate]);
+
   return (
     <div className="w-full flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-6 xl:space-y-0">
       <h3 className="font-bold text-4xl text-black flex-1">
@@ -8,21 +32,28 @@ const CountDownContainer = () => {
       </h3>
 
       {/* Count Down */}
-      <div className="w-full flex-1 flex items-center justify-start space-x-2 xl:space-x-9">
-        <CountBoxItem name="Days" num={25} />
+      <CountDown
+        date={endDate}
+        renderer={({ days, hours, minutes, seconds }) => {
+          return (
+            <div className="w-full flex-1 flex items-center justify-start space-x-2 xl:space-x-9">
+              <CountBoxItem name="Days" num={days} />
 
-        <span className="font-black text-3xl xl:text-6xl">:</span>
+              <span className="font-black text-3xl xl:text-6xl">:</span>
 
-        <CountBoxItem name="Hours" num={13} />
+              <CountBoxItem name="Hours" num={hours} />
 
-        <span className="font-black text-3xl xl:text-6xl">:</span>
+              <span className="font-black text-3xl xl:text-6xl">:</span>
 
-        <CountBoxItem name="Minutes" num={11} />
+              <CountBoxItem name="Minutes" num={minutes} />
 
-        <span className="font-black text-3xl xl:text-6xl">:</span>
+              <span className="font-black text-3xl xl:text-6xl">:</span>
 
-        <CountBoxItem name="Seconds" num={59} />
-      </div>
+              <CountBoxItem name="Seconds" num={seconds} />
+            </div>
+          );
+        }}
+      />
     </div>
   );
 };

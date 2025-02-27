@@ -1,16 +1,21 @@
 "use client";
 
 import React from "react";
-
-import SingleProductDisplay from "@/components/common/complex/single-product-display";
+import Image from "next/image";
+import { v4 as uuid } from "uuid";
 
 import Slider, { Settings, CustomArrowProps } from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
 
-const WeekProducts = () => {
+import FetchedProduct from "@/components/common/complex/fetched-product";
+
+export interface WeekProductsProps {
+  productsIds: number[];
+}
+
+const WeekProducts = (props: WeekProductsProps) => {
   const settings: Settings = {
     infinite: true,
     autoplay: true,
@@ -37,58 +42,13 @@ const WeekProducts = () => {
   return (
     <div className="w-full">
       <Slider {...settings}>
-        <SingleProductDisplay
-          description="Hello"
-          final_price="$19.59"
-          name="Ayurvedic Pain Relief Spray"
-          price="$25.59"
-          quantity="200"
-        />
-
-        <SingleProductDisplay
-          description="Hello"
-          final_price="$19.59"
-          name="Ayurvedic Pain Relief Spray"
-          price="$25.59"
-          quantity="200"
-        />
-
-        <SingleProductDisplay
-          description="Hello"
-          final_price="$19.59"
-          name="Ayurvedic Pain Relief Spray"
-          price="$25.59"
-          quantity="200"
-        />
-
-        <SingleProductDisplay
-          description="Hello"
-          final_price="$19.59"
-          name="Ayurvedic Pain Relief Spray"
-          price="$25.59"
-          quantity="200"
-        />
-        <SingleProductDisplay
-          description="Hello"
-          final_price="$19.59"
-          name="Ayurvedic Pain Relief Spray"
-          price="$25.59"
-          quantity="200"
-        />
-        <SingleProductDisplay
-          description="Hello"
-          final_price="$19.59"
-          name="Ayurvedic Pain Relief Spray"
-          price="$25.59"
-          quantity="200"
-        />
-        <SingleProductDisplay
-          description="Hello"
-          final_price="$19.59"
-          name="Ayurvedic Pain Relief Spray"
-          price="$25.59"
-          quantity="200"
-        />
+        {props.productsIds.map((id) => {
+          return (
+            <div key={uuid()} className="px-4">
+              <FetchedProduct productId={id} />
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );

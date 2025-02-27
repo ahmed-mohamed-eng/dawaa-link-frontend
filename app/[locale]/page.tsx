@@ -11,12 +11,19 @@ import CategorizedProducts from "@/components/home/CategorizedProducts";
 import PlatformFeatureIcons from "@/components/home/PlatformFeatureIcons";
 
 import BASE_URL from "@/constants/BaseURL";
+import HomePageData from "@/types/pages-data/HomePageData.type";
+
+type HomeDataResponse = {
+  data: HomePageData;
+  message: string;
+  status: string | boolean;
+};
 
 const getHomePageData = async () => {
   const url = `${BASE_URL}/client/home`;
 
   try {
-    const res = await axios.get(url);
+    const res = await axios.get<HomeDataResponse>(url);
     return res.data?.data;
   } catch (error) {
     console.error(error);
@@ -38,8 +45,8 @@ export default async function Home() {
           categories={data?.categories || []}
           products={data?.products || []}
         />
-        <DealsOfTheWeek />
-        <Top10Sellers />
+        <DealsOfTheWeek offeredProducts={data?.offers || []} />
+        <Top10Sellers products={data?.top_product || []} />
         <PlatformFeatureIcons />
         <ContactInfo />
       </main>
