@@ -45,7 +45,7 @@ const ToBuyProduct = (props: IToBuyProductProps) => {
           </div>
 
           {/* Price */}
-          <p className="text-lg font-semibold">EGP{product?.final_price}</p>
+          <p className="text-lg font-semibold">SAR{product?.final_price}</p>
         </div>
       </div>
     </div>

@@ -34,20 +34,21 @@ const addItemToCart = async (cartItem: CartItem) => {
   const accessToken = getCookie(TokenName);
 
   if (!accessToken) {
-    return null;
+    return "Please login before adding to cart.";
   }
 
   try {
-    const res = await axios.post<SuccessResponse>(url, cartItem, {
+    await axios.post<SuccessResponse>(url, cartItem, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    return res.data.message;
-  } catch (error: unknown) {
+    return true;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     console.error(error);
-    return null;
+    return error?.message as string;
   }
 };
 
@@ -105,8 +106,8 @@ const AddToCartBtn = (props: AddToCartBtnProps) => {
 
     const result = await addItemToCart(item);
 
-    if (result === null) {
-      toast.error("Can't add product to cart.");
+    if (typeof result === "string") {
+      toast.error(result);
       setLoading(false);
       return;
     }

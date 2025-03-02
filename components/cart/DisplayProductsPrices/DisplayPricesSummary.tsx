@@ -19,7 +19,7 @@ const DisplayPricesSummary = (props: DisplayPricesSummaryProps) => {
         {/* Subtotal */}
         <div className="flex items-center justify-between w-full">
           <p>Subtotal</p>
-          <p>EGP{subTotalPrice || 0}</p>
+          <p>SAR{subTotalPrice || 0}</p>
         </div>
 
         {/* Shipping */}
@@ -31,7 +31,7 @@ const DisplayPricesSummary = (props: DisplayPricesSummaryProps) => {
         {/* Total */}
         <div className="flex items-center justify-between w-full">
           <p>Total</p>
-          <p>EGP{subTotalPrice ? subTotalPrice + 10 : 0}</p>
+          <p>SAR{subTotalPrice ? subTotalPrice + 10 : 0}</p>
         </div>
       </div>
 

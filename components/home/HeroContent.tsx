@@ -132,9 +132,11 @@ const HeroContent = (props: HeroContentProps) => {
                 })}
               </div>
 
-              <button className="px-5 py-2 bg-[#FF922E] font-bold text-white">
-                More
-              </button>
+              {(props.products?.length || 0) > 6 ? (
+                <button className="px-5 py-2 bg-[#FF922E] font-bold text-white">
+                  More
+                </button>
+              ) : null}
             </div>
           </div>
         </div>

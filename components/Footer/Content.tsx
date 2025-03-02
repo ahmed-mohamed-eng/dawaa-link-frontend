@@ -13,7 +13,7 @@ const Content = () => {
         <p className="font-bold text-2xl">Company</p>
 
         <div className="flex flex-col items-start justify-start space-y-2 xl:space-y-5">
-          <Link href="/about">About</Link>
+          <Link href="/about-us">About</Link>
           <Link href="/plans">Plans</Link>
           <Link href="/services">Services</Link>
           <Link href="/products">Products</Link>

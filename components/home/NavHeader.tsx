@@ -197,7 +197,7 @@ const NavHeader = () => {
           {locale === "en" ? (
             <Image
               alt="Change Language"
-              src="/icons/flag-egypt.svg"
+              src="/icons/flag-saudi.svg"
               width={25}
               height={25}
               className="rounded-full"

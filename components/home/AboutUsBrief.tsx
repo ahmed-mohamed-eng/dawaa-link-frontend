@@ -6,7 +6,7 @@ const AboutUsBrief = () => {
       {/* Content */}
       <div className="w-full grid grid-cols-2">
         {/* Images */}
-        <div className="hidden xl:block w-full relative">
+        <div className="hidden h-96 xl:block w-full relative">
           <Image
             className="absolute top-0 left-0 -z-50"
             alt="Normal Image"
@@ -56,35 +56,6 @@ const AboutUsBrief = () => {
             ultricies sem id nibh dapibus, quis rutrum odio vulputate. Morbi a
             sem et est congue aliquet quis sed nisl.
           </p>
-
-          {/* Feature */}
-          <div className="w-full flex flex-col xl:flex-row items-start xl:items-center justify-start xl:justify-between space-y-2 xl:space-y-0 mt-9">
-            {/* Feature Display */}
-            <div className="flex-1 flex items-center justify-start space-x-2 xl:space-x-5">
-              <div className="w-7 h-7 rounded-full border border-[#444444] flex items-center justify-center">
-                <span className="w-2 h-2 rounded-full bg-[#00A6FB]" />
-              </div>
-
-              <p className="font-bold text-xs xl:text-base">
-                Personalized Consultations
-              </p>
-            </div>
-
-            {/* Feature Display */}
-            <div className="flex-1 flex items-center justify-start space-x-2 xl:space-x-5">
-              <div className="w-7 h-7 rounded-full border border-[#444444] flex items-center justify-center">
-                <span className="w-2 h-2 rounded-full bg-[#00A6FB]" />
-              </div>
-
-              <p className="font-bold text-xs xl:text-base">
-                Personalized Consultations
-              </p>
-            </div>
-          </div>
-
-          <button className="mt-8 xl:mt-16 px-3 xl:px-7 py-2 xl:py-5 text-sm xl:text-base rounded-full bg-[#00A6FB] font-bold text-white">
-            Discover More
-          </button>
         </div>
       </div>
 

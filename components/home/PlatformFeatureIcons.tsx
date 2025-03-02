@@ -42,7 +42,7 @@ type FeatureItemProps = {
 
 function FeatureItem(props: FeatureItemProps) {
   return (
-    <div className="xl:pr-10 flex items-center justify-start space-x-3 xl:space-x-5">
+    <div className="xl:px-10 flex items-center justify-start space-x-3 xl:space-x-5">
       <Image
         alt="Feature"
         className="hidden xl:block"

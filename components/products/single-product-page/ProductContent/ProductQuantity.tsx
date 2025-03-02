@@ -11,7 +11,7 @@ const ProductQuantity = (props: ProductQuantityProps) => {
   const [quantity, setQuantity] = useState(1);
 
   const onDecreaseValue = () => {
-    if (quantity <= 0) {
+    if (quantity <= 1) {
       return;
     }
 
