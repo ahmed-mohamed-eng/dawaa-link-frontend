@@ -3,7 +3,7 @@ import { Link } from "@/i18n/routing";
 
 const LogoSection = () => {
   return (
-    <div className="flex flex-col items-start justify-start">
+    <div className="flex flex-1 flex-col items-start justify-start">
       <Link href="/">
         <Image
           alt="Company Logo"
