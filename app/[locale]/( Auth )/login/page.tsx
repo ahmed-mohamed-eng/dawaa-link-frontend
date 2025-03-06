@@ -35,7 +35,9 @@ export default async function LoginInPage() {
         <div className="mt-4 w-full flex items-center justify-center">
           <p>
             <span> If you don&apos;t have an account </span>
-            <Link href="/register">Create Account</Link>
+            <Link href="/register" className="text-[#00A6FB]">
+              Create Account
+            </Link>
           </p>
         </div>
       </main>

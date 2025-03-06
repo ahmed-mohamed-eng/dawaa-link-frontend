@@ -19,7 +19,7 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
       require_protocol: true,
     })
       ? props.photo
-      : imgPlaceholderURL({ text: "P" });
+      : imgPlaceholderURL({ text: "D" });
 
   return (
     <div className="relative w-full flex flex-col items-start justify-start space-y-8">

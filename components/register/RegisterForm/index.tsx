@@ -1,14 +1,15 @@
 "use client";
 
 import axios from "axios";
-import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 
 import BASE_URL from "@/constants/BaseURL";
+
+import SelectCompanyField from "./SelectCompanyField";
 
 type FormRegisterData = {
   name: string;
@@ -25,9 +26,8 @@ type FormRegisterData = {
 const RegisterForm = () => {
   const { register, handleSubmit } = useForm<FormRegisterData>();
 
-  const [photoName, setPhotoName] = useState<string>();
-  const [photoUri, setPhotoUri] = useState<string>();
-  const [commercialName, setCommercialName] = useState<string>();
+  // const [commercialName, setCommercialName] = useState<string>();
+  // const [companyFields, setCompanyFields] = useState<string[]>([]);
 
   const router = useRouter();
 
@@ -63,75 +63,28 @@ const RegisterForm = () => {
     router.push("/login");
   };
 
-  const onUploadPhotoChange = async (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const file = e.target.files?.[0];
-    const fileData = await file?.arrayBuffer();
+  // const onUploadCommercialChange = async (
+  //   e: React.ChangeEvent<HTMLInputElement>
+  // ) => {
+  //   const file = e.target.files?.[0];
 
-    if (!fileData) {
-      return;
-    }
-
-    const base64String = btoa(String.fromCharCode(...new Uint8Array(fileData)));
-
-    setPhotoName(file?.name);
-    setPhotoUri(base64String);
-  };
-
-  const onUploadCommercialChange = async (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const file = e.target.files?.[0];
-
-    setCommercialName(file?.name);
-  };
+  //   setCommercialName(file?.name);
+  // };
 
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="w-full flex items-center justify-center text-white">
       <form
-        className="p-4 bg-[#00A6FB] rounded-lg flex flex-col items-center justify-start space-y-8"
+        className="w-full px-8 py-4 bg-[#00A6FB] rounded-lg flex flex-col items-start justify-start space-y-8"
         onSubmit={handleSubmit(onSubmitForm)}
       >
-        <div className="w-full grid grid-cols-2 gap-x-4 gap-y-8">
-          {/* User Photo */}
-          <div className="w-full col-span-2 flex flex-col items-center justify-start space-y-3">
-            <h1 className="w-full font-bold text-white text-xl text-center">
-              User Photo
-            </h1>
+        <div className="flex flex-col items-start justify-start space-y-2">
+          <h1 className="capitalize text-3xl font-bold">
+            Login to your account
+          </h1>
+          <p>Welcome to our website. please enter your details</p>
+        </div>
 
-            <label
-              htmlFor="user-photo"
-              className="flex items-center justify-center w-20 h-20 rounded-full border bg-white text-sm overflow-hidden p-2"
-            >
-              {photoUri ? (
-                <div className="relative w-full h-full">
-                  <Image
-                    alt={photoName || ""}
-                    src={`data:image/jpeg;base64,${photoUri}`}
-                    fill
-                    style={{ objectFit: "contain" }}
-                    className="w-full h-full"
-                  />
-                </div>
-              ) : null}
-            </label>
-
-            <span className="text-sm text-slate-600">{photoName}</span>
-
-            <input
-              id="user-photo"
-              type="file"
-              accept="image/png, image/jpeg, image/jpg, image/webp, image/avif"
-              className="hidden w-full px-4 py-3 text-lg outline-none rounded-md"
-              placeholder="Please Enter Your Email"
-              {...register("photo", {
-                required: true,
-                onChange: onUploadPhotoChange,
-              })}
-            />
-          </div>
-
+        <div className="w-full flex flex-col items-start justify-start space-y-8">
           {/* User Name */}
           <div className="w-full flex flex-col items-start justify-start space-y-2">
             <label
@@ -145,6 +98,22 @@ const RegisterForm = () => {
               className="w-full px-4 py-3 text-lg outline-none rounded-md"
               placeholder="Please Enter Your Name"
               {...register("name", { required: true })}
+            />
+          </div>
+
+          {/* Company Name */}
+          <div className="w-full flex flex-col items-start justify-start space-y-2">
+            <label
+              htmlFor="user-company-name"
+              className="w-full font-bold text-white text-xl"
+            >
+              Company Name
+            </label>
+            <input
+              id="user-company-name"
+              className="w-full px-4 py-3 text-lg outline-none rounded-md"
+              placeholder="Please Enter Your Company Name"
+              {...register("companyName", { required: true })}
             />
           </div>
 
@@ -182,20 +151,16 @@ const RegisterForm = () => {
             />
           </div>
 
-          {/* Company Name */}
+          {/* Company Working Field */}
           <div className="w-full flex flex-col items-start justify-start space-y-2">
             <label
               htmlFor="user-company-name"
               className="w-full font-bold text-white text-xl"
             >
-              Company Name
+              Company Working Field
             </label>
-            <input
-              id="user-company-name"
-              className="w-full px-4 py-3 text-lg outline-none rounded-md"
-              placeholder="Please Enter Your Company Name"
-              {...register("companyName", { required: true })}
-            />
+
+            <SelectCompanyField />
           </div>
 
           {/* Password */}
@@ -229,28 +194,6 @@ const RegisterForm = () => {
               className="w-full px-4 py-3 text-lg outline-none rounded-md"
               placeholder="Please Enter Password"
               {...register("password", { required: true, deps: ["password"] })}
-            />
-          </div>
-
-          {/* Commercial Register */}
-          <div className="w-full col-span-2 flex flex-col items-center justify-start space-y-3">
-            <label
-              htmlFor="user-commercial-photo"
-              className="flex items-center justify-center w-full px-12 py-2 bg-white rounded-md cursor-pointer"
-            >
-              {commercialName || "Commercial Register"}
-            </label>
-
-            <input
-              id="user-commercial-photo"
-              type="file"
-              accept="image/png, image/jpeg, image/jpg, image/webp, image/avif, application/pdf"
-              className="hidden w-full px-4 py-3 text-lg outline-none rounded-md"
-              placeholder="Please Enter Your Email"
-              {...register("commercialRegister", {
-                required: true,
-                onChange: onUploadCommercialChange,
-              })}
             />
           </div>
 
