@@ -37,7 +37,7 @@ const HeroContent = (props: HeroContentProps) => {
 
           <div className="flex items-center justify-start space-x-6 xl:space-x-10 mt-9">
             <Link
-              href="/register"
+              href="https://dawaa-link-dashboard.vercel.app/dawwaLink_dashboard/auth/register/company"
               className="bg-[#00A6FB] text-xs xl:text-base text-center text-white font-bold px-2 xl:px-8 py-2 xl:py-4 rounded-full"
             >
               Join For Free
