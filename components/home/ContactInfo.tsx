@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const ContactInfo = () => {
   return (
-    <div className="w-full rounded-t-2xl bg-[#081F48] text-white flex flex-col xl:flex-row items-center justify-center px-8 xl:px-0 py-8 xl:py-16 space-y-10 xl:space-y-0 xl:divide-x-2 xl:divide-[#707070]">
+    <div className="w-full rounded-t-2xl bg-[#081F48] text-white flex rtl:flex-row-reverse flex-col xl:flex-row items-center justify-center px-8 xl:px-0 py-8 xl:py-16 space-y-10 xl:space-y-0 xl:divide-x-2 xl:divide-[#707070]">
       {/* Icons */}
       <div className="xl:pr-16 font-bold grid grid-cols-3 gap-8">
         <IconItem
@@ -61,7 +61,7 @@ function IconItem(props: IconItemProps) {
   };
 
   return (
-    <div className="flex flex-col xl:flex-row xl:space-x-8 space-y-3 xl:space-y-0">
+    <div className="flex rtl:flex-row-reverse flex-col xl:flex-row xl:space-x-8 space-y-3 xl:space-y-0">
       <Image
         className="hidden xl:block"
         alt="Physical Address"

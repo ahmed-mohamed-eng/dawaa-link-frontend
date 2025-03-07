@@ -1,31 +1,34 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const PlatformFeatureIcons = () => {
+  const t = useTranslations("HomePage.PlatformFeatureIcons");
+
   return (
     <div className="pb-10 xl:pb-40 w-full">
-      <div className="w-full grid grid-cols-2 gap-4 xl:flex xl:items-center xl:justify-center xl:divide-x-2 xl:divide-black">
+      <div className="w-full grid grid-cols-2 gap-4 xl:flex xl:rtl:flex-row-reverse xl:items-center xl:justify-center xl:divide-x-2 xl:divide-black">
         <FeatureItem
-          name="Reward Program"
+          name={t("rewardProgram.title")}
           iconURI="/icons/present.svg"
-          brief="Morbi tristique felis."
+          brief={t("rewardProgram.description")}
         />
 
         <FeatureItem
-          name="Special Discounts"
+          name={t("specialDiscounts.title")}
           iconURI="/icons/discount.svg"
-          brief="Morbi tristique felis."
+          brief={t("specialDiscounts.description")}
         />
 
         <FeatureItem
-          name="Reward Program"
+          name={t("greatPrices.title")}
           iconURI="/icons/delivery.svg"
-          brief="Morbi tristique felis."
+          brief={t("greatPrices.description")}
         />
 
         <FeatureItem
-          name="Great Prices"
+          name={t("fastDelivery.title")}
           iconURI="/icons/offer.svg"
-          brief="Morbi tristique felis."
+          brief={t("fastDelivery.description")}
         />
       </div>
     </div>
@@ -42,7 +45,7 @@ type FeatureItemProps = {
 
 function FeatureItem(props: FeatureItemProps) {
   return (
-    <div className="xl:px-10 flex items-center justify-start space-x-3 xl:space-x-5">
+    <div className="xl:px-10 flex rtl:flex-row-reverse items-center justify-start space-x-3 xl:space-x-5">
       <Image
         alt="Feature"
         className="hidden xl:block"

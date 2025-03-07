@@ -75,13 +75,13 @@ const NavHeader = () => {
       </Link>
 
       {/* Search Box */}
-      <div className="relative w-2/3 xl:w-96 p-4 xl:px-8 xl:py-4 rounded-full flex items-center justify-between bg-[#F3F3F3]">
+      <div className="relative w-2/3 xl:w-96 p-4 xl:px-8 xl:py-4 rounded-full flex rtl:flex-row-reverse items-center justify-between bg-[#F3F3F3]">
         <input
           onChange={(e) => setSearchTxt(e.target.value)}
           onKeyDown={onPressEnter}
           type="text"
           className="w-[80%] bg-inherit outline-none text-sm xl:text-base"
-          placeholder="Search For Product"
+          placeholder={t("product_search_placeholder")}
         />
 
         <button onClick={onClickSearch}>
@@ -121,7 +121,7 @@ const NavHeader = () => {
       </div>
 
       {/* nav list */}
-      <div className="hidden xl:flex items-center space-x-12 font-bold text-[#023E8A]">
+      <div className="hidden xl:flex rtl:flex-row-reverse items-center space-x-12 font-bold text-[#023E8A]">
         <Link
           href="/"
           data-selected={true}
@@ -149,7 +149,7 @@ const NavHeader = () => {
       </div>
 
       {/* User Info */}
-      <div className="hidden xl:flex items-center justify-start space-x-4">
+      <div className="hidden xl:flex rtl:flex-row-reverse items-center justify-start space-x-4">
         <CartIcon />
 
         {/* User */}
@@ -181,7 +181,7 @@ const NavHeader = () => {
         <Link
           href={pathname}
           locale={locale === "ar" ? "en" : "ar"}
-          className="flex items-center justify-center space-x-3"
+          className="flex rtl:flex-row-reverse items-center justify-center space-x-3"
           title="Change Language"
         >
           {locale === "ar" ? (

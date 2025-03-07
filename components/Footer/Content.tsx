@@ -53,7 +53,7 @@ const Content = () => {
         <div className="flex flex-col items-start justify-start space-y-4 xl:space-y-7 text-white">
           <p className="font-bold text-2xl">Join Us As ?</p>
 
-          <div className="flex items-center justify-start space-x-4">
+          <div className="flex rtl:flex-row-reverse items-center justify-start space-x-4">
             <Link
               href="/login"
               className="px-10 py-2 border border-white rounded-md whitespace-nowrap font-bold"

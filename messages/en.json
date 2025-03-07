@@ -2,7 +2,63 @@
     "HeaderComponent": {
         "home": "Home",
         "aboutUs": "About Us",
-        "products": "Products"
+        "products": "Products",
+        "product_search_placeholder": "Search for products"
     },
-    "HomePage": {}
+    "HomePage": {
+        "heroCompanyName": "Health Care",
+        "heroMainContent": "A Dose of Care A World Your Health Commitment",
+        "heroInfo": "Mauris volutpat interdum mauris, ut porttitor urna ullamcorper ut. Integer accumsan ligula non metus ornare eleifend. Morbi urna massa, commodonec.",
+        "heroJoinButton": "Join For Free",
+        "AdvancedSearch": {
+            "searchPlaceholder": "Search for products",
+            "searchButton": "Search",
+            "suggestionText": "You May be Looking For",
+            "moreBtn": "More"
+        },
+        "AboutUs": {
+            "title": "About Us",
+            "header": "Achieving Better Health Care One Patient Time.",
+            "disclaimer": "Trusted by 10,000+ Companies around the world",
+            "pp1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+            "pp2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo."
+        },
+        "CategorizedProducts": {
+            "title": "Our popular categories",
+            "allProductsOption": "All Products",
+            "viewAll": "View All",
+            "viewLess": "View Less"
+        },
+        "DealsOfTheWeek": {
+            "header": "Best Deals of the week !",
+            "countDown": {
+                "days": "Days",
+                "hours": "Hours",
+                "minutes": "Minutes",
+                "seconds": "Seconds"
+            }
+        },
+        "Top10Sellers": {
+            "title": "Top 10 Best Seller Products",
+            "text": "View All Products"
+        },
+        "PlatformFeatureIcons": {
+            "rewardProgram": {
+                "title": "Reward Program",
+                "description": "Earn points for every purchase and redeem them for discounts."
+            },
+            "specialDiscounts": {
+                "title": "Special Discounts",
+                "description": "Get special discounts on selected products."
+            },
+            "greatPrices": {
+                "title": "Great Prices",
+                "description": "Get the best prices on all products."
+            },
+            "fastDelivery": {
+                "title": "Fast Delivery",
+                "description": "Get your products delivered to your doorstep."
+            }
+        }
+    }
 }

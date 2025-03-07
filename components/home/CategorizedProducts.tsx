@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
@@ -26,6 +27,10 @@ export interface CategorizedProductsProps {
 }
 
 const CategorizedProducts = (props: CategorizedProductsProps) => {
+  const t = useTranslations("HomePage.CategorizedProducts");
+
+  const [viewMore, setViewMore] = useState((props.products?.length || 0) > 6);
+
   const [selectedCategory, setSelectedCategory] =
     useState<string>("all-products");
 
@@ -33,18 +38,20 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
     setSelectedCategory(item);
   };
 
+  const isExpandableLength = (props.products?.length || 0) > 6;
+
   return (
     <div className="pb-10 xl:pb-40 w-full xl:px-20 flex flex-col items-center justify-start space-y-10 xl:space-y-20">
       {/* Category Action Box */}
       <div className="w-full flex flex-col items-center justify-start space-y-4 xl:space-y-14">
         {/* Header */}
-        <h3 className="w-full font-bold text-3xl">Our popular categories</h3>
+        <h3 className="w-full font-bold text-3xl">{t("title")}</h3>
         {/* Select Actions */}
         <div className="w-full grid grid-cols-3 gap-x-4 gap-y-6 xl:flex xl:items-center xl:justify-center xl:space-x-8">
           <CategoryItem
             key={uuid()}
             currentItemName={selectedCategory}
-            itemName="All Products"
+            itemName={t("allProductsOption")}
             onSelect={onSelectCategory}
           />
 
@@ -65,7 +72,7 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
       <div className="w-full flex flex-col items-center justify-start space-y-12">
         {/* Products */}
         <div className="w-full grid grid-cols-1 xl:grid-cols-4 gap-x-4 gap-y-8">
-          {props.products?.map((val) => {
+          {props.products?.slice(0, !viewMore ? 6 : undefined)?.map((val) => {
             return (
               <SingleProductDisplay
                 key={uuid()}
@@ -81,12 +88,15 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
           })}
         </div>
         {/* More Button */}
-        <Link
-          href="/products"
-          className="px-9 py-4 rounded-full bg-[#00A6FB] font-bold text-white"
-        >
-          View All Products
-        </Link>
+        {isExpandableLength ? (
+          <Link
+            href="/products"
+            className="px-9 py-4 rounded-full bg-[#00A6FB] font-bold text-white"
+            onClick={() => setViewMore(!viewMore)}
+          >
+            {viewMore ? t("viewLess") : t("viewAll")}
+          </Link>
+        ) : null}
       </div>
     </div>
   );
@@ -101,7 +111,10 @@ type CategoryItemProps = {
 };
 
 function CategoryItem(props: CategoryItemProps) {
-  const itemValue = props.itemName.toLowerCase().replace(" ", "-");
+  const itemValue = props.itemName
+    .split("")
+    .map((char) => char.charCodeAt(0))
+    .join("");
 
   const isSelected = props.currentItemName === itemValue;
 

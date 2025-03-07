@@ -1,6 +1,7 @@
 "use client";
 
 import { DateTime } from "luxon";
+import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 
 import CountDown from "react-countdown";
@@ -12,6 +13,8 @@ export interface CountDownContainerProps {
 }
 
 const CountDownContainer = (props: CountDownContainerProps) => {
+  const t = useTranslations("HomePage.DealsOfTheWeek");
+
   const endDate = useMemo(() => {
     if (!props.endDate) {
       return Date.now() + DEFAULT_OFFSET;
@@ -27,29 +30,27 @@ const CountDownContainer = (props: CountDownContainerProps) => {
 
   return (
     <div className="w-full flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-6 xl:space-y-0">
-      <h3 className="font-bold text-4xl text-black flex-1">
-        Best Deals of the week!
-      </h3>
+      <h3 className="font-bold text-4xl text-black flex-1">{t("header")}</h3>
 
       {/* Count Down */}
       <CountDown
         date={endDate}
         renderer={({ days, hours, minutes, seconds }) => {
           return (
-            <div className="w-full flex-1 flex items-center justify-start space-x-2 xl:space-x-9">
-              <CountBoxItem name="Days" num={days} />
+            <div className="w-full flex-1 flex rtl:flex-row-reverse items-center justify-start space-x-2 xl:space-x-9">
+              <CountBoxItem name={t("countDown.days")} num={days} />
 
               <span className="font-black text-3xl xl:text-6xl">:</span>
 
-              <CountBoxItem name="Hours" num={hours} />
+              <CountBoxItem name={t("countDown.hours")} num={hours} />
 
               <span className="font-black text-3xl xl:text-6xl">:</span>
 
-              <CountBoxItem name="Minutes" num={minutes} />
+              <CountBoxItem name={t("countDown.minutes")} num={minutes} />
 
               <span className="font-black text-3xl xl:text-6xl">:</span>
 
-              <CountBoxItem name="Seconds" num={seconds} />
+              <CountBoxItem name={t("countDown.seconds")} num={seconds} />
             </div>
           );
         }}

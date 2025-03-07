@@ -1,10 +1,13 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const AboutUsBrief = () => {
+  const t = useTranslations("HomePage.AboutUs");
+
   return (
     <div className="w-full xl:px-10 pt-10 xl:pt-0">
       {/* Content */}
-      <div className="w-full grid grid-cols-2">
+      <div className="w-full grid grid-cols-2 rtl:gap-4 xl:rtl:gap-12">
         {/* Images */}
         <div className="hidden h-96 xl:block w-full relative">
           <Image
@@ -33,36 +36,28 @@ const AboutUsBrief = () => {
             />
           </div>
         </div>
+
         {/* Text */}
         <div className="col-span-2 xl:col-span-1 flex flex-col items-start justify-start xl:pl-20">
           {/* Header */}
           <div className="flex flex-col items-start justify-start space-y-2">
-            <span className="tracking-widest text-[#00A6FB]">About Us</span>
+            <span className="tracking-widest text-[#00A6FB]">{t("title")}</span>
 
             <h2 className="w-full xl:w-4/5 text-2xl xl:text-3xl font-bold leading-relaxed">
-              Achieving Better Health Care One Patient Time.
+              {t("header")}
             </h2>
           </div>
 
-          <p className="w-full mt-4 xl:mt-12">
-            Maecenas egestas pellentesque odio. Proin et lectus erat. Donec
-            ultricies sem id nibh dapibus, quis rutrum odio vulputate. Morbi a
-            sem et est congue aliquet quis sed nisl. Mauris dolor felis, laoreet
-            eget elementum sed, vehicula id risus.
-          </p>
+          <p className="w-full mt-4 xl:mt-12">{t("pp1")}</p>
 
-          <p className="w-full mt-6">
-            Maecenas egestas pellentesque odio. Proin et lectus erat. Donec
-            ultricies sem id nibh dapibus, quis rutrum odio vulputate. Morbi a
-            sem et est congue aliquet quis sed nisl.
-          </p>
+          <p className="w-full mt-6">{t("pp2")}</p>
         </div>
       </div>
 
       {/* Logo of Companies */}
       <div className="mt-12 xl:mt-24 w-full flex flex-col items-center justify-center space-y-14">
         {/* Companies */}
-        <div className="w-full grid grid-cols-2 gap-x-4 gap-y-8 xl:flex xl:items-center xl:justify-center xl:divide-x xl:divide-[#707070]">
+        <div className="w-full grid grid-cols-2 gap-x-4 gap-y-8 xl:flex xl:rtl:flex-row-reverse xl:items-center xl:justify-center xl:divide-x xl:divide-[#707070]">
           <CompanyComponent imgSrc="/companies/dental.svg" />
           <CompanyComponent imgSrc="/companies/dental-care.svg" />
           <CompanyComponent imgSrc="/companies/doctor.svg" />
@@ -70,9 +65,7 @@ const AboutUsBrief = () => {
           <CompanyComponent imgSrc="/companies/medical-care.svg" />
         </div>
         {/* Disclaimer */}
-        <p className="w-full text-[#2A9BED] text-center">
-          Trusted by 10,000+ Companies around the world
-        </p>
+        <p className="w-full text-[#2A9BED] text-center">{t("disclaimer")}</p>
       </div>
     </div>
   );
