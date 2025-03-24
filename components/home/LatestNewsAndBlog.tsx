@@ -1,25 +1,28 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 const LatestNewsAndBlog = () => {
+  const t = useTranslations("AboutUsPage.LatestNewsAndBlog");
+
   return (
     <div className="pb-10 xl:pb-40 w-full">
       <div className="w-full xl:px-20 flex flex-col items-start justify-start space-y-10 xl:space-y-20">
         {/* Header */}
         <div className="w-full flex items-center justify-between">
           <h3 className="flex-[2] xl:flex-[4] text-xl xl:text-4xl font-bold">
-            latest news & Blogs
+            {t("title")}
           </h3>
           <Link
             href="/blogs"
             className="text-center flex-1 font-bold text-xs xl:text-lg text-white bg-[#023E8A] px-2 py-2 xl:px-5 xl:py-3 rounded-full"
           >
-            View All Blogs
+            {t("viewAllBlogs")}
           </Link>
         </div>
 
         {/* Products Container */}
-        <div className="w-full flex items-start justify-start xl:space-x-8">
+        <div className="w-full flex rtl:flex-row-reverse items-start justify-start xl:space-x-8">
           {/* Main Image */}
           <div className="hidden xl:flex relative h-[47rem] flex-[2]">
             <Image
@@ -40,7 +43,7 @@ const LatestNewsAndBlog = () => {
                 href="/news"
                 className="font-black text-white px-6 py-2 rounded-full bg-[#00A6FB] mt-6"
               >
-                Read More
+                {t("BlogBriefItem.readyMore")}
               </Link>
             </div>
           </div>
@@ -84,8 +87,10 @@ type BlogBriefItemProps = {
 };
 
 function BlogBriefItem(props: BlogBriefItemProps) {
+  const t = useTranslations("AboutUsPage.LatestNewsAndBlog.BlogBriefItem");
+
   return (
-    <div className="w-full flex items-center justify-start xl:space-x-12 border rounded-xl hover:border-[#081F48] p-4">
+    <div className="w-full flex rtl:flex-row-reverse items-center justify-start xl:space-x-12 border rounded-xl hover:border-[#081F48] p-4">
       {/* Image */}
       <div className="hidden xl:block relative w-72 h-52">
         <Image
@@ -104,7 +109,7 @@ function BlogBriefItem(props: BlogBriefItemProps) {
           href={props.newsURL}
           className="font-black text-white px-6 py-2 rounded-full bg-[#00A6FB] mt-6"
         >
-          Read More
+          {t("readyMore")}
         </Link>
       </div>
     </div>

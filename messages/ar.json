@@ -68,6 +68,30 @@
             "email": "الإميل"
         }
     },
+    "AboutUsPage": {
+        "title": "تعرف علينا",
+        "EmergencyBanner": {
+            "title": "هل تعاني من مشكلة طارئة ؟",
+            "info": "تواصل معنا على 000 000 000",
+            "contactBtn": "تواصل معنا الأن",
+            "onlineOrder": "اطلب اونلاين"
+        },
+        "LatestNewsAndBlog": {
+            "title": "اخر الأخبار و المدونات",
+            "viewAllBlogs": "اعرض كل المدونات",
+            "BlogBriefItem": {
+                "readyMore": "اقرأ المزيد"
+            }
+        },
+        "AwardsSmallSection": {
+            "title": "الشهدات التي حصلنا عليها",
+            "ourAwards": "اعرض شهاداتنا"
+        },
+        "ClientReviews": {
+            "title": "شهدات العملاء",
+            "description": "شهادات العملاء"
+        }
+    },
     "FooterComponent": {
         "company": {
             "name": "الشركة",

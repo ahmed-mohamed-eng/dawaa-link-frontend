@@ -68,6 +68,30 @@
             "email": "Email"
         }
     },
+    "AboutUsPage": {
+        "title": "About Us",
+        "EmergencyBanner": {
+            "title": "Do You nee emergency Medicine ?",
+            "info": "Contact Us @ 258 256 2584",
+            "contactBtn": "Contact Now",
+            "onlineOrder": "Online Order"
+        },
+        "LatestNewsAndBlog": {
+            "title": "Latest News & Blogs",
+            "viewAllBlogs": "View All Blogs",
+            "BlogBriefItem": {
+                "readyMore": "Read More"
+            }
+        },
+        "AwardsSmallSection": {
+            "title": "Our Awards",
+            "ourAwards": "Our Awards"
+        },
+        "ClientReviews": {
+            "title": "Testimonials",
+            "description": "Our Clients reviews"
+        }
+    },
     "FooterComponent": {
         "company": {
             "name": "Company",

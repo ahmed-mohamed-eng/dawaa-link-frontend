@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
+import { useTranslations } from "next-intl";
 
 import Slider, { Settings } from "react-slick";
 
 const ClientReviews = () => {
+  const t = useTranslations("AboutUsPage.ClientReviews");
+
   const settings: Settings = {
     dots: true,
     speed: 500,
@@ -26,6 +29,17 @@ const ClientReviews = () => {
           infinite: true,
         },
       },
+      {
+        breakpoint: 1080,
+        settings: {
+          dots: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesPerRow: 3,
+          arrows: false,
+          infinite: true,
+        },
+      },
     ],
   };
 
@@ -41,9 +55,9 @@ const ClientReviews = () => {
 
         {/* Header */}
         <div className="flex flex-col items-center justify-center space-y-4">
-          <span className="font-bold text-[#00A6FB] text-xl">Testimonials</span>
+          <span className="font-bold text-[#00A6FB] text-xl">{t("title")}</span>
           <h2 className="font-bold text-[#081F48] text-5xl text-center xl:text-left">
-            Our Clients reviews
+            {t("description")}
           </h2>
         </div>
 

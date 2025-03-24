@@ -1,6 +1,9 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const HeroContent = () => {
+  const t = useTranslations("AboutUsPage");
+
   return (
     <div className="w-full pb-10 xl:pb-20">
       <div className="w-full flex flex-col relative">
@@ -16,7 +19,7 @@ const HeroContent = () => {
 
           <div className="h-full w-full flex flex-col items-start justify-center xl:px-48 font-bold">
             <h1 className="w-full text-4xl text-center text-[#023E8A]">
-              About Us
+              {t("title")}
             </h1>
           </div>
         </div>
