@@ -59,6 +59,50 @@
                 "title": "توصيل سريع",
                 "description": "احصل على منتجاتك مباشرة إلى باب منزلك."
             }
+        },
+        "ContactInfo": {
+            "title": "رقم الواتساب",
+            "description": "مواعيد الحجز",
+            "address": "العنوان",
+            "phone": "رقم الهاتف",
+            "email": "الإميل"
+        }
+    },
+    "FooterComponent": {
+        "company": {
+            "name": "الشركة",
+            "about": "عنا",
+            "plans": "الخطط",
+            "services": "الخدمات",
+            "products": "المنتجات",
+            "privacy&policy": "الخصوصيات و الأشتراكات",
+            "termsOfUse": "شروط الإستخدام"
+        },
+        "help&support": {
+            "name": "المساعدة و الدعم",
+            "support": "الدعم",
+            "location": "تعال زرنا",
+            "contact": "تواصل معنا",
+            "login": "تسجيل الدخول",
+            "faq": "الأسئلة المكررة"
+        },
+        "Services&Cities": {
+            "name": "المدن اللتي نخدم فيها",
+            "locations": [
+                "القاهرة",
+                "الرياض",
+                "جدة",
+                "الطائف",
+                "الأسكندرية"
+            ]
+        },
+        "JoinUs": {
+            "title": "إنضم إلينا ك ؟",
+            "joinAsClient": "انضم إلينا كعميل",
+            "or": "او",
+            "joinAsProvider": "انضم إلينا كموذود",
+            "createAccountName": "هل لديك الحساب بالفعل ؟",
+            "login": "انضم إلينا"
         }
     }
 }

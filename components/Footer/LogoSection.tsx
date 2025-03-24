@@ -18,7 +18,7 @@ const LogoSection = () => {
         <p className="w-full">aptent taciti sociosqu torquentper.</p>
       </div>
 
-      <div className="w-full flex items-center justify-start space-x-8 mt-11">
+      <div className="w-full flex rtl:flex-row-reverse items-center justify-start rtl:justify-end space-x-8 mt-11">
         <Image
           alt="Twitter Logo"
           src="/companies/twitter-white.svg"

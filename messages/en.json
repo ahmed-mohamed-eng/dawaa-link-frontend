@@ -59,6 +59,50 @@
                 "title": "Fast Delivery",
                 "description": "Get your products delivered to your doorstep."
             }
+        },
+        "ContactInfo": {
+            "title": "Whatsapp Number",
+            "description": "Appointment Available",
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email"
+        }
+    },
+    "FooterComponent": {
+        "company": {
+            "name": "Company",
+            "about": "About",
+            "plans": "Plans",
+            "services": "Services",
+            "products": "Products",
+            "privacy&policy": "Privacy Policy",
+            "termsOfUse": "Terms of use"
+        },
+        "help&support": {
+            "name": "Help & Support",
+            "support": "Support",
+            "location": "Locate Us",
+            "contact": "Contact Us",
+            "login": "Login",
+            "faq": "FAQ"
+        },
+        "Services&Cities": {
+            "name": "Services Cities",
+            "locations": [
+                "New York",
+                "Los Angeles",
+                "Chicago",
+                "Houston",
+                "Washington"
+            ]
+        },
+        "JoinUs": {
+            "title": "Join Us As ?",
+            "joinAsClient": "Join Us As a Client",
+            "or": "Or",
+            "joinAsProvider": "Join Us As a Provider",
+            "createAccountName": "Do you have an account ?",
+            "login": "Login"
         }
     }
 }
