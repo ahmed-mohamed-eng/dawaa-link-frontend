@@ -12,7 +12,7 @@ const SortDisplay = () => {
 
   return (
     <div className="hidden xl:flex items-center justify-between px-8 py-5 flex-[4]">
-      <div className="w-full flex items-center space-x-3 flex-1">
+      <div className="w-full flex items-center ltr:space-x-3 flex-1">
         <button
           data-selected={selected || undefined}
           className="w-5 h-5 rounded bg-[#D9D9D9] data-[selected]:bg-[#023E8A] text-white font-bold text-xl flex items-center justify-center"
@@ -21,7 +21,9 @@ const SortDisplay = () => {
           {selected ? <p className="w-1 h-1 rounded-full bg-white" /> : null}
         </button>
 
-        <p className="font-bold text-[#023E8A] text-lg">{t("title")}</p>
+        <p className="font-bold text-[#023E8A] text-lg rtl:mr-3">
+          {t("title")}
+        </p>
       </div>
 
       <div className="flex items-center justify-end space-x-2 flex-1">

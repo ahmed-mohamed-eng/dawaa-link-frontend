@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const DisplayOrder = () => {
   return (
-    <div className="flex items-center justify-start space-x-7 pe-4 xl:pe-8 xl:py-5 flex-1">
+    <div className="flex rtl:flex-row-reverse items-center justify-start space-x-7 rtl:p-4 ltr:pe-4 xl:pe-8 xl:py-5 flex-1">
       <button>
         <Image alt="Image" src="/icons/menu.svg" width={21} height={17} />
       </button>
