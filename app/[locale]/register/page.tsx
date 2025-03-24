@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Link, redirect } from "@/i18n/routing";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 import Footer from "@/components/Footer";
 import TokenName from "@/constants/TokenName";
@@ -12,10 +12,13 @@ const checkAuthOrRedirect = async () => {
   const cookieStore = await cookies();
   const authToken = cookieStore.get(TokenName);
 
+  const headerData = await headers();
+  const lang = headerData.get("Accept-Language") || "";
+
   if (authToken) {
     redirect({
       href: "/account",
-      locale: "en",
+      locale: lang.includes("en") ? "en" : "ar",
     });
   }
 
