@@ -92,6 +92,46 @@
             "description": "شهادات العملاء"
         }
     },
+    "ProductsPage": {
+        "title": "منتجاتنا",
+        "CategoryListCheck": {
+            "title": "التصنيفات",
+            "treatmentEquipment": "معدات العلاج",
+            "apneaMonitor": "جهاز مراقبة انقطاع النفس",
+            "hospitalBed": "سرير مستشفى",
+            "defibrillators": "أجهزة إزالة الرجفان",
+            "diagnosticEquipment": "معدات التشخيص",
+            "breastPump": "مضخة الثدي",
+            "surgicalSupplies": "اللوازم الجراحية",
+            "dialysisMachine": "آلة غسيل الكلى",
+            "ultrasonography": "التصوير بالموجات فوق الصوتية",
+            "hemostaticInstruments": "أدوات وقف النزيف",
+            "surgicalInstruments": "الأدوات الجراحية",
+            "pacemaker": "جهاز تنظيم ضربات القلب"
+        },
+        "PriceRange": {
+            "title": "صنف على حسب السعر",
+            "label": "اختر السعر",
+            "labelledBy": "السعر"
+        },
+        "Brands": {
+            "title": "البراندات",
+            "medtronic": "Medtronic",
+            "GEHealthCare": "GE HealthCare",
+            "stryker": "Stryker",
+            "JNJLogo": "JNJ Logo",
+            "Baxter": "Baxter",
+            "cardinalHealth": "Cardinal Health",
+            "bectonDickinson": "Becton Dickinson",
+            "CMRSurgical": "CMR Surgical"
+        },
+        "Ratings": "القيمات",
+        "DisplayOptions": {
+            "title": "عرض المنتجات الموجودة",
+            "sortBy": "صنف بالإقل بالسعر",
+            "resultCounts": "اعرض النتائج"
+        }
+    },
     "FooterComponent": {
         "company": {
             "name": "الشركة",

@@ -1,10 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { FaAngleDown } from "react-icons/fa";
 
 const SortDisplay = () => {
+  const t = useTranslations("ProductsPage.DisplayOptions");
+
   const [selected, setSelected] = useState(false);
 
   return (
@@ -18,15 +21,11 @@ const SortDisplay = () => {
           {selected ? <p className="w-1 h-1 rounded-full bg-white" /> : null}
         </button>
 
-        <p className="font-bold text-[#023E8A] text-lg">
-          Show Only Products on Sale
-        </p>
+        <p className="font-bold text-[#023E8A] text-lg">{t("title")}</p>
       </div>
 
       <div className="flex items-center justify-end space-x-2 flex-1">
-        <button className="font-bold text-[#103178]">
-          Sort by Latest
-        </button>
+        <button className="font-bold text-[#103178]">{t("sortBy")}</button>
         <FaAngleDown fill="#103178" stroke="#103178" />
       </div>
     </div>

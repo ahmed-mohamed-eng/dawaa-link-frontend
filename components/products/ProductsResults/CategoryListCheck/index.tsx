@@ -1,53 +1,62 @@
 import React from "react";
 import SubCategoriesGroup from "./SubCategoriesGroup";
+import { useTranslations } from "next-intl";
 
 const CategoryListCheck = () => {
+  const t = useTranslations("ProductsPage.CategoryListCheck");
+
   return (
     <div className="w-full flex flex-col items-start justify-start space-y-12">
       <p className="w-full px-5 py-3 bg-[#FF922E] text-white font-bold text-xl">
-        Categories
+        {t("title")}
       </p>
 
       {/* Picks */}
       <div className="w-full flex flex-col items-start justify-start space-y-8 px-6">
         <SubCategoriesGroup
-          name="Treatment equipment"
+          name={t("treatmentEquipment")}
           value="treatment-equipment"
         />
 
-        <SubCategoriesGroup name="Apnea monitor" value="apnea-monitor" />
+        <SubCategoriesGroup name={t("apneaMonitor")} value="apnea-monitor" />
 
-        <SubCategoriesGroup name="Hospital Bed" value="hospital-bed" />
+        <SubCategoriesGroup name={t("hospitalBed")} value="hospital-bed" />
 
-        <SubCategoriesGroup name="Defibrillators" value="defibrillators" />
+        <SubCategoriesGroup name={t("defibrillators")} value="defibrillators" />
 
         <SubCategoriesGroup
-          name="Diagnostic equipment"
+          name={t("diagnosticEquipment")}
           value="diagnostic-equipment"
         />
 
-        <SubCategoriesGroup name="Breast Pump" value="breast-pump" />
+        <SubCategoriesGroup name={t("breastPump")} value="breast-pump" />
 
         <SubCategoriesGroup
-          name="Surgical supplies"
+          name={t("surgicalSupplies")}
           value="surgical-supplies"
         />
 
-        <SubCategoriesGroup name="Dialysis machine" value="dialysis-machine" />
-
-        <SubCategoriesGroup name="Ultrasonography" value="ultrasonography" />
+        <SubCategoriesGroup
+          name={t("dialysisMachine")}
+          value="dialysis-machine"
+        />
 
         <SubCategoriesGroup
-          name="Hemostatic instruments"
+          name={t("ultrasonography")}
+          value="ultrasonography"
+        />
+
+        <SubCategoriesGroup
+          name={t("hemostaticInstruments")}
           value="hemostatic-instruments"
         />
 
         <SubCategoriesGroup
-          name="Surgical instruments"
+          name={t("surgicalInstruments")}
           value="surgical-instruments"
         />
 
-        <SubCategoriesGroup name="Pacemaker" value="pacemaker" />
+        <SubCategoriesGroup name={t("pacemaker")} value="pacemaker" />
       </div>
     </div>
   );

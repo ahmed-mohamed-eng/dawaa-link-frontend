@@ -1,24 +1,27 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 
 const Brands = () => {
+  const t = useTranslations("ProductsPage.Brands");
+
   return (
     <div className="w-full flex flex-col items-start justify-start space-y-12">
       <p className="w-full px-5 py-3 bg-[#FF922E] text-white font-bold text-xl">
-        Brands
+        {t("title")}
       </p>
 
       {/* Picks */}
       <div className="w-full flex flex-col items-center justify-start space-y-8 px-6">
-        <SinglePicks name="Medtronic" />
-        <SinglePicks name="GE HealthCare" />
-        <SinglePicks name="Stryker" />
-        <SinglePicks name="JNJ logo" />
-        <SinglePicks name="Baxter" />
-        <SinglePicks name="Cardinal Health" />
-        <SinglePicks name="Becton Dickinson" />
-        <SinglePicks name="CMR Surgical" />
+        <SinglePicks name={t("medtronic")} />
+        <SinglePicks name={t("GEHealthCare")} />
+        <SinglePicks name={t("stryker")} />
+        <SinglePicks name={t("JNJLogo")} />
+        <SinglePicks name={t("Baxter")} />
+        <SinglePicks name={t("cardinalHealth")} />
+        <SinglePicks name={t("bectonDickinson")} />
+        <SinglePicks name={t("CMRSurgical")} />
       </div>
     </div>
   );

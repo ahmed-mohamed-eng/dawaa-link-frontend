@@ -1,24 +1,27 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 
 import { Range } from "react-range";
 
 const PriceRange = () => {
+  const t = useTranslations("ProductsPage.PriceRange");
+
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(200);
 
   return (
     <div className="w-full flex flex-col items-start justify-start space-y-12">
       <p className="w-full px-5 py-3 bg-[#FF922E] text-white font-bold text-xl">
-        Filter By Price
+        {t("title")}
       </p>
 
       {/* Picks */}
       <div className="w-full flex flex-col items-center justify-start space-y-8 px-6">
         <Range
-          label="Select Price"
-          labelledBy="Price"
+          label={t("label")}
+          labelledBy={t("labelledBy")}
           step={1}
           min={0}
           max={200}

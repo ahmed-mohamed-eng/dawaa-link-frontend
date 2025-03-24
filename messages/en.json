@@ -92,6 +92,46 @@
             "description": "Our Clients reviews"
         }
     },
+    "ProductsPage": {
+        "title": "Shop Products",
+        "CategoryListCheck": {
+            "title": "Categories",
+            "treatmentEquipment": "Treatment Equipment",
+            "apneaMonitor": "Apnea Monitor",
+            "hospitalBed": "Hospital Bed",
+            "defibrillators": "Defibrillators",
+            "diagnosticEquipment": "Diagnostic Equipment",
+            "breastPump": "Breast Pump",
+            "surgicalSupplies": "Surgical Supplies",
+            "dialysisMachine": "Dialysis Machine",
+            "ultrasonography": "Ultrasonography",
+            "hemostaticInstruments": "Hemostatic Instruments",
+            "surgicalInstruments": "Surgical Instruments",
+            "pacemaker": "Pacemaker"
+        },
+        "PriceRange": {
+            "title": "Filter By Price",
+            "label": "Select Price",
+            "labelledBy": "Price"
+        },
+        "Brands": {
+            "title": "Brands",
+            "medtronic": "Medtronic",
+            "GEHealthCare": "GE HealthCare",
+            "stryker": "Stryker",
+            "JNJLogo": "JNJ Logo",
+            "Baxter": "Baxter",
+            "cardinalHealth": "Cardinal Health",
+            "bectonDickinson": "Becton Dickinson",
+            "CMRSurgical": "CMR Surgical"
+        },
+        "Ratings": "Ratings",
+        "DisplayOptions": {
+            "title": "Show Only Products on Sale",
+            "sortBy": "Sort by Latest",
+            "resultCounts": "Show Result"
+        }
+    },
     "FooterComponent": {
         "company": {
             "name": "Company",

@@ -1,13 +1,16 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useState } from "react";
 
 const Ratings = () => {
+  const t = useTranslations("ProductsPage");
+
   return (
     <div className="w-full flex flex-col items-start justify-start space-y-12">
       <p className="w-full px-5 py-3 bg-[#FF922E] text-white font-bold text-xl">
-        Ratings
+        {t("Ratings")}
       </p>
 
       {/* Picks */}
