@@ -1,9 +1,16 @@
-import React from "react";
-import SubCategoriesGroup from "./SubCategoriesGroup";
+import React, { useContext } from "react";
 import { useTranslations } from "next-intl";
+
+import SubCategoriesGroup from "./SubCategoriesGroup";
+
+import ProductCategories from "@/types/categories.enum";
+
+import FilterContext from "@/contexts/FilterContext";
 
 const CategoryListCheck = () => {
   const t = useTranslations("ProductsPage.CategoryListCheck");
+
+  const { setCategories } = useContext(FilterContext);
 
   return (
     <div className="w-full flex flex-col items-start justify-start space-y-12">
@@ -14,49 +21,82 @@ const CategoryListCheck = () => {
       {/* Picks */}
       <div className="w-full flex flex-col items-start justify-start space-y-8 px-6">
         <SubCategoriesGroup
-          name={t("treatmentEquipment")}
-          value="treatment-equipment"
+          name={t("all")}
+          value={ProductCategories.ALL}
+          onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
-        <SubCategoriesGroup name={t("apneaMonitor")} value="apnea-monitor" />
+        <SubCategoriesGroup
+          name={t("treatmentEquipment")}
+          value={ProductCategories.TREATMENT_EQUIPMENT}
+          onSelect={(x) => setCategories(x as ProductCategories)}
+        />
 
-        <SubCategoriesGroup name={t("hospitalBed")} value="hospital-bed" />
+        <SubCategoriesGroup
+          name={t("apneaMonitor")}
+          value={ProductCategories.APNEA_MONITOR}
+          onSelect={(x) => setCategories(x as ProductCategories)}
+        />
 
-        <SubCategoriesGroup name={t("defibrillators")} value="defibrillators" />
+        <SubCategoriesGroup
+          name={t("hospitalBed")}
+          value={ProductCategories.HOSPITAL_BED}
+          onSelect={(x) => setCategories(x as ProductCategories)}
+        />
+
+        <SubCategoriesGroup
+          name={t("defibrillators")}
+          value={ProductCategories.DEFIBRILLATORS}
+          onSelect={(x) => setCategories(x as ProductCategories)}
+        />
 
         <SubCategoriesGroup
           name={t("diagnosticEquipment")}
-          value="diagnostic-equipment"
+          value={ProductCategories.DIAGNOSTIC_EQUiPMENT}
+          onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
-        <SubCategoriesGroup name={t("breastPump")} value="breast-pump" />
+        <SubCategoriesGroup
+          name={t("breastPump")}
+          value={ProductCategories.BREAST_PUMP}
+          onSelect={(x) => setCategories(x as ProductCategories)}
+        />
 
         <SubCategoriesGroup
           name={t("surgicalSupplies")}
-          value="surgical-supplies"
+          value={ProductCategories.SURGICAL_SUPPLIES}
+          onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
         <SubCategoriesGroup
           name={t("dialysisMachine")}
-          value="dialysis-machine"
+          value={ProductCategories.DIALYSIS_MACHINE}
+          onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
         <SubCategoriesGroup
           name={t("ultrasonography")}
-          value="ultrasonography"
+          value={ProductCategories.ULTRASONOGRAPHY}
+          onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
         <SubCategoriesGroup
           name={t("hemostaticInstruments")}
-          value="hemostatic-instruments"
+          value={ProductCategories.HEMOSTATIC_INSTRUMENTS}
+          onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
         <SubCategoriesGroup
           name={t("surgicalInstruments")}
-          value="surgical-instruments"
+          value={ProductCategories.SURGICAL_INSTRUMENTS}
+          onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
-        <SubCategoriesGroup name={t("pacemaker")} value="pacemaker" />
+        <SubCategoriesGroup
+          name={t("pacemaker")}
+          value={ProductCategories.PEACEMAKER}
+          onSelect={(x) => setCategories(x as ProductCategories)}
+        />
       </div>
     </div>
   );

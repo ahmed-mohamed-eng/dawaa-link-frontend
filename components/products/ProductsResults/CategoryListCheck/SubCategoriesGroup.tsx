@@ -19,12 +19,21 @@ const SubCategoriesGroup = (props: SubCategoriesGroupProps) => {
         value={props.value}
         hasMore={!!props.groups?.length}
         onChange={(v) => setIsGroupsOpen(v === "open")}
+        onSelect={props.onSelect}
       />
 
       {isGroupsOpen ? (
         <div className="ps-3 flex flex-col space-y-4">
           {props.groups?.map((g) => {
-            return <CategoryComp key={uuid()} name={g.name} value={g.value} />;
+            return (
+              <CategoryComp
+                key={uuid()}
+                name={g.name}
+                value={g.value}
+                onSelect={props.onSelect}
+                onChange={props.onChange}
+              />
+            );
           })}
         </div>
       ) : null}

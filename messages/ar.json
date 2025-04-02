@@ -95,6 +95,7 @@
     "ProductsPage": {
         "title": "منتجاتنا",
         "CategoryListCheck": {
+            "all": "الكل",
             "title": "التصنيفات",
             "treatmentEquipment": "معدات العلاج",
             "apneaMonitor": "جهاز مراقبة انقطاع النفس",

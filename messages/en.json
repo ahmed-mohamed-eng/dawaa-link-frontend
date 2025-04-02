@@ -95,6 +95,7 @@
     "ProductsPage": {
         "title": "Shop Products",
         "CategoryListCheck": {
+            "all": "All Categories",
             "title": "Categories",
             "treatmentEquipment": "Treatment Equipment",
             "apneaMonitor": "Apnea Monitor",
