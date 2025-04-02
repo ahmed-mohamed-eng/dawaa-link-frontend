@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 import SetValueFunc from "@/types/setFunction.type";
-import SortByOption from "@/types/sortByOption.type";
+import SortByOption from "@/types/sortByOption.enum";
 import ProductsArrangementOptions from "@/types/productsArrangement.type";
 
 type ProductsDisplayContextType = {

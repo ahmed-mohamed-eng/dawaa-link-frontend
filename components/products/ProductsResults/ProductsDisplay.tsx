@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 import DisplayOptions from "./DisplayOptions";
 import ProductsGroups from "./ProductsGroups";
 
-import SortByOption from "@/types/sortByOption.type";
+import SortByOption from "@/types/sortByOption.enum";
 import ProductsDisplayContext from "@/contexts/ProductsDisplayContext";
 import ProductsArrangementOptions from "@/types/productsArrangement.type";
 
@@ -15,7 +15,7 @@ const ProductsDisplay = () => {
   const [resultsCount, setResultsCount] = useState(0);
   const [arrangement, setArrangement] =
     useState<ProductsArrangementOptions>("three-per-row");
-  const [sortBy, setSortBy] = useState<SortByOption>("latest");
+  const [sortBy, setSortBy] = useState<SortByOption>(SortByOption.LATEST);
 
   return (
     <ProductsDisplayContext.Provider
