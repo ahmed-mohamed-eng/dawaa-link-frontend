@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { isURL } from "validator";
 
 import BuyButton from "./BuyButton";
 import AddToCartBtn from "./AddToCartBtn";
@@ -18,13 +17,7 @@ export interface ProductContentDisplayProps {
 }
 
 const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
-  const imageGallery = product.gallery || [];
-
   const [productQuantity, setProductQuantity] = useState(1);
-
-  const imgSrc = isURL(imageGallery[0] || "", { require_host: true })
-    ? imageGallery[0]
-    : "/placeholder-2.png";
 
   return (
     <div className="w-full border-b border-black pb-10 xl:pb-20 flex flex-col items-start justify-start space-y-10 xl:space-y-20">
@@ -34,7 +27,7 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
         <div className="xl:flex-[6] w-full flex flex-col xl:flex-row items-start justify-start space-y-6 xl:space-y-0 xl:space-x-5">
           {/* Main Image */}
           <div className="relative w-full xl:flex-[4] h-80 xl:h-[40rem]">
-            <Image alt="Main Image" src={imgSrc} fill />
+            <Image alt="Main Image" src={"/placeholder-2.png"} fill />
           </div>
         </div>
 

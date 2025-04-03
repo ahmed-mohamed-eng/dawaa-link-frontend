@@ -13,8 +13,8 @@ export default interface ISingleProduct {
   final_price: string;
   quantity: string;
   description: string;
-  
-  gallery?: string[];
+
+  gallery?: { url: string }[];
   featured?: string;
   created_at?: string;
   slug?: string;
