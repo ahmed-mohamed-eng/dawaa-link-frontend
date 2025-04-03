@@ -22,7 +22,7 @@ const ProductsDisplayContext = createContext<ProductsDisplayContextType>({
   arrangement: "three-per-row",
   resultsCount: 0,
   onSale: false,
-  sortBy: "latest",
+  sortBy: SortByOption.LATEST,
 
   setArrangement: () => {},
   setResultsCount: () => {},

@@ -52,7 +52,7 @@ const CategoryListCheck = () => {
 
         <SubCategoriesGroup
           name={t("diagnosticEquipment")}
-          value={ProductCategories.DIAGNOSTIC_EQUiPMENT}
+          value={ProductCategories.DIAGNOSTIC_EQUIPMENT}
           onSelect={(x) => setCategories(x as ProductCategories)}
         />
 

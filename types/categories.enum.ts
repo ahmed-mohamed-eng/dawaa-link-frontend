@@ -10,7 +10,7 @@ const enum ProductCategories {
   SURGICAL_SUPPLIES = "surgical-supplies",
   TREATMENT_EQUIPMENT = "treatment-equipment",
   SURGICAL_INSTRUMENTS = "surgical-instruments",
-  DIAGNOSTIC_EQUiPMENT = "diagnostic-equipment",
+  DIAGNOSTIC_EQUIPMENT = "diagnostic-equipment",
   HEMOSTATIC_INSTRUMENTS = "hemostatic-instruments",
 }
 

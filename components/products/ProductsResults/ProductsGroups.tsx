@@ -1,67 +1,30 @@
-import React from "react";
+"use client";
 
-import SingleProductDisplay from "@/components/common/complex/single-product-display";
+import React, { useContext, useEffect } from "react";
+
+import CategorizedProducts from "./CategorizedProducts";
+
+import useFetchProducts from "@/data-fetch-hooks/useFetchProducts";
+import ProductsDisplayContext from "@/contexts/ProductsDisplayContext";
 
 const ProductsGroups = () => {
-  return (
-    <div className="w-full grid xl:grid-cols-3 gap-x-10 gap-y-10">
-      <SingleProductDisplay
-        description=""
-        final_price=""
-        name=""
-        price=""
-        quantity=""
-      />
+  const { data } = useFetchProducts();
 
-      <SingleProductDisplay
-        description=""
-        final_price=""
-        name=""
-        price=""
-        quantity=""
-      />
+  const { setResultsCount } = useContext(ProductsDisplayContext);
 
-      <SingleProductDisplay
-        description=""
-        final_price=""
-        name=""
-        price=""
-        quantity=""
-      />
+  useEffect(() => {
+    if (data?.length) {
+      setResultsCount(data.length);
+    }
 
-      <SingleProductDisplay
-        description=""
-        final_price=""
-        name=""
-        price=""
-        quantity=""
-      />
+    return () => {
+      setResultsCount(0);
+    };
+  }, [data.length, setResultsCount]);
 
-      <SingleProductDisplay
-        description=""
-        final_price=""
-        name=""
-        price=""
-        quantity=""
-      />
-
-      <SingleProductDisplay
-        description=""
-        final_price=""
-        name=""
-        price=""
-        quantity=""
-      />
-
-      <SingleProductDisplay
-        description=""
-        final_price=""
-        name=""
-        price=""
-        quantity=""
-      />
-    </div>
-  );
+  return <CategorizedProducts data={data} />;
 };
 
 export default ProductsGroups;
+
+// CategorizedProducts
