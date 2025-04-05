@@ -16,6 +16,9 @@ type ProductsDisplayContextType = {
 
   resultsCount: number;
   setResultsCount: SetValueFunc<number>;
+
+  currentPage: number;
+  setCurrentPage: SetValueFunc<number>;
 };
 
 const ProductsDisplayContext = createContext<ProductsDisplayContextType>({
@@ -23,6 +26,8 @@ const ProductsDisplayContext = createContext<ProductsDisplayContextType>({
   resultsCount: 0,
   onSale: false,
   sortBy: SortByOption.LATEST,
+  currentPage: 1,
+  setCurrentPage: () => {},
 
   setArrangement: () => {},
   setResultsCount: () => {},

@@ -10,7 +10,9 @@ import ProductsDisplayContext from "@/contexts/ProductsDisplayContext";
 const ProductsGroups = () => {
   const { data } = useFetchProducts();
 
-  const { setResultsCount } = useContext(ProductsDisplayContext);
+  const { setResultsCount, currentPage } = useContext(ProductsDisplayContext);
+
+  const displayedProducts = data.slice(currentPage - 1, currentPage + 8);
 
   useEffect(() => {
     if (data?.length) {
@@ -22,7 +24,7 @@ const ProductsGroups = () => {
     };
   }, [data.length, setResultsCount]);
 
-  return <CategorizedProducts data={data} />;
+  return <CategorizedProducts data={displayedProducts} />;
 };
 
 export default ProductsGroups;

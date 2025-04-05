@@ -13,6 +13,7 @@ import ProductsArrangementOptions from "@/types/productsArrangement.type";
 const ProductsDisplay = () => {
   const [onSale, setOnSale] = useState(false);
   const [resultsCount, setResultsCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [arrangement, setArrangement] =
     useState<ProductsArrangementOptions>("three-per-row");
   const [sortBy, setSortBy] = useState<SortByOption>(SortByOption.LATEST);
@@ -24,6 +25,8 @@ const ProductsDisplay = () => {
         onSale,
         arrangement,
         resultsCount,
+        currentPage,
+        setCurrentPage,
         setArrangement,
         setOnSale,
         setResultsCount,

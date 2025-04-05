@@ -1,12 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import { useContext } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 
+import useFetchProducts from "@/data-fetch-hooks/useFetchProducts";
+import ProductsDisplayContext from "@/contexts/ProductsDisplayContext";
+
 const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState(8);
-  const totalPages = 10;
+  const { data } = useFetchProducts();
+
+  const { currentPage, setCurrentPage } = useContext(ProductsDisplayContext);
+
+  const totalPages = Math.ceil(data?.length / 9) || 0;
+
+  if (!data || data?.length <= 9 || !totalPages) {
+    return null;
+  }
 
   return (
     <div className="w-full flex items-center justify-center">
