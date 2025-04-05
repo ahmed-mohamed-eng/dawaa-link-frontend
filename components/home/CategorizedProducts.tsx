@@ -82,7 +82,7 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
                 price={val.price}
                 quantity={val.quantity}
                 id={val.id}
-                // photo={val.photo}
+                photo={val.photo}
               />
             );
           })}

@@ -1,25 +1,142 @@
 "use client";
 
+import axios from "axios";
 import Image from "next/image";
+import { useMemo, useState } from "react";
 import { isURL } from "validator";
+import toast from "react-hot-toast";
+
 import { Link } from "@/i18n/routing";
 
-import ISingleProduct from "@/types/products/single-product.interface";
+import CartItem from "@/types/products/CartItem.interface";
 import imgPlaceholderURL from "@/constants/imgPlaceholderURL";
+import ISingleProduct from "@/types/products/single-product.interface";
+import getCookie from "@/utils/auth/getCookie";
+import BASE_URL from "@/constants/BaseURL";
+import TokenName from "@/constants/TokenName";
+
+type SuccessResponse = {
+  data: {
+    id: number;
+    user_id: number;
+    vendor_id: number;
+    product_carts: Array<{
+      id: number;
+      name: string;
+      price_product: string;
+      quantity_product: string;
+      photo: string;
+    }>;
+    total_price_cart: number;
+  };
+  message: string;
+  status: boolean;
+};
+
+const addItemToCart = async (cartItem: CartItem) => {
+  const url = `${BASE_URL}/client/carts`;
+
+  const accessToken = getCookie(TokenName);
+
+  if (!accessToken) {
+    return "Please login before adding to cart.";
+  }
+
+  try {
+    await axios.post<SuccessResponse>(url, cartItem, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    return true;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    console.error(error);
+    return error?.message as string;
+  }
+};
 
 export interface SingleProductDisplayProps extends ISingleProduct {
   smallImage?: boolean;
 }
 
 const SingleProductDisplay = (props: SingleProductDisplayProps) => {
-  const imgSrc =
-    props.photo &&
-    isURL(props.photo, {
+  const imgSrc = useMemo(() => {
+    const imgFullUrl = `https://${props.photo}`;
+    if (!props.photo) {
+      return imgPlaceholderURL({ text: "D" });
+    }
+
+    const isValidImg = isURL(imgFullUrl, {
       require_host: true,
       require_protocol: true,
-    })
-      ? props.photo
-      : imgPlaceholderURL({ text: "D" });
+    });
+
+    if (!isValidImg) {
+      return imgPlaceholderURL({ text: "D" });
+    }
+
+    return imgFullUrl;
+  }, [props.photo]);
+
+  const [loading, setLoading] = useState(false);
+
+  const onAddToCart = async () => {
+    setLoading(true);
+
+    if (!props.quantity || parseFloat(props.quantity) <= 0) {
+      toast.error(
+        "An infernal error occurs when adding please try again later."
+      );
+
+      setLoading(false);
+      return;
+    }
+
+    if (!props.id) {
+      toast.error(
+        "An infernal error occurs when adding please try again later."
+      );
+
+      setLoading(false);
+      return;
+    }
+
+    const productPrice = parseFloat(props.final_price);
+
+    if (!productPrice) {
+      toast.error(
+        "An infernal error occurs when adding please try again later."
+      );
+
+      setLoading(false);
+      return;
+    }
+
+    const item: CartItem = {
+      note: "",
+      vendor_id: 1,
+      product_id: [
+        {
+          id: props.id,
+          price_product: productPrice,
+          quantity_product: parseFloat(props.quantity),
+        },
+      ],
+    };
+
+    const result = await addItemToCart(item);
+
+    if (typeof result === "string") {
+      toast.error(result);
+      setLoading(false);
+      return;
+    }
+
+    toast.success(`Product ${props.name} added to your cart.`);
+    setLoading(false);
+  };
 
   return (
     <div className="relative w-full flex flex-col items-start justify-start space-y-8">
@@ -59,7 +176,11 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
           {/* Main Actions Container */}
           <div className="transition-all duration-200 ease-in absolute opacity-0 group-hover:opacity-100 top-0 left-0 w-full h-full z-30 bg-gray-500 bg-opacity-10">
             {/* Add to Cart Button */}
-            <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-3 rounded-full bg-[#00A6FB] font-bold text-white whitespace-nowrap">
+            <button
+              onClick={onAddToCart}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-3 rounded-full bg-[#00A6FB] font-bold text-white whitespace-nowrap"
+              disabled={loading}
+            >
               Add To Cart
             </button>
 
@@ -86,7 +207,11 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
               </button>
 
               {/* Cart */}
-              <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <button
+                onClick={onAddToCart}
+                className="bg-white border w-8 h-8 flex items-center justify-center rounded-full"
+                disabled={loading}
+              >
                 <Image
                   alt="Add to Wishlist"
                   src="/cart.svg"
