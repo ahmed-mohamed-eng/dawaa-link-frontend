@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { isURL } from "validator";
 import toast from "react-hot-toast";
 
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 
 import CartItem from "@/types/products/CartItem.interface";
 import imgPlaceholderURL from "@/constants/imgPlaceholderURL";
@@ -15,7 +15,7 @@ import getCookie from "@/utils/auth/getCookie";
 import BASE_URL from "@/constants/BaseURL";
 import TokenName from "@/constants/TokenName";
 
-type SuccessResponse = {
+type CartSuccessResponse = {
   data: {
     id: number;
     user_id: number;
@@ -43,7 +43,47 @@ const addItemToCart = async (cartItem: CartItem) => {
   }
 
   try {
-    await axios.post<SuccessResponse>(url, cartItem, {
+    await axios.post<CartSuccessResponse>(url, cartItem, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    return true;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    console.error(error);
+    return error?.message as string;
+  }
+};
+
+type WishSuccessResponse = {
+  data: {
+    id: number;
+    product: {
+      id: number;
+      sale: number;
+      qty: null;
+      name: string;
+      description: string;
+      photo: string;
+    };
+  };
+  message: string;
+  status: boolean;
+};
+
+const addItemToWishList = async (cartItem: { product_id: number }) => {
+  const url = `${BASE_URL}/client/favourites`;
+
+  const accessToken = getCookie(TokenName);
+
+  if (!accessToken) {
+    return "Please login before adding to wishlist.";
+  }
+
+  try {
+    await axios.post<WishSuccessResponse>(url, cartItem, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -81,6 +121,8 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
   }, [props.photo]);
 
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const onAddToCart = async () => {
     setLoading(true);
@@ -127,6 +169,39 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
     };
 
     const result = await addItemToCart(item);
+
+    if (typeof result === "string") {
+      toast.error(result);
+      setLoading(false);
+      return;
+    }
+
+    toast.success(`Product ${props.name} added to your cart.`);
+    setLoading(false);
+  };
+
+  const onOpenProduct = () => {
+    if (!props.id) {
+      return;
+    }
+
+    router.push(`/products/${props.id}`);
+  };
+
+  const onAddToWishList = async () => {
+    if (!props.id) {
+      toast.error(
+        "An infernal error occurs when adding please try again later."
+      );
+
+      return;
+    }
+
+    const item = {
+      product_id: props.id,
+    };
+
+    const result = await addItemToWishList(item);
 
     if (typeof result === "string") {
       toast.error(result);
@@ -187,7 +262,10 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
             {/* Other Actions Button */}
             <div className="absolute top-3 right-3 flex flex-col items-start justify-start space-y-2">
               {/* Wishlist */}
-              <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <button
+                onClick={onAddToWishList}
+                className="bg-white border w-8 h-8 flex items-center justify-center rounded-full"
+              >
                 <Image
                   alt="Add to Wishlist"
                   src="/heart.svg"
@@ -274,7 +352,10 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
               </button>
 
               {/* Search */}
-              <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <button
+                onClick={onOpenProduct}
+                className="bg-white border w-8 h-8 flex items-center justify-center rounded-full"
+              >
                 <Image
                   alt="Add to Wishlist"
                   src="/search.svg"
