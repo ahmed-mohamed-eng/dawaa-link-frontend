@@ -168,9 +168,18 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
       ],
     };
 
-    const result = await addItemToCart(item);
+    const result = await toast.promise(addItemToCart(item), {
+      loading: "Adding to cart...",
+      success: (data) => {
+        if (data) {
+          return "Product added to cart.";
+        }
 
-    if (typeof result === "string") {
+        return "An infernal error occurs when adding please try again later.";
+      },
+    });
+
+    if (!result) {
       toast.error(result);
       setLoading(false);
       return;
@@ -201,16 +210,21 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
       product_id: props.id,
     };
 
-    const result = await addItemToWishList(item);
+    const result = await toast.promise(addItemToWishList(item), {
+      loading: "Adding to wishlist...",
+      success: (data) => {
+        if (data) {
+          return "Product added to wishlist.";
+        }
 
-    if (typeof result === "string") {
+        return "An infernal error occurs when adding please try again later.";
+      },
+    });
+
+    if (!result) {
       toast.error(result);
-      setLoading(false);
       return;
     }
-
-    toast.success(`Product ${props.name} added to your cart.`);
-    setLoading(false);
   };
 
   return (
@@ -342,7 +356,10 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
             {/* Other Actions Button */}
             <div className="absolute top-3 right-3 flex flex-col items-start justify-start space-y-2">
               {/* Wishlist */}
-              <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <button
+                onClick={onAddToWishList}
+                className="bg-white border w-8 h-8 flex items-center justify-center rounded-full"
+              >
                 <Image
                   alt="Add to Wishlist"
                   src="/heart.svg"
@@ -365,7 +382,10 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
               </button>
 
               {/* Cart */}
-              <button className="bg-white border w-8 h-8 flex items-center justify-center rounded-full">
+              <button
+                onClick={onAddToCart}
+                className="bg-white border w-8 h-8 flex items-center justify-center rounded-full"
+              >
                 <Image
                   alt="Add to Wishlist"
                   src="/cart.svg"
