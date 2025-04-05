@@ -108,7 +108,10 @@
             "ultrasonography": "Ultrasonography",
             "hemostaticInstruments": "Hemostatic Instruments",
             "surgicalInstruments": "Surgical Instruments",
-            "pacemaker": "Pacemaker"
+            "pacemaker": "Pacemaker",
+            "medialEquipment": "Medical Equipment",
+            "medicines": "Medicines",
+            "cosmetics": "Cosmetics"
         },
         "PriceRange": {
             "title": "Filter By Price",

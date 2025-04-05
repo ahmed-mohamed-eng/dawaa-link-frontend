@@ -27,74 +27,20 @@ const CategoryListCheck = () => {
         />
 
         <SubCategoriesGroup
-          name={t("treatmentEquipment")}
-          value={ProductCategories.TREATMENT_EQUIPMENT}
+          name={t("cosmetics")}
+          value={ProductCategories.COSMETICS}
           onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
         <SubCategoriesGroup
-          name={t("apneaMonitor")}
-          value={ProductCategories.APNEA_MONITOR}
+          name={t("medialEquipment")}
+          value={ProductCategories.MEDICAL_EQUIPMENT}
           onSelect={(x) => setCategories(x as ProductCategories)}
         />
 
         <SubCategoriesGroup
-          name={t("hospitalBed")}
-          value={ProductCategories.HOSPITAL_BED}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("defibrillators")}
-          value={ProductCategories.DEFIBRILLATORS}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("diagnosticEquipment")}
-          value={ProductCategories.DIAGNOSTIC_EQUIPMENT}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("breastPump")}
-          value={ProductCategories.BREAST_PUMP}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("surgicalSupplies")}
-          value={ProductCategories.SURGICAL_SUPPLIES}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("dialysisMachine")}
-          value={ProductCategories.DIALYSIS_MACHINE}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("ultrasonography")}
-          value={ProductCategories.ULTRASONOGRAPHY}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("hemostaticInstruments")}
-          value={ProductCategories.HEMOSTATIC_INSTRUMENTS}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("surgicalInstruments")}
-          value={ProductCategories.SURGICAL_INSTRUMENTS}
-          onSelect={(x) => setCategories(x as ProductCategories)}
-        />
-
-        <SubCategoriesGroup
-          name={t("pacemaker")}
-          value={ProductCategories.PEACEMAKER}
+          name={t("medicines")}
+          value={ProductCategories.MEDICINES}
           onSelect={(x) => setCategories(x as ProductCategories)}
         />
       </div>

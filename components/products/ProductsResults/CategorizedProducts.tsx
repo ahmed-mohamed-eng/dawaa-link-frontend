@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 
 import SortedProducts from "./SortedProducts";
 
@@ -13,18 +13,24 @@ export interface CategorizedProductsProps {
 const CategorizedProducts = ({ data }: CategorizedProductsProps) => {
   const { categories } = useContext(FilterContext);
 
-  const areaMonitorProducts = data;
-  const breastPumpProducts = data;
-  const defibrillatorsProducts = data;
-  const diagnosticEquipmentProducts = data;
-  const dialysisMachineProducts = data;
-  const hemostaticMachineProducts = data;
-  const hospitalBedProducts = data;
-  const peaceMakerProducts = data;
-  const surgicalInstrumentsProducts = data;
-  const surgicalSuppliesProducts = data;
-  const treatMentEquipmentProducts = data;
-  const ultrasonographyProducts = data;
+  const cosmeticsProducts = useMemo(() => {
+    return data?.filter(
+      (product) => product.category?.name === ProductCategories.COSMETICS
+    );
+  }, [data]);
+
+  const medicalEquipmentProducts = useMemo(() => {
+    return data?.filter(
+      (product) =>
+        product.category?.name === ProductCategories.MEDICAL_EQUIPMENT
+    );
+  }, [data]);
+
+  const medicinesProducts = useMemo(() => {
+    return data?.filter(
+      (product) => product.category?.name === ProductCategories.MEDICINES
+    );
+  }, [data]);
 
   return (
     <div className="w-full">
@@ -32,52 +38,17 @@ const CategorizedProducts = ({ data }: CategorizedProductsProps) => {
         <SortedProducts data={data} />
       ) : null}
 
-      {categories === ProductCategories.APNEA_MONITOR ? (
-        <SortedProducts data={areaMonitorProducts} />
+      {categories === ProductCategories.COSMETICS && cosmeticsProducts ? (
+        <SortedProducts data={cosmeticsProducts} />
       ) : null}
 
-      {categories === ProductCategories.BREAST_PUMP ? (
-        <SortedProducts data={breastPumpProducts} />
+      {categories === ProductCategories.MEDICAL_EQUIPMENT &&
+      medicalEquipmentProducts ? (
+        <SortedProducts data={medicalEquipmentProducts} />
       ) : null}
 
-      {categories === ProductCategories.DEFIBRILLATORS ? (
-        <SortedProducts data={defibrillatorsProducts} />
-      ) : null}
-
-      {categories === ProductCategories.DIAGNOSTIC_EQUIPMENT ? (
-        <SortedProducts data={diagnosticEquipmentProducts} />
-      ) : null}
-
-      {categories === ProductCategories.DIALYSIS_MACHINE ? (
-        <SortedProducts data={dialysisMachineProducts} />
-      ) : null}
-
-      {categories === ProductCategories.HEMOSTATIC_INSTRUMENTS ? (
-        <SortedProducts data={hemostaticMachineProducts} />
-      ) : null}
-
-      {categories === ProductCategories.HOSPITAL_BED ? (
-        <SortedProducts data={hospitalBedProducts} />
-      ) : null}
-
-      {categories === ProductCategories.PEACEMAKER ? (
-        <SortedProducts data={peaceMakerProducts} />
-      ) : null}
-
-      {categories === ProductCategories.SURGICAL_INSTRUMENTS ? (
-        <SortedProducts data={surgicalInstrumentsProducts} />
-      ) : null}
-
-      {categories === ProductCategories.SURGICAL_SUPPLIES ? (
-        <SortedProducts data={surgicalSuppliesProducts} />
-      ) : null}
-
-      {categories === ProductCategories.TREATMENT_EQUIPMENT ? (
-        <SortedProducts data={treatMentEquipmentProducts} />
-      ) : null}
-
-      {categories === ProductCategories.ULTRASONOGRAPHY ? (
-        <SortedProducts data={ultrasonographyProducts} />
+      {categories === ProductCategories.MEDICINES && medicinesProducts ? (
+        <SortedProducts data={medicinesProducts} />
       ) : null}
     </div>
   );

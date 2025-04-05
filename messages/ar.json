@@ -108,7 +108,10 @@
             "ultrasonography": "التصوير بالموجات فوق الصوتية",
             "hemostaticInstruments": "أدوات وقف النزيف",
             "surgicalInstruments": "الأدوات الجراحية",
-            "pacemaker": "جهاز تنظيم ضربات القلب"
+            "pacemaker": "جهاز تنظيم ضربات القلب",
+            "medialEquipment": "المعدات الطبية",
+            "medicines": "الأدوية",
+            "cosmetics": "المستحضرات التجميلية"
         },
         "PriceRange": {
             "title": "صنف على حسب السعر",
