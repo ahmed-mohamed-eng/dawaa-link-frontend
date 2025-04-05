@@ -32,7 +32,7 @@ const Content = () => {
 
           <div className="flex flex-col items-start justify-start space-y-2 xl:space-y-5">
             <Link href="/support">{t("help&support.support")}</Link>
-            <Link href="/location">{t("help&support.location")}</Link>
+            <Link href="/contact-us">{t("help&support.location")}</Link>
             <Link href="/contact-us">{t("help&support.contact")}</Link>
             <Link href="/login">{t("help&support.login")}</Link>
             <Link href="/faq">{t("help&support.faq")}</Link>
@@ -44,11 +44,11 @@ const Content = () => {
           <p className="font-bold text-2xl">{t("Services&Cities.name")}</p>
 
           <div className="flex flex-col items-start justify-start space-y-2 xl:space-y-5">
-            <Link href="/location">{t("Services&Cities.locations.0")}</Link>
-            <Link href="/location">{t("Services&Cities.locations.1")}</Link>
-            <Link href="/location">{t("Services&Cities.locations.2")}</Link>
-            <Link href="/location">{t("Services&Cities.locations.3")}</Link>
-            <Link href="/location">{t("Services&Cities.locations.4")}</Link>
+            <Link href="/contact-us">{t("Services&Cities.locations.0")}</Link>
+            <Link href="/contact-us">{t("Services&Cities.locations.1")}</Link>
+            <Link href="/contact-us">{t("Services&Cities.locations.2")}</Link>
+            <Link href="/contact-us">{t("Services&Cities.locations.3")}</Link>
+            <Link href="/contact-us">{t("Services&Cities.locations.4")}</Link>
           </div>
         </div>
 

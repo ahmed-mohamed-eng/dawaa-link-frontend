@@ -13,7 +13,7 @@ const ContactInfo = () => {
   const router = useRouter();
 
   const onOpenLocationPage = () => {
-    router.push("/location");
+    router.push("/contact-us");
   };
 
   const onOpenPhoneNumber = () => {

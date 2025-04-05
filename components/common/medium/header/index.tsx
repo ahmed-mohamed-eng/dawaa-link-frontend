@@ -12,7 +12,7 @@ const Header = () => {
 
       <div className="flex items-center justify-start space-x-8">
         <Link
-          href="/stores-location"
+          href="/contact-us"
           className="flex items-center justify-start space-x-3"
         >
           <HiOutlineMapPin fontSize={20} />
