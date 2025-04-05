@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { v4 as uuid } from "uuid";
 
 import Image from "next/image";
-import { Link, usePathname } from "@/i18n/routing";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 
 import { useTranslations, useLocale } from "next-intl";
 
