@@ -9,7 +9,7 @@ import ShareOptions from "./ShareOptions";
 import ProductQuantity from "./ProductQuantity";
 import AddToWishListBtn from "./AddToWishListBtn";
 import ActionsPaymentInfo from "./ActionsPaymentInfo";
-import InformationComponent from "./InformationComponent";
+// import InformationComponent from "./InformationComponent";
 import ISingleProduct from "@/types/products/single-product.interface";
 
 export interface ProductContentDisplayProps {
@@ -19,6 +19,14 @@ export interface ProductContentDisplayProps {
 const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
   const [productQuantity, setProductQuantity] = useState(1);
 
+  const productImage = () => {
+    if (!product.photo) {
+      return "/placeholder-2.png";
+    }
+
+    return `https://${product.photo}`;
+  };
+
   return (
     <div className="w-full border-b border-black pb-10 xl:pb-20 flex flex-col items-start justify-start space-y-10 xl:space-y-20">
       {/* Display */}
@@ -27,7 +35,7 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
         <div className="xl:flex-[6] w-full flex flex-col xl:flex-row items-start justify-start space-y-6 xl:space-y-0 xl:space-x-5">
           {/* Main Image */}
           <div className="relative w-full xl:flex-[4] h-80 xl:h-[40rem]">
-            <Image alt="Main Image" src={"/placeholder-2.png"} fill />
+            <Image alt="Main Image" src={productImage()} fill />
           </div>
         </div>
 
@@ -113,7 +121,7 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
       </div>
 
       {/* Information */}
-      <InformationComponent />
+      {/* <InformationComponent descriptionEn={product.description} /> */}
     </div>
   );
 };
