@@ -103,6 +103,11 @@ const HeroContent = (props: HeroContentProps) => {
               />
 
               <input
+                onKeyDown={(e) => {
+                  if (e.code === "Enter") {
+                    onSearchProduct();
+                  }
+                }}
                 onChange={(e) => setSearchValue(e.target.value)}
                 type="text"
                 className="w-96 outline-none bg-inherit text-black"

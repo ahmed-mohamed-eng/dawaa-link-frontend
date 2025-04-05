@@ -26,6 +26,16 @@ const ProductsGroups = ({ data }: ProductsGroupsProps) => {
     };
   }, [data.length, setResultsCount]);
 
+  if (!data.length) {
+    return (
+      <div className="w-full">
+        <h1 className="w-full text-center text-3xl font-bold">
+          No Products Found
+        </h1>
+      </div>
+    );
+  }
+
   return <CategorizedProducts data={displayedProducts} />;
 };
 
