@@ -10,7 +10,13 @@ import SortByOption from "@/types/sortByOption.enum";
 import ProductsDisplayContext from "@/contexts/ProductsDisplayContext";
 import ProductsArrangementOptions from "@/types/productsArrangement.type";
 
-const ProductsDisplay = () => {
+import ISingleProduct from "@/types/products/single-product.interface";
+
+export interface ProductsDisplayProps {
+  products: ISingleProduct[];
+}
+
+const ProductsDisplay = ({ products }: ProductsDisplayProps) => {
   const [onSale, setOnSale] = useState(false);
   const [resultsCount, setResultsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,8 +41,8 @@ const ProductsDisplay = () => {
     >
       <div className="w-full h-full col-span-4 xl:col-span-3 flex flex-col items-center justify-start space-y-6 xl:space-y-12">
         <DisplayOptions />
-        <ProductsGroups />
-        <Pagination />
+        <ProductsGroups data={products} />
+        <Pagination data={products} />
       </div>
     </ProductsDisplayContext.Provider>
   );

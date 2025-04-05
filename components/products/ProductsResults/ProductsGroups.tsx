@@ -4,12 +4,14 @@ import React, { useContext, useEffect } from "react";
 
 import CategorizedProducts from "./CategorizedProducts";
 
-import useFetchProducts from "@/data-fetch-hooks/useFetchProducts";
 import ProductsDisplayContext from "@/contexts/ProductsDisplayContext";
+import ISingleProduct from "@/types/products/single-product.interface";
 
-const ProductsGroups = () => {
-  const { data } = useFetchProducts();
+export interface ProductsGroupsProps {
+  data: ISingleProduct[];
+}
 
+const ProductsGroups = ({ data }: ProductsGroupsProps) => {
   const { setResultsCount, currentPage } = useContext(ProductsDisplayContext);
 
   const displayedProducts = data.slice(currentPage - 1, currentPage + 8);

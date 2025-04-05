@@ -1,6 +1,9 @@
+"use client";
+import React, { useState } from "react";
+
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 import ISingleProduct from "@/types/products/single-product.interface";
@@ -11,6 +14,22 @@ export interface HeroContentProps {
 
 const HeroContent = (props: HeroContentProps) => {
   const t = useTranslations("HomePage");
+  const footerT = useTranslations("FooterComponent");
+
+  const [searchValue, setSearchValue] = useState("");
+  const [locationValue, setLocationValue] = useState("riyadh");
+
+  const router = useRouter();
+
+  const onSearchProduct = () => {
+    if (!searchValue) {
+      return;
+    }
+
+    const url = `/search?q=${searchValue}&location=${locationValue}`;
+
+    router.push(url);
+  };
 
   return (
     <div className="w-full flex flex-col relative">
@@ -84,6 +103,7 @@ const HeroContent = (props: HeroContentProps) => {
               />
 
               <input
+                onChange={(e) => setSearchValue(e.target.value)}
                 type="text"
                 className="w-96 outline-none bg-inherit text-black"
                 placeholder={t("AdvancedSearch.searchPlaceholder")}
@@ -99,17 +119,33 @@ const HeroContent = (props: HeroContentProps) => {
                 height={28}
               />
 
-              <select className="w-96 outline-none bg-inherit text-black">
-                <option value="new-york">New York</option>
-                <option value="los-angeles">Los Angeles</option>
-                <option value="chicago">Chicago</option>
-                <option value="houston">Houston</option>
-                <option value="washington">Washington</option>
+              <select
+                onChange={(e) => setLocationValue(e.target.value)}
+                className="w-96 outline-none bg-inherit text-black"
+              >
+                <option value="riyadh">
+                  {footerT("Services&Cities.locations.0")}
+                </option>
+                <option value="jeddah">
+                  {footerT("Services&Cities.locations.1")}
+                </option>
+                <option value="mecca">
+                  {footerT("Services&Cities.locations.2")}
+                </option>
+                <option value="medina">
+                  {footerT("Services&Cities.locations.3")}
+                </option>
+                <option value="dammam">
+                  {footerT("Services&Cities.locations.4")}
+                </option>
               </select>
             </div>
 
             {/* Search Button */}
-            <button className="bg-[#00A6FB] flex items-center justify-center px-8 py-4 rounded-lg font-bold text-white">
+            <button
+              onClick={onSearchProduct}
+              className="bg-[#00A6FB] flex items-center justify-center px-8 py-4 rounded-lg font-bold text-white"
+            >
               {t("AdvancedSearch.searchButton")}
             </button>
           </div>

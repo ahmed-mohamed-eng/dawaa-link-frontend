@@ -4,12 +4,14 @@ import { useContext } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 
-import useFetchProducts from "@/data-fetch-hooks/useFetchProducts";
 import ProductsDisplayContext from "@/contexts/ProductsDisplayContext";
+import ISingleProduct from "@/types/products/single-product.interface";
 
-const Pagination = () => {
-  const { data } = useFetchProducts();
+export interface PaginationProps {
+  data: ISingleProduct[];
+}
 
+const Pagination = ({ data }: PaginationProps) => {
   const { currentPage, setCurrentPage } = useContext(ProductsDisplayContext);
 
   const totalPages = Math.ceil(data?.length / 9) || 0;

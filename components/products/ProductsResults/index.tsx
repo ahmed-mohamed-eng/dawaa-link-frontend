@@ -12,7 +12,13 @@ import CategoryListCheck from "./CategoryListCheck";
 import FilterContext from "@/contexts/FilterContext";
 import ProductCategories from "@/types/categories.enum";
 
-const ProductsResults = () => {
+import ISingleProduct from "@/types/products/single-product.interface";
+
+export interface ProductsResultsProps {
+  products: ISingleProduct[];
+}
+
+const ProductsResults = ({ products }: ProductsResultsProps) => {
   const [categories, setCategories] = useState<ProductCategories>(
     ProductCategories.ALL
   );
@@ -29,7 +35,7 @@ const ProductsResults = () => {
           {/* <AdvertiseImage /> */}
         </div>
 
-        <ProductsDisplay />
+        <ProductsDisplay products={products} />
       </div>
     </FilterContext.Provider>
   );
