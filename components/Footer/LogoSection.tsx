@@ -7,9 +7,9 @@ const LogoSection = () => {
       <Link href="/">
         <Image
           alt="Company Logo"
-          src="/white-logo.svg"
-          width={285}
-          height={57}
+          src="/dawwa-logo.png"
+          width={220}
+          height={220}
         />
       </Link>
 

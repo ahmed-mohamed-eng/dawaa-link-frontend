@@ -59,17 +59,17 @@ const NavHeader = () => {
         <Image
           className="hidden xl:inline-block"
           alt="Welcome to DawaaLink"
-          src="/logo.svg"
-          width={213}
-          height={43}
+          src="/dawwa-logo-trans.png"
+          width={100}
+          height={30}
         />
 
         <Image
           className="inline-block xl:hidden"
           alt="Welcome to DawaaLink"
-          src="/logo.svg"
+          src="/dawwa-logo-trans.png"
           width={100}
-          height={30}
+          height={50}
         />
       </Link>
 
