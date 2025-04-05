@@ -2,7 +2,7 @@ const enum ProductCategories {
   ALL = "all",
   MEDICINES = "Medicines",
   COSMETICS = "Cosmetics",
-  MEDICAL_EQUIPMENT = "Medical Equipment",
+  MEDICAL_EQUIPMENT = "Medical equipment",
   // PEACEMAKER = "pacemaker",
   // BREAST_PUMP = "breast-pump",
   // HOSPITAL_BED = "hospital-bed",

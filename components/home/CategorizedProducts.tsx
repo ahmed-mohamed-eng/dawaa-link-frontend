@@ -3,11 +3,12 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import ISingleProduct from "@/types/products/single-product.interface";
 
+import ProductCategories from "@/types/categories.enum";
 import SingleProductDisplay from "../common/complex/single-product-display";
 export interface CategorizedProductsProps {
   categories: {
@@ -31,12 +32,27 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
 
   const [viewMore, setViewMore] = useState((props.products?.length || 0) > 6);
 
-  const [selectedCategory, setSelectedCategory] =
-    useState<string>("all-products");
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategories>(
+    ProductCategories.ALL
+  );
 
   const onSelectCategory = (item: string) => {
-    setSelectedCategory(item);
+    console.log({ item });
+
+    setSelectedCategory(item as ProductCategories);
   };
+
+  const categorizedProducts = useMemo(() => {
+    if (!props.products) {
+      return [];
+    }
+
+    if (selectedCategory === ProductCategories.ALL) {
+      return props.products;
+    }
+
+    return props.products.filter((v) => v.category?.name === selectedCategory);
+  }, [props.products, selectedCategory]);
 
   const isExpandableLength = (props.products?.length || 0) > 6;
 
@@ -49,8 +65,9 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
         {/* Select Actions */}
         <div className="w-full grid grid-cols-3 gap-x-4 gap-y-6 xl:flex xl:items-center xl:justify-center xl:space-x-8">
           <CategoryItem
+            value={ProductCategories.ALL}
             key={uuid()}
-            currentItemName={selectedCategory}
+            currentValue={selectedCategory}
             itemName={t("allProductsOption")}
             onSelect={onSelectCategory}
           />
@@ -59,8 +76,9 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
             return (
               <CategoryItem
                 key={uuid()}
-                currentItemName={selectedCategory}
+                currentValue={selectedCategory}
                 itemName={val.name}
+                value={val.name as ProductCategories}
                 onSelect={onSelectCategory}
               />
             );
@@ -72,20 +90,22 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
       <div className="w-full flex flex-col items-center justify-start space-y-12">
         {/* Products */}
         <div className="w-full grid grid-cols-1 xl:grid-cols-4 gap-x-4 gap-y-8">
-          {props.products?.slice(0, !viewMore ? 6 : undefined)?.map((val) => {
-            return (
-              <SingleProductDisplay
-                key={uuid()}
-                description={val.description}
-                final_price={val.final_price}
-                name={val.name}
-                price={val.price}
-                quantity={val.quantity}
-                id={val.id}
-                photo={val.photo}
-              />
-            );
-          })}
+          {categorizedProducts
+            ?.slice(0, !viewMore ? 6 : undefined)
+            ?.map((val) => {
+              return (
+                <SingleProductDisplay
+                  key={uuid()}
+                  description={val.description}
+                  final_price={val.final_price}
+                  name={val.name}
+                  price={val.price}
+                  quantity={val.quantity}
+                  id={val.id}
+                  photo={val.photo}
+                />
+              );
+            })}
         </div>
         {/* More Button */}
         {isExpandableLength ? (
@@ -105,18 +125,15 @@ const CategorizedProducts = (props: CategorizedProductsProps) => {
 export default CategorizedProducts;
 
 type CategoryItemProps = {
-  currentItemName: string;
   itemName: string;
+  value: ProductCategories;
+  currentValue: ProductCategories;
   onSelect: (item: string) => void;
 };
 
 function CategoryItem(props: CategoryItemProps) {
-  const itemValue = props.itemName
-    .split("")
-    .map((char) => char.charCodeAt(0))
-    .join("");
-
-  const isSelected = props.currentItemName === itemValue;
+  const itemValue = props.value;
+  const isSelected = props.currentValue === itemValue;
 
   return (
     <button
