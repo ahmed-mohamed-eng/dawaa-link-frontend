@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 import localFont from "next/font/local";
-import { Poppins } from "next/font/google";
+import { Poppins, Alexandria } from "next/font/google";
+import Script from "next/script";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -28,6 +29,40 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin", "latin-ext"],
 });
+
+const alexandria = Alexandria({
+  variable: "--font-alexandria",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  subsets: ["arabic", "latin"],
+});
+
+const handcrafts = localFont({
+  src: "./fonts/TheYearOfHandcrafts.otf",
+  variable: "--font-handcrafts",
+  display: "swap",
+});
+
+// const effraArabic = localFont({
+//   src: [
+//     {
+//       path: "./fonts/EffraArabic-Regular.woff2",
+//       weight: "400",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/EffraArabic-Medium.woff2",
+//       weight: "500",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/EffraArabic-Bold.woff2",
+//       weight: "700",
+//       style: "normal",
+//     },
+//   ],
+//   variable: "--font-effra-arabic",
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "Dawaa Link",
@@ -62,7 +97,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${alexandria.variable} ${handcrafts.variable} antialiased ${
+          locale === "ar" ? "font-alexandria" : "font-poppins"
+        }`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}

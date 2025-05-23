@@ -15,9 +15,24 @@ export default {
         primary: "#003F62",
         secondary: "#EDA415",
       },
-
-      fontFamily: { poppins: ["poppins", "mono" ,"ui-sans-serif"] },
+      fontFamily: { 
+        poppins: ["poppins", "mono", "ui-sans-serif"],
+        alexandria: ["alexandria", "sans-serif"],
+        handcrafts: ["var(--font-handcrafts)", "cursive"],
+        // effraArabic: ["var(--font-effra-arabic)", "alexandria", "sans-serif"]
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addComponents, theme }: { addComponents: Function; theme: Function }) {
+      addComponents({
+        '[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6': {
+          fontFamily: theme('fontFamily.handcrafts')
+        },
+        // '[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] div': {
+        //   fontFamily: theme('fontFamily.effraArabic')
+        // },
+      });
+    },
+  ],
 } satisfies Config;
