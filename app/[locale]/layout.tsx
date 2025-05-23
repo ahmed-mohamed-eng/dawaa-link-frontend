@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
 import localFont from "next/font/local";
-import { Poppins, Alexandria } from "next/font/google";
-import Script from "next/script";
+import { Poppins, Cairo } from "next/font/google";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -30,9 +29,15 @@ const poppins = Poppins({
   subsets: ["latin", "latin-ext"],
 });
 
-const alexandria = Alexandria({
-  variable: "--font-alexandria",
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+// const alexandria = Alexandria({
+//   variable: "--font-alexandria",
+//   weight: ["100", "200", "300", "400", "500", "600", "700"],
+//   subsets: ["arabic", "latin"],
+// });
+
+const cairo = Cairo({
+  variable: "--font-cairo",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["arabic", "latin"],
 });
 
@@ -97,8 +102,8 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${alexandria.variable} ${handcrafts.variable} antialiased ${
-          locale === "ar" ? "font-alexandria" : "font-poppins"
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${cairo.variable} ${handcrafts.variable} antialiased ${
+          locale === "ar" ? "font-cairo" : "font-poppins"
         }`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>

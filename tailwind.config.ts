@@ -17,7 +17,8 @@ export default {
       },
       fontFamily: { 
         poppins: ["poppins", "mono", "ui-sans-serif"],
-        alexandria: ["alexandria", "sans-serif"],
+        // alexandria: ["alexandria", "sans-serif"],
+        cairo: ["cairo", "sans-serif"],
         handcrafts: ["var(--font-handcrafts)", "cursive"],
         // effraArabic: ["var(--font-effra-arabic)", "alexandria", "sans-serif"]
       },
