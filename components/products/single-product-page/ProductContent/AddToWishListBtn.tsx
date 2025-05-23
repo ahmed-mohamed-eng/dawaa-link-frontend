@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import BASE_URL from "@/constants/BaseURL";
 import getCookie from "@/utils/auth/getCookie";
 import TokenName from "@/constants/TokenName";
+import { useTranslations } from "next-intl";
 
 type WishSuccessResponse = {
   data: {
@@ -56,6 +57,8 @@ export interface AddToWishListBtnProps {
 const AddToWishListBtn = (props: AddToWishListBtnProps) => {
   const [wished, setWished] = useState(false);
 
+  const t = useTranslations("ProductContent");
+
   const onAddToWishList = async () => {
     if (!props.productId) {
       toast.error(
@@ -79,7 +82,7 @@ const AddToWishListBtn = (props: AddToWishListBtnProps) => {
       return;
     }
 
-    toast.success(`Product added to your cart.`);
+    toast.success(t("addToWishListSuccess"));
 
     setWished(!wished);
   };
@@ -87,7 +90,7 @@ const AddToWishListBtn = (props: AddToWishListBtnProps) => {
   return (
     <button
       data-product-id={props.productId}
-      className="flex items-center justify-start space-x-4 font-bold text-black capitalize"
+      className="flex items-center justify-start gap-3 font-bold text-black capitalize"
       onClick={() => onAddToWishList}
     >
       {wished ? (
@@ -107,9 +110,9 @@ const AddToWishListBtn = (props: AddToWishListBtnProps) => {
       )}
 
       {wished ? (
-        <span>Item in the wish list</span>
+        <span>{t("itemInWishList")}</span>
       ) : (
-        <span>Add To Wishlist</span>
+        <span>{t("addToWishList")}</span>
       )}
     </button>
   );

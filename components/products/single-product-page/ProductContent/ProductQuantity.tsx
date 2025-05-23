@@ -33,7 +33,7 @@ const ProductQuantity = (props: ProductQuantityProps) => {
   };
 
   return (
-    <div className="col-span-2 xl:col-span-1 flex items-center justify-center space-x-6 border border-black py-2 px-2 text-black text-sm xl:text-lg font-bold">
+    <div className="col-span-2 xl:col-span-1 flex items-center justify-center gap-6 border border-black py-2 px-2 text-black text-sm xl:text-lg font-bold">
       <button onClick={onDecreaseValue}>-</button>
       <span>{quantity.toLocaleString()}</span>
       <button onClick={onIncreaseValue}>+</button>

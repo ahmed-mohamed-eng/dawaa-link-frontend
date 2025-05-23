@@ -136,6 +136,19 @@
             "resultCounts": "Show Result"
         }
     },
+    "ProductContent": {
+        "buyButton": "Buy Now",
+        "addToCartButton": "Add To Cart",
+        "addingToCart": "Adding To Cart...",
+        "addToWishList": "Add To Wishlist",
+        "addToWishListSuccess": "Product added to your wishlist.",
+        "itemInWishList": "Item in the wish list",
+        "share": "Share",
+        "guaranteed_safe_checkout": "Guaranteed Safe Checkout",
+        "orders_ship_time": "Orders ship within 5 to 10 Business Days",
+        "orders_ship_free": "Hoorey! This item ships free to the US",
+        "inStock": "In Stock"
+    },
     "FooterComponent": {
         "company": {
             "name": "Company",

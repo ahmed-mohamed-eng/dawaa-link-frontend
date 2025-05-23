@@ -9,6 +9,7 @@ import getCookie from "@/utils/auth/getCookie";
 import TokenName from "@/constants/TokenName";
 import CartItem from "@/types/products/CartItem.interface";
 import ISingleProduct from "@/types/products/single-product.interface";
+import { useTranslations } from "next-intl";
 
 type SuccessResponse = {
   data: {
@@ -59,6 +60,7 @@ export interface AddToCartBtnProps {
 
 const AddToCartBtn = (props: AddToCartBtnProps) => {
   const [loading, setLoading] = useState(false);
+  const t = useTranslations("ProductContent");
 
   const onAddToCart = async () => {
     setLoading(true);
@@ -123,7 +125,7 @@ const AddToCartBtn = (props: AddToCartBtnProps) => {
       className="border border-black py-4 px-2 text-black text-sm xl:text-xl font-bold col-span-2 xl:col-span-3 text-center"
       disabled={loading || undefined}
     >
-      {loading ? "Adding to Cart..." : "Add To Cart"}
+      {loading ? t("addingToCart") : t("addToCartButton")}
     </button>
   );
 };

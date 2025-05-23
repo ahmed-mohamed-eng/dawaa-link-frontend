@@ -136,6 +136,19 @@
             "resultCounts": "اعرض النتائج"
         }
     },
+    "ProductContent": {
+        "buyButton": "اشتري الآن",
+        "addToCartButton": "أضف للسلة",
+        "addingToCart": "يُضاف إلى السلة...",
+        "addToWishList": "أضف إلى المفضلة",
+        "addToWishListSuccess": "تمت إضافة المنتج إلى المفضلة.",
+        "itemInWishList": "المنتج موجود في المفضلة",
+        "share": "شارك",
+        "guaranteed_safe_checkout": "ضمان الدفع الآمن",
+        "orders_ship_time": "يتم شحن الطلبات خلال 5 إلى 10 أيام عمل",
+        "orders_ship_free": "رائع! هذا المنتج يشحن مجاناً إلى الولايات المتحدة",
+        "inStock": "في المخزون"
+    },
     "FooterComponent": {
         "company": {
             "name": "الشركة",

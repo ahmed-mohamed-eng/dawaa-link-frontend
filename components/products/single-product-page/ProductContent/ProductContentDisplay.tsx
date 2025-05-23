@@ -11,6 +11,7 @@ import AddToWishListBtn from "./AddToWishListBtn";
 import ActionsPaymentInfo from "./ActionsPaymentInfo";
 // import InformationComponent from "./InformationComponent";
 import ISingleProduct from "@/types/products/single-product.interface";
+import { useTranslations } from "next-intl";
 
 export interface ProductContentDisplayProps {
   product: ISingleProduct;
@@ -18,6 +19,8 @@ export interface ProductContentDisplayProps {
 
 const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
   const [productQuantity, setProductQuantity] = useState(1);
+
+  const t = useTranslations("ProductContent");
 
   const productImage = () => {
     if (!product.photo) {
@@ -30,7 +33,7 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
   return (
     <div className="w-full border-b border-black pb-10 xl:pb-20 flex flex-col items-start justify-start space-y-10 xl:space-y-20">
       {/* Display */}
-      <div className="w-full flex flex-col xl:flex-row items-start justify-start space-y-10 xl:space-y-0 xl:space-x-20">
+      <div className="w-full flex flex-col xl:flex-row items-start justify-start space-y-10 xl:space-y-0 xl:gap-20">
         {/* Display Grid */}
         <div className="xl:flex-[6] w-full flex flex-col xl:flex-row items-start justify-start space-y-6 xl:space-y-0 xl:space-x-5">
           {/* Main Image */}
@@ -47,7 +50,7 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
             <div className="w-full flex flex-col items-start justify-start space-y-1.5">
               {product.quantity && (
                 <span className="text-[#00A6FB] font-bold">
-                  {product.quantity} In Stock
+                  {product.quantity} {t("inStock")}
                 </span>
               )}
               <h1 className="capitalize text-black font-bold text-4xl">
