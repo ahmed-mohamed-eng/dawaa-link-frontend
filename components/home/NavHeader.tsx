@@ -54,7 +54,7 @@ const NavHeader = () => {
   };
 
   return (
-    <nav className="w-full flex items-center justify-between py-4 xl:px-20 xl:py-8 space-x-2 xl:space-x-0">
+    <nav className="w-full flex items-center justify-between py-4 xl:px-20 xl:py-8 gap-2 xl:gap-0">
       <Link href="/">
         <Image
           className="hidden xl:inline-block"
@@ -120,11 +120,11 @@ const NavHeader = () => {
       </div>
 
       {/* nav list */}
-      <div className="hidden xl:flex rtl:flex-row-reverse items-center space-x-12 font-bold text-[#023E8A]">
+      <div className="hidden xl:flex items-center gap-12 font-bold text-[#023E8A]">
         <Link
           href="/"
           data-selected={true}
-          className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
+          className="data-selected:text-[#FF922E] flex items-center justify-start gap-2"
         >
           {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
           <span>{t("home")}</span>
@@ -132,7 +132,7 @@ const NavHeader = () => {
         <Link
           href="/about-us"
           data-selected={true}
-          className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
+          className="data-selected:text-[#FF922E] flex items-center justify-start gap-2"
         >
           {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
           <span>{t("aboutUs")}</span>
@@ -140,7 +140,7 @@ const NavHeader = () => {
         <Link
           href="/products"
           data-selected={true}
-          className="data-selected:text-[#FF922E] flex items-center justify-start space-x-2"
+          className="data-selected:text-[#FF922E] flex items-center justify-start gap-2"
         >
           {/* <span className="w-2 h-2 bg-[#FF922E] rounded-full" /> */}
           <span>{t("products")}</span>
@@ -148,7 +148,7 @@ const NavHeader = () => {
       </div>
 
       {/* User Info */}
-      <div className="hidden xl:flex rtl:flex-row-reverse items-center justify-start space-x-4">
+      <div className="hidden xl:flex rtl:flex-row-reverse items-center justify-start gap-4">
         <CartIcon />
 
         {/* User */}
@@ -176,11 +176,11 @@ const NavHeader = () => {
       </div>
 
       {/* Language */}
-      <div className="flex items-center justify-center space-x-4">
+      <div className="flex items-center justify-center gap-4">
         <Link
           href={pathname}
           locale={locale === "ar" ? "en" : "ar"}
-          className="flex rtl:flex-row-reverse items-center justify-center space-x-3"
+          className="flex rtl:flex-row-reverse items-center justify-center gap-3"
           title="Change Language"
         >
           {locale === "ar" ? (
