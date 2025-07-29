@@ -1,25 +1,21 @@
 import React from "react";
 import { Link, redirect } from "@/i18n/routing";
-import { cookies, headers } from "next/headers";
+import { headers } from "next/headers";
 
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
 import LoginForm from "@/components/login/LoginForm";
 
-import TokenName from "@/constants/TokenName";
+import LOGIN_URL from "@/constants/LoginUrl";
 
 const checkAuthOrRedirect = async () => {
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get(TokenName);
   const headerData = await headers();
   const lang = headerData.get("Accept-Language") || "";
 
-  if (authToken) {
-    redirect({
-      href: "/account",
-      locale: lang.includes("en") ? "en" : "ar",
-    });
-  }
+  redirect({
+    href: LOGIN_URL,
+    locale: lang.includes("en") ? "en" : "ar",
+  });
 
   return;
 };

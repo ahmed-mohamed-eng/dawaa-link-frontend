@@ -1,26 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import { Link, redirect } from "@/i18n/routing";
-import { cookies, headers } from "next/headers";
+import { headers } from "next/headers";
 
 import Footer from "@/components/Footer";
-import TokenName from "@/constants/TokenName";
 import NavHeader from "@/components/home/NavHeader";
 import RegisterForm from "@/components/register/RegisterForm";
 
-const checkAuthOrRedirect = async () => {
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get(TokenName);
+import SIGNUP_URL from "@/constants/SignUpUrl";
 
+const checkAuthOrRedirect = async () => {
   const headerData = await headers();
   const lang = headerData.get("Accept-Language") || "";
 
-  if (authToken) {
-    redirect({
-      href: "/account",
-      locale: lang.includes("en") ? "en" : "ar",
-    });
-  }
+  redirect({
+    href: SIGNUP_URL,
+    locale: lang.includes("en") ? "en" : "ar",
+  });
 
   return;
 };

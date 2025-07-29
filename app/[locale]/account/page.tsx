@@ -4,6 +4,7 @@ import { redirect } from "@/i18n/routing";
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/home/NavHeader";
 
+import LOGIN_URL from "@/constants/LoginUrl";
 import TokenName from "@/constants/TokenName";
 
 const getAuthOrRedirect = async () => {
@@ -12,8 +13,8 @@ const getAuthOrRedirect = async () => {
 
   if (!authToken) {
     redirect({
-      href: "/login",
-      locale: "en",
+      href: LOGIN_URL,
+      locale: "ar",
     });
   }
 
