@@ -25,8 +25,7 @@ const getHomePageData = async () => {
   try {
     const res = await axios.get<HomeDataResponse>(url);
     return res.data?.data;
-  } catch (error) {
-    console.error(error);
+  } catch {
     return;
   }
 };
