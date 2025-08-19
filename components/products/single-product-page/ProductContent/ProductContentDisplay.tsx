@@ -61,7 +61,8 @@ const ProductContentDisplay = ({ product }: ProductContentDisplayProps) => {
             {/* Prices Info */}
             <div className="w-full flex flex-col items-start justify-start space-y-1.5">
               <p className="text-black font-bold text-lg">
-                <span>${product.price}</span>
+                <span>{product.price}</span>
+                <span className="symbol">&#xea;</span>
                 {product.discount && (
                   <span className="text-white font-normal text-sm px-3 py-1 rounded-full bg-[#D70007] ms-4">
                     {product.discount}
