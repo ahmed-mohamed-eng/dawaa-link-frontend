@@ -22,7 +22,7 @@ export default function LoginInPage() {
             <p>
               <span>{t("title")}</span>
               <Link
-                href="https://dawaa-link-dashboard.vercel.app/dawwaLink_dashboard/auth/register/company"
+                href="https://dawaa-link-dashboard.vercel.app/dashboard/auth/register/company"
                 className="text-[#00A6FB] mx-1"
               >
                 {t("linkName")}
