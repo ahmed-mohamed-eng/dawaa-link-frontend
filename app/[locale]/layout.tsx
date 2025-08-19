@@ -17,6 +17,12 @@ const geistSans = localFont({
   weight: "100 900",
 });
 
+const saudiRiyalSymbol = localFont({
+  src: "./fonts/saudiriyalsymbol.woff",
+  variable: "--font-saudi-riyal",
+  weight: "100 900",
+});
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -102,7 +108,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${cairo.variable} ${handcrafts.variable} antialiased ${
+        className={`${geistSans.variable} ${geistMono.variable} ${
+          poppins.variable
+        } ${cairo.variable} ${handcrafts.variable} ${saudiRiyalSymbol.variable} antialiased ${
           locale === "ar" ? "font-cairo" : "font-poppins"
         }`}
       >

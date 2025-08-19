@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { isURL } from "validator";
 import toast from "react-hot-toast";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 import { Link, useRouter } from "@/i18n/routing";
 
@@ -103,13 +103,9 @@ export interface SingleProductDisplayProps extends ISingleProduct {
 }
 
 const SingleProductDisplay = (props: SingleProductDisplayProps) => {
-  const t = useTranslations();
-
   const locale = useLocale();
 
   const isArabic = locale === "ar";
-
-  console.log({ props, isArabic });
 
   const imgSrc = useMemo(() => {
     const imgFullUrl = `https://${props.photo}`;
@@ -424,12 +420,12 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
         <div className="mt-4 w-full flex flex-col items-start justify-start font-bold">
           {/* New Price */}
           <span className="text-xl">
-            {props.final_price} {t("Currency")}
+            {props.final_price} <span className="symbol">&#xea;</span>
           </span>
 
           {/* Previous Price */}
           <span className="text-[#8F8F8F] line-through">
-            {props.price} {t("Currency")}
+            {props.price} <span className="symbol">&#xea;</span>
           </span>
         </div>
       </div>
