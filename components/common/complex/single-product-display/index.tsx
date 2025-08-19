@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { isURL } from "validator";
 import toast from "react-hot-toast";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Link, useRouter } from "@/i18n/routing";
 
@@ -102,6 +103,14 @@ export interface SingleProductDisplayProps extends ISingleProduct {
 }
 
 const SingleProductDisplay = (props: SingleProductDisplayProps) => {
+  const t = useTranslations();
+
+  const locale = useLocale();
+
+  const isArabic = locale === "ar";
+
+  console.log({ props, isArabic });
+
   const imgSrc = useMemo(() => {
     const imgFullUrl = `https://${props.photo}`;
     if (!props.photo) {
@@ -406,17 +415,22 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
             href={`/products/${props.id}`}
             className="mt-4 font-bold text-lg"
           >
-            {props.name}
+            {isArabic && props?.slug ? props.slug : props.name}
           </Link>
         ) : (
           <p className="mt-4 font-bold text-lg">{props.name}</p>
         )}
         {/* Price */}
-        <div className="mt-4 w-full flex items-center justify-start space-x-2 font-bold">
-          {/* Previous Price */}
-          <span className="text-[#8F8F8F]">{props.price}</span>
+        <div className="mt-4 w-full flex flex-col items-start justify-start font-bold">
           {/* New Price */}
-          <span>{props.final_price}</span>
+          <span className="text-xl">
+            {props.final_price} {t("Currency")}
+          </span>
+
+          {/* Previous Price */}
+          <span className="text-[#8F8F8F] line-through">
+            {props.price} {t("Currency")}
+          </span>
         </div>
       </div>
     </div>

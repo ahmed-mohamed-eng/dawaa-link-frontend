@@ -185,5 +185,6 @@
             "createAccountName": "Do you have an account ?",
             "login": "Login"
         }
-    }
+    },
+    "Currency": "SAR"
 }
