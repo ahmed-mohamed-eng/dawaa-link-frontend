@@ -185,5 +185,17 @@
             "createAccountName": "Do you have an account ?",
             "login": "Login"
         }
+    },
+    "LoginPage": {
+        "email": "Email",
+        "emailPlaceholder": "Please Enter Your Email",
+        "password": "Password",
+        "passwordPlaceholder": "Please Enter Password",
+        "rememberMe": "Remember Me",
+        "login": "Login",
+        "createAccount": {
+            "title": "If you don't have an account",
+            "linkName": "Create Account"
+        }
     }
 }

@@ -1,4 +1,3 @@
-const LOGIN_URL =
-  "https://dawaa-link-dashboard.vercel.app/dashboard/auth/login";
+const LOGIN_URL = "/login";
 
 export default LOGIN_URL;

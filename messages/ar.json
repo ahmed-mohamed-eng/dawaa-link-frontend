@@ -185,5 +185,17 @@
             "createAccountName": "هل لديك الحساب بالفعل ؟",
             "login": "انضم إلينا"
         }
+    },
+    "LoginPage": {
+        "email": "الإميل",
+        "emailPlaceholder": "من فضلك ادخل إميلك",
+        "password": "الباسبورد",
+        "passwordPlaceholder": "من فضلك ادخل الباسبورد الخاص بك",
+        "rememberMe": "تذكرني",
+        "login": "سجل الدخول",
+        "createAccount": {
+            "title": "إذا لم يكن لديك اكونت",
+            "linkName": "اصعنع واحد جديد"
+        }
     }
 }
