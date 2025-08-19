@@ -5,6 +5,9 @@ import { useTranslations } from "next-intl";
 
 import ISingleProduct from "@/types/products/single-product.interface";
 import SingleProductDisplay from "@/components/common/complex/single-product-display";
+import { useMemo } from "react";
+import imgPlaceholderURL from "@/constants/imgPlaceholderURL";
+import { isURL } from "validator";
 
 export interface Top10SellersProps {
   products: ISingleProduct[];
@@ -12,6 +15,26 @@ export interface Top10SellersProps {
 
 const Top10Sellers = (props: Top10SellersProps) => {
   const t = useTranslations("HomePage.Top10Sellers");
+
+  const firstProduct = props.products?.[0];
+
+  const firstImage = useMemo(() => {
+    const imgFullUrl = `https://${firstProduct.photo}`;
+    if (!firstProduct.photo) {
+      return imgPlaceholderURL({ text: "D" });
+    }
+
+    const isValidImg = isURL(imgFullUrl, {
+      require_host: true,
+      require_protocol: true,
+    });
+
+    if (!isValidImg) {
+      return imgPlaceholderURL({ text: "D" });
+    }
+
+    return imgFullUrl;
+  }, [firstProduct?.photo]);
 
   return (
     <div className="pb-10 xl:pb-40 w-full">
@@ -32,19 +55,23 @@ const Top10Sellers = (props: Top10SellersProps) => {
         {/* Products Container */}
         <div className="w-full flex rtl:flex-row-reverse items-start justify-start xl:space-x-8">
           {/* Main Image */}
-          <div className="hidden xl:block relative h-[50rem] flex-[2]">
-            <Image
-              className="w-full h-full rounded-xl"
-              alt="Main Product"
-              src="/placeholder.png"
-              fill
-              style={{ objectFit: "cover" }}
-            />
+          <div className="hidden xl:block h-[50rem] flex-[2] border-2 border-gray-900 rounded-lg py-4 px-8">
+            <div className="w-full h-full relative">
+              <Link href={`/products/${firstProduct.id}`}>
+                <Image
+                  className="w-full h-full rounded-xl"
+                  alt="Main Product"
+                  src={firstImage || "/placeholder.png"}
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </Link>
+            </div>
           </div>
 
           {/* Components */}
           <div className="flex-[3] grid grid-cols-1 xl:grid-cols-3 gap-x-4 gap-y-16">
-            {props.products?.slice(0, 5)?.map((prod) => {
+            {props.products?.slice(1, 6)?.map((prod) => {
               return <SingleProductDisplay smallImage key={uuid()} {...prod} />;
             })}
           </div>

@@ -100,6 +100,7 @@ const addItemToWishList = async (cartItem: { product_id: number }) => {
 
 export interface SingleProductDisplayProps extends ISingleProduct {
   smallImage?: boolean;
+  notShowPrices?: boolean;
 }
 
 const SingleProductDisplay = (props: SingleProductDisplayProps) => {
@@ -417,17 +418,19 @@ const SingleProductDisplay = (props: SingleProductDisplayProps) => {
           <p className="mt-4 font-bold text-lg">{props.name}</p>
         )}
         {/* Price */}
-        <div className="mt-4 w-full flex flex-col items-start justify-start font-bold">
-          {/* New Price */}
-          <span className="text-xl">
-            {props.final_price} <span className="symbol">&#xea;</span>
-          </span>
+        {!props.notShowPrices ? (
+          <div className="mt-4 w-full flex flex-col items-start justify-start font-bold">
+            {/* New Price */}
+            <span className="text-xl">
+              {props.final_price} <span className="symbol">&#xea;</span>
+            </span>
 
-          {/* Previous Price */}
-          <span className="text-[#8F8F8F] line-through">
-            {props.price} <span className="symbol">&#xea;</span>
-          </span>
-        </div>
+            {/* Previous Price */}
+            <span className="text-[#8F8F8F] line-through">
+              {props.price} <span className="symbol">&#xea;</span>
+            </span>
+          </div>
+        ) : null}
       </div>
     </div>
   );
