@@ -197,5 +197,13 @@
             "title": "If you don't have an account",
             "linkName": "Create Account"
         }
+    },
+    "CartPage": {
+        "priceSummary": "Price Summary",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "total": "Total",
+        "checkout": "Checkout",
+        "items": "Items"
     }
 }

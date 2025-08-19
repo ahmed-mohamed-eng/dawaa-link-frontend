@@ -1,11 +1,14 @@
 import React from "react";
 import CartProductData from "@/types/cart/CartProductData.type";
+import { useTranslations } from "next-intl";
 
 export interface DisplayPricesSummaryProps {
   productList?: CartProductData[];
 }
 
 const DisplayPricesSummary = (props: DisplayPricesSummaryProps) => {
+  const t = useTranslations("CartPage");
+
   const subTotalPrice = props.productList?.reduce((acc, product) => {
     return acc + parseInt(product.total_price_cart);
   }, 0);
@@ -14,30 +17,39 @@ const DisplayPricesSummary = (props: DisplayPricesSummaryProps) => {
     <div className="w-full col-span-2 flex flex-col items-start justify-start space-y-4">
       {/* Price Summary */}
       <div className="flex flex-col items-start justify-start space-y-4">
-        <h1 className="text-2xl font-semibold">Price Summary</h1>
+        <h1 className="text-2xl font-semibold">{t("priceSummary")}</h1>
 
         {/* Subtotal */}
         <div className="flex items-center justify-between w-full">
-          <p>Subtotal</p>
-          <p>SAR{subTotalPrice || 0}</p>
+          <p>{t("subtotal")}</p>
+          <p>
+            <span>{subTotalPrice || 0}</span>
+            <span className="symbol">&#xea;</span>
+          </p>
         </div>
 
         {/* Shipping */}
         <div className="flex items-center justify-between w-full">
-          <p>Shipping</p>
-          <p>EGP10</p>
+          <p>{t("shipping")}</p>
+          <p>
+            <span>10</span>
+            <span className="symbol">&#xea;</span>
+          </p>
         </div>
 
         {/* Total */}
         <div className="flex items-center justify-between w-full">
-          <p>Total</p>
-          <p>SAR{subTotalPrice ? subTotalPrice + 10 : 0}</p>
+          <p>{t("total")}</p>
+          <p>
+            <span>{subTotalPrice ? subTotalPrice + 10 : 0}</span>
+            <span className="symbol">&#xea;</span>
+          </p>
         </div>
       </div>
 
       {/* Checkout Button */}
       <button className="w-full bg-primary text-white rounded-lg py-2">
-        Checkout
+        {t("checkout")}
       </button>
     </div>
   );
